@@ -1,0 +1,28 @@
+{
+  "name": "harvest-website",
+  "version": "1.0.0",
+  "description": "Website for harvest-python",
+  "main": "index.html",
+  "scripts": {
+    "build": "npx @11ty/eleventy",
+    "watch:11ty": "npx @11ty/eleventy --serve",
+    "watch:sass": "sass --watch sass:_site/css",
+    "start": "npm-run-all --parallel watch:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tfukaza/harvest-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tfukaza/harvest-website/issues"
+  },
+  "homepage": "https://github.com/tfukaza/harvest-website#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^0.12.1",
+    "markdown-it": "^10.0.0",
+    "npm-run-all": "^4.1.5",
+    "sass": "^1.42.1"
+  }
+}

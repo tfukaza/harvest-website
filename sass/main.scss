@@ -1,0 +1,246 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@font-face {
+    font-family: 'Manrope';
+    src: url('asset/Manrope-Medium.woff2') format('woff2');
+}
+
+@mixin shadow($float: 0.5) {
+    $shadow-outline-y: $float * 5px;
+    $shadow-outline-alpha: $float * 0.15;
+
+
+    $shadow-main-y: $float * 50px;
+    $shadow-main-blur: 30px + $float * 20px;
+    $shadow-main-spread: $float * -20px;
+    $shadow-main-alpha: 0.05 + $float * 0.10;
+
+    box-shadow: 
+        0px $shadow-outline-y 30px rgba(67, 70, 75, $shadow-outline-alpha), 
+        0px $shadow-main-y $shadow-main-blur $shadow-main-spread rgba(32, 34, 46, $shadow-main-alpha);
+}
+
+@mixin grid(){
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 30px;
+}
+
+// Layout
+
+html{
+    font-size:16px;
+}
+
+body {
+    margin:0;
+}
+
+main{
+    position: relative;
+}
+
+section{
+    @include grid();
+    margin: 30px auto;
+    width: 1000px;
+
+    > *{
+        grid-column: 1 / -1;
+    }
+}
+
+@media screen and (max-width: 768px){
+    section{
+        width: 90%;
+        margin: 0px auto;
+    }
+}
+
+// Classless
+
+nav{
+    @include shadow(0.1);
+    width:100%;
+    position: fixed;
+    top: 0;
+    padding: 15px 0px;
+    z-index: 1;
+
+    display: flex;
+
+    //border-bottom: 1px solid #e6e6e6;
+
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.877);
+
+    ul{
+        margin:0 auto;
+        padding: 0;
+        display: flex;
+        align-items: center;
+
+        li{
+            margin:0 20px;
+            display: inline-block;
+
+            a{
+                text-decoration: none;
+                font-family: 'Inter';
+                color:rgb(37, 37, 37);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px){
+    nav{
+        width:100%;
+        ul{
+            margin:0 auto;
+            padding: 0;
+            display: flex;
+            align-items: center;
+    
+            li{
+                margin:0 20px;
+                display: inline-block;
+    
+                a{
+                    text-decoration: none;
+                    font-family: 'Inter';
+                    color:rgb(37, 37, 37);
+                }
+            }
+        }
+    }
+}
+
+button{
+    @include shadow(0.2);
+    padding: 10px 20px;
+    font-family: "Inter";
+    color:white;
+    background-color: rgb(19, 19, 19);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#logo{
+    height:30px;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Manrope', sans-serif;
+    color: #202325;
+}
+
+p, ul, li, a{
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    line-height: 150%;
+    color: #757575;
+}
+
+h1{
+    font-size: 3rem;
+    letter-spacing: -0.05em;
+}
+
+a{
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    color:inherit;
+}
+
+footer{
+    position: relative;
+    display: flex;
+    background-color: rgb(236, 236, 236);
+    width:100%;
+    height:300px;
+
+    > div{
+        
+        @include grid();
+        width:1000px; 
+        margin:50px auto;
+
+        > div{
+            grid-column: span 4;
+
+            > *{
+                display: block;
+            }
+        }
+    }
+}
+
+// Elements
+
+nav{
+    #logo{
+        position: absolute;
+        left: Calc(50% - 500px);
+        width:100px;
+        background-image: url('/asset/wordmark.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
+
+    }
+    @media screen and (max-width: 768px){
+        #logo{
+            left: 10px;
+            width:50px;
+            background-image: url('/asset/wordmark-mobile.svg');
+        }
+    }
+    #github{
+        position: absolute;
+        right: Calc(50% - 500px);
+    }
+    img{
+        height:25px;
+    }
+}
+
+
+
+.card{
+    border-radius: 8px;
+    padding: 25px;
+
+    grid-column: span 4;
+    &.col-2{ grid-column: span 6;}
+    &.col-3{ grid-column: span 4;}
+    &.col-4{ grid-column: span 3;}
+
+    @media screen and (max-width: 768px){
+        margin: 10px 0px;
+
+        grid-column: span 12;
+        &.col-2{ grid-column: span 12;}
+        &.col-3{ grid-column: span 12;}
+        &.col-4{ grid-column: span 12;}
+    }
+
+    &.clickable{cursor: pointer;}
+    &.nonclickable{cursor: not-allowed;}
+
+    h2{
+        font-size: 35px;
+        width:90%;
+        line-height: 100%;
+    }
+}
+
+.shadow{
+    @include shadow(0.2);
+}
+
+button{
+    font-size: 1rem;
+    background: rgb(8,199,70);
+    background: linear-gradient(144deg, rgba(8,199,70,1) 0%, rgba(171,219,12,1) 100%);
+}
