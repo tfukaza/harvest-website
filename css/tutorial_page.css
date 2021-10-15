@@ -1,0 +1,257 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
+@font-face {
+  font-family: "Manrope";
+  src: url("asset/Manrope-Medium.woff2") format("woff2");
+}
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  position: relative;
+}
+
+section {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 30px;
+  margin: 30px auto;
+  width: 1000px;
+}
+section > * {
+  grid-column: 1/-1;
+}
+
+@media screen and (max-width: 768px) {
+  section {
+    width: 90%;
+    margin: 0px auto;
+  }
+}
+nav {
+  box-shadow: 0px 0.5px 30px rgba(67, 70, 75, 0.015), 0px 5px 32px -2px rgba(32, 34, 46, 0.06);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  padding: 15px 0px;
+  z-index: 1;
+  display: flex;
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.877);
+}
+nav ul {
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+nav ul li {
+  margin: 0 20px;
+  display: inline-block;
+}
+nav ul li a {
+  text-decoration: none;
+  font-family: "Inter";
+  color: #252525;
+}
+
+@media screen and (max-width: 768px) {
+  nav {
+    width: 100%;
+  }
+  nav ul {
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  nav ul li {
+    margin: 0 20px;
+    display: inline-block;
+  }
+  nav ul li a {
+    text-decoration: none;
+    font-family: "Inter";
+    color: #252525;
+  }
+}
+button {
+  box-shadow: 0px 1px 30px rgba(67, 70, 75, 0.03), 0px 10px 34px -4px rgba(32, 34, 46, 0.07);
+  padding: 10px 20px;
+  font-family: "Inter";
+  color: white;
+  background-color: #131313;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#logo {
+  height: 30px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Manrope", sans-serif;
+  color: #202325;
+}
+
+p, ul, li, a {
+  font-family: "Inter", sans-serif;
+  font-size: 1rem;
+  line-height: 150%;
+  color: #757575;
+}
+
+h1 {
+  font-size: 3rem;
+  letter-spacing: -0.05em;
+}
+
+a {
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  color: inherit;
+}
+
+footer {
+  position: relative;
+  display: flex;
+  background-color: #ececec;
+  width: 100%;
+  height: 300px;
+}
+footer > div {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 30px;
+  width: 1000px;
+  margin: 50px auto;
+}
+footer > div > div {
+  grid-column: span 4;
+}
+footer > div > div > * {
+  display: block;
+}
+
+nav #logo {
+  position: absolute;
+  left: calc(50% - 500px);
+  width: 100px;
+  background-image: url("/asset/wordmark.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+@media screen and (max-width: 768px) {
+  nav #logo {
+    left: 10px;
+    width: 50px;
+    background-image: url("/asset/wordmark-mobile.svg");
+  }
+}
+nav #github {
+  position: absolute;
+  right: calc(50% - 500px);
+}
+nav img {
+  height: 25px;
+}
+
+.card {
+  border-radius: 8px;
+  padding: 25px;
+  grid-column: span 4;
+}
+.card.col-2 {
+  grid-column: span 6;
+}
+.card.col-3 {
+  grid-column: span 4;
+}
+.card.col-4 {
+  grid-column: span 3;
+}
+@media screen and (max-width: 768px) {
+  .card {
+    margin: 10px 0px;
+    grid-column: span 12;
+  }
+  .card.col-2 {
+    grid-column: span 12;
+  }
+  .card.col-3 {
+    grid-column: span 12;
+  }
+  .card.col-4 {
+    grid-column: span 12;
+  }
+}
+.card.clickable {
+  cursor: pointer;
+}
+.card.nonclickable {
+  cursor: not-allowed;
+}
+.card h2 {
+  font-size: 35px;
+  width: 90%;
+  line-height: 100%;
+}
+
+.shadow {
+  box-shadow: 0px 1px 30px rgba(67, 70, 75, 0.03), 0px 10px 34px -4px rgba(32, 34, 46, 0.07);
+}
+
+button {
+  font-size: 1rem;
+  background: #08c746;
+  background: linear-gradient(144deg, #08c746 0%, #abdb0c 100%);
+}
+
+article {
+  width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 30px;
+}
+@media screen and (max-width: 768px) {
+  article {
+    width: 90%;
+  }
+}
+article header, article h1, article h2, article h3, article h4, article p, article ul {
+  grid-column: 3/-3;
+}
+@media screen and (max-width: 768px) {
+  article header, article h1, article h2, article h3, article h4, article p, article ul {
+    grid-column: 1/-1;
+  }
+}
+article pre, article code {
+  grid-column: 2/-2;
+}
+@media screen and (max-width: 768px) {
+  article pre, article code {
+    grid-column: 1/-1;
+  }
+}
+article h1 {
+  font-size: 40px;
+}
+article h2 {
+  font-size: 30px;
+}
+article h3 {
+  font-size: 20px;
+}
+article h4 {
+  font-size: 16px;
+}
+
+/*# sourceMappingURL=tutorial_page.css.map */

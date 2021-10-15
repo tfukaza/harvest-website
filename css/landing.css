@@ -1,0 +1,78 @@
+#main {
+  display: block;
+}
+#main h1, #main p, #main a {
+  margin: 0 auto;
+  text-align: center;
+  display: block;
+}
+#main h1 {
+  width: 600px;
+  line-height: 100%;
+  font-size: 5rem;
+  margin-top: 15rem;
+}
+#main p {
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  line-height: 105%;
+  letter-spacing: -0.05em;
+  width: 500px;
+}
+#main a {
+  margin: 80px auto;
+  margin-bottom: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  #main h1 {
+    width: 80%;
+    line-height: 100%;
+    font-size: 4rem;
+    margin-top: 10rem;
+  }
+  #main p {
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    width: 80%;
+  }
+  #main a {
+    margin: 40px auto;
+    margin-bottom: 50px;
+  }
+}
+@keyframes wave {
+  0% {
+    transform: rotateZ(-30deg);
+  }
+  100% {
+    transform: rotateZ(30deg);
+  }
+}
+.wave {
+  animation-name: wave;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 1s;
+  position: absolute;
+  margin-left: 5px;
+}
+
+.card h2, .card p {
+  color: white;
+}
+
+.card:nth-of-type(n+1) {
+  background-color: #1dbf92;
+}
+
+.card:nth-of-type(n+2) {
+  background-color: #36b7f3;
+}
+
+.card:nth-of-type(n+3) {
+  background-color: #78d62b;
+}
+
+/*# sourceMappingURL=landing.css.map */
