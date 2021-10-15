@@ -9,10 +9,10 @@
     <meta property="og:image" content="https://tfukaza.github.io/harvest/logo.png"/>
     <link rel="icon" href="/favicon.ico" />
 
-    <link href="/asset/prism.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/main.css">
+    <link href="{{ '/asset/prism.css' | url }}" rel="stylesheet">
+    <link href="{{ '/css/main.css' | url }}" rel="stylesheet">
     {% for style in css %}
-    <link rel="stylesheet" href="/css/{{ style }}">
+    <link href="{{ '/css/' | url }}{{ style }}" rel="stylesheet" ">
     {% endfor %}
 </head>
 <body> 

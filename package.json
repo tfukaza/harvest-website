@@ -4,7 +4,7 @@
   "description": "Website for harvest-python",
   "main": "index.html",
   "scripts": {
-    "build": "npx @11ty/eleventy",
+    "build": "npx @11ty/eleventy --pathprefix=harvest-website",
     "watch:11ty": "npx @11ty/eleventy --serve",
     "watch:sass": "sass --watch sass:_site/css",
     "start": "npm-run-all --parallel watch:*"
