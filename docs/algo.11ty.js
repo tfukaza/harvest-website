@@ -53,7 +53,7 @@ class Algo {
     }
 
     highlight_method_name(str, par) {
-      str = str.replaceAll(' ', '');
+      str = str.replace(/ /g, '');
       let regex = /[()]/g;
       let matches = str.match(regex);
       let desc_split = str.split(regex);
