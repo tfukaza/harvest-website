@@ -255,12 +255,10 @@ related to that stock.</p>
             <p class="d"><span class='red'>Required</span></p>
             <p></p>
           </div></div>
-          <div class="returns"><h3>Returns</h3><p>A dataframe with the follwing columns:</p>
-<ul>
-<li>exp_date(datetime.datetime): The expiration date</li>
-<li>strike(float): Strike price</li>
-<li>type(str): 'call' or 'put'</li>
-</ul>
+          <div class="returns"><h3>Returns</h3><p>A dataframe with the follwing columns:
+- exp_date(datetime.datetime): The expiration date
+- strike(float): Strike price
+- type(str): 'call' or 'put'</p>
 <p>The index is the {OCC} symbol of the option.
 Note that the expiration date is not adjusted to the local time zone.</p>
 </div>

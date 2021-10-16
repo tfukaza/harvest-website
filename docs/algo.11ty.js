@@ -1,4 +1,4 @@
-const data = require('./data/BaseAlgo.json');
+//const data = require('./data/BaseAlgo.json');
 const tips = require('./data/def.json');
 var MarkdownIt = require('markdown-it'),
 md = new MarkdownIt();
@@ -12,13 +12,13 @@ class Algo {
       };
     }
   
-    render() {
+    render(data) {
       return `
-        ${this.render_menu(data)}
+        ${this.render_menu(data.BaseAlgo)}
         <section>
         <div>
           <h1>Algo</h1>
-          ${this.render_all_methods(data)}
+          ${this.render_all_methods(data.BaseAlgo)}
         </div>
         </section>`;
     }
