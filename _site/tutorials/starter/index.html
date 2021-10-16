@@ -17,7 +17,12 @@
 </head>
 <body> 
      <nav>
-    <a id="logo" href="/" ></a>
+    <a id="logo" href="/" >       
+        <img src="/asset/logo.svg"/>
+    </a>
+    <!-- <a id="logo-mobile" href="/" >
+        <img src="/asset/logo-mobile.svg"/>
+    </a> -->
     <ul>
         <li><a href="/tutorials">Tutorials</a></li>
         <li><a href="/docs">Docs</a></li>
@@ -26,11 +31,10 @@
 </nav>
     <main>
         <article>
-    <header>
-        <h1>Startup Guide</h1>
-    </header>
-
-    <h2>Introduction</h2>
+        <header>
+            <h1>Startup Guide</h1>
+        </header>
+        <h2>Introduction</h2>
 <p>This is a beginner friendly startup guide to set up
 your first algorithmic trading system using Harvest.
 Through this tutorial, you will code an algorithm
@@ -52,13 +56,11 @@ will have to upgrade it. This can be a surprisingly difficult
 process, so take your time!</p>
 <h2>Installing</h2>
 <p>First things first, let's install the library.</p>
-<pre><code class="language-bash">pip install harvest-python
-</code></pre>
+<pre class="language-bash"><code class="language-bash">pip <span class="token function">install</span> harvest-python</code></pre>
 <p>Next, we install additional libraries depending on which
 broker you want to use. Harvest will do this automatically,
 using the following command:</p>
-<pre><code class="language-bash">pip install harvest-python[API]
-</code></pre>
+<pre class="language-bash"><code class="language-bash">pip <span class="token function">install</span> harvest-python<span class="token punctuation">[</span>API<span class="token punctuation">]</span></code></pre>
 <p>Where API is replaced by one of the following supported by Harvest:</p>
 <ul>
 <li>Robinhood</li>
@@ -78,14 +80,9 @@ you need to know:</p>
 <p>Create a file called <code>algo.py</code> and begin coding in it.</p>
 <p>We begin by importing the aforementioned components,
 or, modules, as they are called in Python.</p>
-<pre><code class="language-python">from harvest.algo import BaseAlgo
-from harvest.trader import LiveTrader
-from harvest.api.robinhood import Robinhood
-</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token keyword">from</span> harvest<span class="token punctuation">.</span>algo <span class="token keyword">import</span> BaseAlgo<br><span class="token keyword">from</span> harvest<span class="token punctuation">.</span>trader <span class="token keyword">import</span> LiveTrader<br><span class="token keyword">from</span> harvest<span class="token punctuation">.</span>api<span class="token punctuation">.</span>robinhood <span class="token keyword">import</span> Robinhood</code></pre>
 <p>Next we start writing out algorithm. Algorithms are created by extending the BaseAlgo class.</p>
-<pre><code class="language-python">class MyAlgo(BaseAlgo):
-    pass
-</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">MyAlgo</span><span class="token punctuation">(</span>BaseAlgo<span class="token punctuation">)</span><span class="token punctuation">:</span><br>    <span class="token keyword">pass</span></code></pre>
 <p>There are three methods in the Algo class that you can define.</p>
 <ul>
 <li>config: Method to initialize parameters for your algorithm.</li>
@@ -93,12 +90,7 @@ from harvest.api.robinhood import Robinhood
 <li>main: Method that runs the main logic of the algorithm.</li>
 </ul>
 <p>We first define the config method.</p>
-<pre><code class="language-python">class MyAlgo(BaseAlgo):
-    
-    def config(self):
-        self.watchlist=[&quot;TWTR&quot;]
-        self.interval=&quot;5MIN&quot;
-</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token keyword">class</span> <span class="token class-name">MyAlgo</span><span class="token punctuation">(</span>BaseAlgo<span class="token punctuation">)</span><span class="token punctuation">:</span><br>    <br>    <span class="token keyword">def</span> <span class="token function">config</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        self<span class="token punctuation">.</span>watchlist<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"TWTR"</span><span class="token punctuation">]</span><br>        self<span class="token punctuation">.</span>interval<span class="token operator">=</span><span class="token string">"5MIN"</span></code></pre>
 <p><code>watchlist</code> is a list of stock symbols we want to track. Since
 we are only tracking Twitter stocks, which has the symbol TWTR,
 we set it to <code>[&quot;TWTR&quot;]</code>.</p>
@@ -106,68 +98,30 @@ we set it to <code>[&quot;TWTR&quot;]</code>.</p>
 For this algorithm, we arbitrarily decide to check Twitter
 stock prices every <code>5MIN</code>.</p>
 <p>Next we define the actual logic.</p>
-<pre><code class="language-python">    def main(self):
-</code></pre>
+<pre class="language-python"><code class="language-python">    <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span></code></pre>
 <p>In short, the moving average crossover strategy works by calculating the average value of the stock over a certain period of time - one for a relatively short period, and another much longer. This strategy states that when the value of the shorter average crosses below the longer average it is a buy, and when it crosses over it's a sell.</p>
 <p>So we first need to calculate the two averages. This can be done by calling BaseAlgo class's <code>sma</code> function. We pass in the <code>period</code> parameter to specify how to calculate the average.</p>
-<pre><code class="language-python">    def main(self):
-        short_avg = self.sma(period=20)
-        long_avg = self.sma(period=50)
-</code></pre>
+<pre class="language-python"><code class="language-python">    <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        short_avg <span class="token operator">=</span> self<span class="token punctuation">.</span>sma<span class="token punctuation">(</span>period<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span><br>        long_avg <span class="token operator">=</span> self<span class="token punctuation">.</span>sma<span class="token punctuation">(</span>period<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span></code></pre>
 <p><code>sma</code> returns a list of the SMA values. Now we need to check if the latest values in the two lists cross over. For example, if short_avg is [20,30,40] and long_avg is [30,31,32], then we need to trigger a sell. Lucky for you, Harvest comes with a method to do just this - <code>crossover()</code>! This returns True if the first list just crossed over the second list.</p>
-<pre><code class="language-python">    def main(self):
-        short_avg = self.sma(period=20)
-        long_avg = self.sma(period=50)
-        if self.crossover(short_avg, long_avg):
-            self.sell()
-        elif self.crossover(long_avg, short_avg):
-            self.buy()
-</code></pre>
+<pre class="language-python"><code class="language-python">    <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        short_avg <span class="token operator">=</span> self<span class="token punctuation">.</span>sma<span class="token punctuation">(</span>period<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span><br>        long_avg <span class="token operator">=</span> self<span class="token punctuation">.</span>sma<span class="token punctuation">(</span>period<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span><br>        <span class="token keyword">if</span> self<span class="token punctuation">.</span>crossover<span class="token punctuation">(</span>short_avg<span class="token punctuation">,</span> long_avg<span class="token punctuation">)</span><span class="token punctuation">:</span><br>            self<span class="token punctuation">.</span>sell<span class="token punctuation">(</span><span class="token punctuation">)</span><br>        <span class="token keyword">elif</span> self<span class="token punctuation">.</span>crossover<span class="token punctuation">(</span>long_avg<span class="token punctuation">,</span> short_avg<span class="token punctuation">)</span><span class="token punctuation">:</span><br>            self<span class="token punctuation">.</span>buy<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <p>The <code>buy</code> and <code>sell</code> methods are pretty self-explanatory. When <code>buy</code> is called without any parameters, it will take the first stock in the watchlist (TWTR) and buy as many as it can. Likewise, <code>sell</code> will
 sell all owned stocks of the first stock in watchlist.</p>
 <p>Finally, we create an instance of the trader class to use this algorithm, and run it.</p>
-<pre><code class="language-python">if __name__ == &quot;__main__&quot;:
-    t = LiveTrader( Robinhood() )
-</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span><br>    t <span class="token operator">=</span> LiveTrader<span class="token punctuation">(</span> Robinhood<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span></code></pre>
 <p>This creates the Trader class, and also tells it that
 we will be using Robinhood to get stock data and place orders.</p>
 <p>Lastly, we specify an instance of the <code>MyAlgo</code> class to the trader,
 and run it.</p>
-<pre><code class="language-python">    t.set_algo(MyAlgo())
-    t.run()
-</code></pre>
+<pre class="language-python"><code class="language-python">    t<span class="token punctuation">.</span>set_algo<span class="token punctuation">(</span>MyAlgo<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><br>    t<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <p>Below is the final code after putting everything together.</p>
-<pre><code class="language-python">from harvest.algo import BaseAlgo
-from harvest.trader import LiveTrader
-from harvest.api.robinhood import Robinhood
-
-class MyAlgo(BaseAlgo):
-    
-    def config(self):
-        self.watchlist=[&quot;TWTR&quot;]
-        self.interval=&quot;5MIN&quot;
-
-    def main(self):
-        short_avg = self.sma(period=20)
-        long_avg = self.sma(period=50)
-        if self.crossover(short_avg, long_avg):
-            self.sell()
-        elif self.crossover(long_avg, short_avg):
-            self.buy()
-    
-if __name__ == &quot;__main__&quot;:
-    t = LiveTrader( RobinhoodBroker() )
-    t.set_algo( MyAlgo() )
-    t.run()
-</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token keyword">from</span> harvest<span class="token punctuation">.</span>algo <span class="token keyword">import</span> BaseAlgo<br><span class="token keyword">from</span> harvest<span class="token punctuation">.</span>trader <span class="token keyword">import</span> LiveTrader<br><span class="token keyword">from</span> harvest<span class="token punctuation">.</span>api<span class="token punctuation">.</span>robinhood <span class="token keyword">import</span> Robinhood<br><br><span class="token keyword">class</span> <span class="token class-name">MyAlgo</span><span class="token punctuation">(</span>BaseAlgo<span class="token punctuation">)</span><span class="token punctuation">:</span><br>    <br>    <span class="token keyword">def</span> <span class="token function">config</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        self<span class="token punctuation">.</span>watchlist<span class="token operator">=</span><span class="token punctuation">[</span><span class="token string">"TWTR"</span><span class="token punctuation">]</span><br>        self<span class="token punctuation">.</span>interval<span class="token operator">=</span><span class="token string">"5MIN"</span><br><br>    <span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span><br>        short_avg <span class="token operator">=</span> self<span class="token punctuation">.</span>sma<span class="token punctuation">(</span>period<span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">)</span><br>        long_avg <span class="token operator">=</span> self<span class="token punctuation">.</span>sma<span class="token punctuation">(</span>period<span class="token operator">=</span><span class="token number">50</span><span class="token punctuation">)</span><br>        <span class="token keyword">if</span> self<span class="token punctuation">.</span>crossover<span class="token punctuation">(</span>short_avg<span class="token punctuation">,</span> long_avg<span class="token punctuation">)</span><span class="token punctuation">:</span><br>            self<span class="token punctuation">.</span>sell<span class="token punctuation">(</span><span class="token punctuation">)</span><br>        <span class="token keyword">elif</span> self<span class="token punctuation">.</span>crossover<span class="token punctuation">(</span>long_avg<span class="token punctuation">,</span> short_avg<span class="token punctuation">)</span><span class="token punctuation">:</span><br>            self<span class="token punctuation">.</span>buy<span class="token punctuation">(</span><span class="token punctuation">)</span><br>    <br><span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span><br>    t <span class="token operator">=</span> LiveTrader<span class="token punctuation">(</span> RobinhoodBroker<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><br>    t<span class="token punctuation">.</span>set_algo<span class="token punctuation">(</span> MyAlgo<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">)</span><br>    t<span class="token punctuation">.</span>run<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre>
 <h2>Running the code</h2>
 <p>You can now run your code:</p>
-<pre><code class="language-bash">python algo.py
-</code></pre>
+<pre class="language-bash"><code class="language-bash">python algo.py</code></pre>
 <p>If this is the first time running your code, a program will start up to guide you through the process of connecting the algorithm to your broker.</p>
 <p>Note that buying and selling stocks within the same day is called day-trading, and comes with legal restrictions. So after running the algorithm for a few minutes, make sure to shut it down before it makes too many trades.</p>
 
-</article>
+    </article>
     </main>
     <footer>
    
@@ -179,5 +133,4 @@ if __name__ == &quot;__main__&quot;:
     </div>
   </div>
 </footer>
-    <script src="/asset/prism.js"></script>
 </body>

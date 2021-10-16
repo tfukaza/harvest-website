@@ -90,10 +90,6 @@ button {
   cursor: pointer;
 }
 
-#logo {
-  height: 30px;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: "Manrope", sans-serif;
   color: #202325;
@@ -142,16 +138,13 @@ nav #logo {
   position: absolute;
   left: calc(50% - 500px);
   width: 100px;
-  background-image: url("/asset/wordmark.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  height: 30px;
 }
 @media screen and (max-width: 768px) {
   nav #logo {
     left: 10px;
-    width: 50px;
-    background-image: url("/asset/wordmark-mobile.svg");
+    width: 30px;
+    overflow-x: hidden;
   }
 }
 nav #github {

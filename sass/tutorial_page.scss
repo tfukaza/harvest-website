@@ -4,6 +4,8 @@ article{
 
     width:1000px;
     margin:0 auto;
+    margin-top: 200px;
+    position: relative;
     @include grid();
 
     @media screen and (max-width: 768px){
@@ -19,7 +21,7 @@ article{
     }
 
     pre, code{
-        grid-column: 2 / -2;
+        grid-column: 3 / -3;
         @media screen and (max-width: 768px){
             grid-column: 1 / -1;
         }
