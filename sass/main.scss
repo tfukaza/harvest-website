@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-@font-face {
-    font-family: 'Manrope';
-    src: url('asset/Manrope-Medium.woff2') format('woff2');
-}
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
 
 @mixin shadow($float: 0.5) {
     $shadow-outline-y: $float * 5px;
@@ -41,7 +39,7 @@ main{
 
 section{
     @include grid();
-    margin: 30px auto;
+    margin: 60px auto;
     width: 1000px;
 
     > *{
@@ -129,6 +127,7 @@ button{
 
 h1, h2, h3, h4, h5, h6{
     font-family: 'Manrope', sans-serif;
+    line-height: 95%;
     color: #202325;
 }
 
@@ -142,12 +141,21 @@ p, ul, li, a{
 h1{
     font-size: 3rem;
     letter-spacing: -0.05em;
+    font-weight: 800;
+}
+h2{
+    font-size: 3.0rem;
+    letter-spacing: -0.05em;
 }
 
 a{
     font-family: 'Inter', sans-serif;
     text-decoration: none;
     color:inherit;
+}
+
+code, pre{
+    font-family: 'Fira Code', monospace;
 }
 
 footer{
@@ -230,8 +238,90 @@ nav{
     @include shadow(0.2);
 }
 
+.shadow-dark{
+    @include shadow(1.2);
+}
+
 button{
     font-size: 1rem;
     background: rgb(8,199,70);
     background: linear-gradient(144deg, rgba(8,199,70,1) 0%, rgba(171,219,12,1) 100%);
+}
+
+.select{
+    @include shadow(0.1);
+    position: relative;
+    padding: 8px 14px;
+    display: inline-block;
+    width: 150px;
+    border: 1px solid #e8e9ec;
+    border-radius: 8px;
+    background-color: white;
+    
+    cursor: pointer;
+    p {
+        margin: 0;
+        color: #494949;
+    }
+    div {
+        //z-index: 1;
+        width:178px;
+        position: absolute;
+        top: calc(100% + 5px);
+        left:0px;
+        cursor: pointer;
+        font-size: 1rem;
+        background-color: rgb(250, 250, 250);
+        @include shadow(0.1);
+        border: 0px solid #cecfd3;
+        
+        border-radius: 8px;
+        overflow-y: hidden;
+        
+        display: inline-block;
+
+        li{
+            margin: 5px 10px;
+            border-radius: 4px;
+            box-sizing: border-box;
+            padding: 5px 10px;
+            list-style: none;
+        }
+        li:hover{
+            background-color: rgb(226, 226, 226);
+            transition: 0.2s ease-in-out;
+        }
+        p{
+            font-family: 'Inter';
+            font-size: 1rem;
+            padding: 1px 10px;
+            margin:0px;
+        }
+    }
+
+    &.open{
+        border-color: rgb(42, 180, 104);
+        box-shadow: 0px 0px 10px rgb(24, 180, 50);
+        div{
+            transition: 0.2s ease-in-out;
+            border-width: 1px;
+            padding: 15px 0px;
+        }
+    }
+
+}
+
+.text{
+    &:focus{
+       // outline: 2px solid #bcc0c2;
+        border-color: rgb(42, 180, 104);
+        box-shadow: 0px 0px 10px rgb(24, 180, 50);
+    }
+    padding: 9px 5px;
+    border-radius: 4px;
+    font-family: 'Inter';
+    outline: none;
+    resize: none;
+    background-color: whitesmoke;
+
 }
