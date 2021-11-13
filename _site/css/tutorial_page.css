@@ -1,8 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-@font-face {
-  font-family: "Manrope";
-  src: url("asset/Manrope-Medium.woff2") format("woff2");
-}
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code&display=swap");
 html {
   font-size: 16px;
 }
@@ -19,7 +17,7 @@ section {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: 30px;
-  margin: 30px auto;
+  margin: 60px auto;
   width: 1000px;
 }
 section > * {
@@ -92,6 +90,7 @@ button {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Manrope", sans-serif;
+  line-height: 95%;
   color: #202325;
 }
 
@@ -105,12 +104,22 @@ p, ul, li, a {
 h1 {
   font-size: 3rem;
   letter-spacing: -0.05em;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 3rem;
+  letter-spacing: -0.05em;
 }
 
 a {
   font-family: "Inter", sans-serif;
   text-decoration: none;
   color: inherit;
+}
+
+code, pre {
+  font-family: "Fira Code", monospace;
 }
 
 footer {
@@ -200,10 +209,83 @@ nav img {
   box-shadow: 0px 1px 30px rgba(67, 70, 75, 0.03), 0px 10px 34px -4px rgba(32, 34, 46, 0.07);
 }
 
+.shadow-dark {
+  box-shadow: 0px 6px 30px rgba(67, 70, 75, 0.18), 0px 60px 54px -24px rgba(32, 34, 46, 0.17);
+}
+
 button {
   font-size: 1rem;
   background: #08c746;
   background: linear-gradient(144deg, #08c746 0%, #abdb0c 100%);
+}
+
+.select {
+  box-shadow: 0px 0.5px 30px rgba(67, 70, 75, 0.015), 0px 5px 32px -2px rgba(32, 34, 46, 0.06);
+  position: relative;
+  padding: 8px 14px;
+  display: inline-block;
+  width: 150px;
+  border: 1px solid #e8e9ec;
+  border-radius: 8px;
+  background-color: white;
+  cursor: pointer;
+}
+.select p {
+  margin: 0;
+  color: #494949;
+}
+.select div {
+  width: 178px;
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0px;
+  cursor: pointer;
+  font-size: 1rem;
+  background-color: #fafafa;
+  box-shadow: 0px 0.5px 30px rgba(67, 70, 75, 0.015), 0px 5px 32px -2px rgba(32, 34, 46, 0.06);
+  border: 0px solid #cecfd3;
+  border-radius: 8px;
+  overflow-y: hidden;
+  display: inline-block;
+}
+.select div li {
+  margin: 5px 10px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  padding: 5px 10px;
+  list-style: none;
+}
+.select div li:hover {
+  background-color: #e2e2e2;
+  transition: 0.2s ease-in-out;
+}
+.select div p {
+  font-family: "Inter";
+  font-size: 1rem;
+  padding: 1px 10px;
+  margin: 0px;
+}
+.select.open {
+  border-color: #2ab468;
+  box-shadow: 0px 0px 10px #18b432;
+}
+.select.open div {
+  transition: 0.2s ease-in-out;
+  border-width: 1px;
+  padding: 15px 0px;
+}
+
+.text {
+  padding: 9px 5px;
+  border-radius: 4px;
+  font-family: "Inter";
+  outline: none;
+  resize: none;
+  background-color: whitesmoke;
+}
+.text:focus {
+  border-color: #2ab468;
+  box-shadow: 0px 0px 10px #18b432;
 }
 
 article {
