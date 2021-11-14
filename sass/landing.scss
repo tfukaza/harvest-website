@@ -194,6 +194,7 @@
         position: relative;
         display: inline-block;
         margin: 11px 2.5px;
+        margin-top: 12px;
     }
     .red{
         background-color: #d81741;
@@ -206,15 +207,25 @@
     }
 }
 
+.code-content{
+    position: relative;
+    width: 100%;
+    overflow-x: scroll;
+}
+
 
 #try-code{
+    position: relative;
     grid-column: 6 / 13;
     background-color: #292A2E;
     border-radius: 20px;
+    z-index: 1;
     overflow: hidden;
-
+    
     code{
+        width: 100%;
         position: relative;
+        
     }
 
     pre{
@@ -222,6 +233,10 @@
         margin-top: 0px;
         font-size: 1rem;
         color: white;
+        @media screen and (max-width: 768px){
+           font-size: 0.9rem;
+            
+        }
     }
 
     @media screen and (max-width: 768px){
@@ -238,12 +253,14 @@
     .line-numbers{
         counter-reset: num;
         position: absolute;
-        top:0;
-        left:0;
+        top:46px;
+        left:0px;
+        background-color: #292A2E;
         width:40px;
-        border-right: 2px solid #4b4b4b;
+        border-right: 1px solid #454a5a;
         padding-right: 10px;
         text-align: right;
+        z-index: 1;
         .number{
             display: block;
         }
@@ -253,6 +270,10 @@
             color: #777777;
             font-size: 1rem;
             font-family: 'Fira Code', monospace;
+            @media screen and (max-width: 768px){
+                font-size: 0.9rem;
+                
+            }
         }
     }
 }
