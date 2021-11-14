@@ -318,6 +318,9 @@ article pre, article code {
     grid-column: 1/-1;
   }
 }
+article img {
+  margin-left: -50%;
+}
 article h1 {
   font-size: 40px;
 }

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Harvest | Tutorials</title>
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta property="og:title" content=Harvest | Tutorials/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="https://tfukaza.github.io/harvest/logo.png"/>
+    <link rel="icon" href="/favicon.ico" />
+
+    <link href="/harvest-website/asset/prism.css" rel="stylesheet">
+    <link href="/harvest-website/css/main.css" rel="stylesheet">
+    
+    <link href="/harvest-website/css/tutorial_page.css" rel="stylesheet" ">
+    
+</head>
+<body> 
+     <nav>
+    <a id="logo" href="/harvest-website/" >       
+        <img src="/harvest-website/asset/logo.svg"/>
+    </a>
+    <!-- <a id="logo-mobile" href="/harvest-website/" >
+        <img src="/harvest-website/asset/logo-mobile.svg"/>
+    </a> -->
+    <ul>
+        <li><a href="/harvest-website/tutorials">Tutorials</a></li>
+        <li><a href="/harvest-website/docs">Docs</a></li>
+    </ul>
+    <a id="github" href="https://github.com/tfukaza/harvest"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" /></a>
+</nav>
+    <main>
+        <article>
+        <header>
+            <h1>Harvest CLI</h1>
+        </header>
+        <h2>CLI</h2>
+<p>This guide will show you all the features of the command line interface that comes with Harvest. To get started type:</p>
+<pre class="language-bash"><code class="language-bash">python -m harvest -h</code></pre>
+<p>This will output the following:</p>
+<pre class="language-bash"><code class="language-bash">usage: -m <span class="token punctuation">[</span>-h<span class="token punctuation">]</span> <span class="token punctuation">{</span>start,visualize<span class="token punctuation">}</span> <span class="token punctuation">..</span>.<br><br>Harvest CLI<br><br>positional arguments:<br>  <span class="token punctuation">{</span>start,visualize<span class="token punctuation">}</span><br><br>optional arguments:<br>  -h, --help         show this <span class="token builtin class-name">help</span> message and <span class="token builtin class-name">exit</span></code></pre>
+<p>Here you can see that the cli requires one of two arguments <code>start</code> and <code>visualize</code>. Each argument is described below.</p>
+<h2>start</h2>
+<p>The <code>start</code> argument is used to run Harvest. Here you can specify your storage, streamer, broker, and which algorithms you want to run. To get started type:</p>
+<pre class="language-bash"><code class="language-bash">python -m harvest start -h</code></pre>
+<p>This will output the following:</p>
+<pre class="language-bash"><code class="language-bash">usage: -m start <span class="token punctuation">[</span>-h<span class="token punctuation">]</span> <span class="token punctuation">[</span>-o <span class="token punctuation">{</span>memory,csv,pickle,db<span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>-s <span class="token punctuation">{</span>dummy,yahoo,polygon,robinhood,alpaca,kraken,webull<span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>-b <span class="token punctuation">{</span>paper,robinhood,alpaca,kraken,webull<span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>-d DIRECTORY<span class="token punctuation">]</span> <span class="token punctuation">[</span>--debug <span class="token operator">|</span> --no-debug<span class="token punctuation">]</span><br><br>optional arguments:<br>  -h, --help            show this <span class="token builtin class-name">help</span> message and <span class="token builtin class-name">exit</span><br>  -o <span class="token punctuation">{</span>memory,csv,pickle,db<span class="token punctuation">}</span>, --storage <span class="token punctuation">{</span>memory,csv,pickle,db<span class="token punctuation">}</span><br>                        the way to store asset data<br>  -s <span class="token punctuation">{</span>dummy,yahoo,polygon,robinhood,alpaca,kraken,webull<span class="token punctuation">}</span>, --streamer <span class="token punctuation">{</span>dummy,yahoo,polygon,robinhood,alpaca,kraken,webull<span class="token punctuation">}</span><br>                        fetches asset data<br>  -b <span class="token punctuation">{</span>paper,robinhood,alpaca,kraken,webull<span class="token punctuation">}</span>, --broker <span class="token punctuation">{</span>paper,robinhood,alpaca,kraken,webull<span class="token punctuation">}</span><br>                        buys and sells assets on your behalf<br>  -d DIRECTORY, --directory DIRECTORY<br>                        directory where algorithms are located<br>  --debug, --no-debug</code></pre>
+<p>The first option is the storage which is specified with the <code>-o</code> flag. The default is <code>memory</code> which stores asset data only in memory.</p>
+<p>The second option is the streamer which is specified with the <code>-s</code> flag. The default is <code>dummy</code> which generates random data and not based on asset data at all. All other streamers fetch data from actual data sources.</p>
+<p>The third option is the broker which is specified with the <code>-b</code> flag. The default is <code>paper</code> which is Harvest's internal paper trader.</p>
+<p>The fourth option is the directory which is specified with the <code>-d</code> flag. The default is the current working directory. All files in the given directory will be searched, and if a file has an algorithm it will be run by Harvest. A file with an algorithm has to be a python file with a class that inherits from the <code>BaseAlgo</code> class. If <code>HARVEST_SKIP</code> is found anywhere on the first line of the file, it will be skipped. This is a good way to ignore algorithms that you don't want to run.</p>
+<p>The fifth option is a boolean option which can be either <code>--debug</code> or <code>--no-debug</code>. The default is <code>--no-debug</code> which informs the Harvest logger not to print debugging messages. Turn this option on if you want more details as to what Harvest is doing.</p>
+<h3>Examples</h3>
+<p>Run Harvest without saving asset data to disk, simulate assets, use Harvest paper trader, look for algorithms in the current working directory, and do not show debugging logs.</p>
+<pre class="language-bash"><code class="language-bash">python -m harvest start </code></pre>
+<p>Run Harvest with asset data saved as csv files, fetch data from polygon, use alpaca to handle trading, run the algorithms found in the <code>algos</code> folder, and show debugging information.</p>
+<pre class="language-bash"><code class="language-bash">python -m harvest start -o csv -s polygon -b alpaca -d ./algos --debug</code></pre>
+<h2>visualize</h2>
+<p>The <code>visualize</code> argument is used view stored OHLC data that Harvest stores. It expects either a csv or pickle file. It is also dependent on the <a href="https://pypi.org/project/mplfinance/">mplfinance</a> python package which is not installed by default with Harvest. To get started run:</p>
+<pre class="language-bash"><code class="language-bash">python -m harvest visualize -h</code></pre>
+<p>This will output the following:</p>
+<pre class="language-bash"><code class="language-bash">usage: -m visualize <span class="token punctuation">[</span>-h<span class="token punctuation">]</span> path<br><br>positional arguments:<br>  path        path to harvest generated data <span class="token function">file</span><br><br>optional arguments:<br>  -h, --help  show this <span class="token builtin class-name">help</span> message and <span class="token builtin class-name">exit</span></code></pre>
+<p>As you can see this is a very simple command. The only argument is the path to the csv or pickle file. This path can be relative or absolute.</p>
+<h3>Example</h3>
+<pre class="language-bash"><code class="language-bash">python -m visualize ./storage/@DOGE@1MIN.csv</code></pre>
+<p>Output to terminal:</p>
+<pre class="language-bash"><code class="language-bash">@DOGE at 1MIN<br><span class="token function">open</span>    <span class="token number">0.2708127</span><br>high    <span class="token number">0.27352659999999995</span><br>low     <span class="token number">0.2685754</span><br>close   <span class="token number">0.27254029999999996</span><br>price change    <span class="token number">0.0017275999999999403</span><br>price change percentage <span class="token number">0.004209551475752374</span>%<br>volume  <span class="token number">3486334.8061624</span></code></pre>
+<p>Output graph:</p>
+<p><img src="../../asset/@DOGE@1MIN.png" alt="OHLC for DOGE at 1 minute interval"></p>
+
+    </article>
+    </main>
+    <footer>
+   
+    <div>
+        <div>
+
+        <a href="https://github.com/tfukaza/harvest/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5B%F0%9F%AA%B0BUG%5D">Report a Bug</a>
+        <a href="https://github.com/tfukaza/harvest/issues/new?assignees=&labels=enhancement%2C+question&template=feature-request.md&title=%5B%F0%9F%92%A1Feature+Request%5D">Suggest a Feature</a>
+    </div>
+  </div>
+</footer>
+</body>
