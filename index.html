@@ -189,7 +189,7 @@ class Watch(BaseAlgo):
             });
         }
         let div = sel.querySelector('div');
-        div.setAttribute('length', options.length * (options[0].offsetHeight+6) + 10);
+        div.setAttribute('length', options.length * (options[0].offsetHeight+6) + 6);
         div.style.height = '0px';
 
         sel.addEventListener('click', function(event) { 
