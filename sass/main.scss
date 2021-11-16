@@ -248,6 +248,10 @@ button{
     background: linear-gradient(144deg, rgba(8,199,70,1) 0%, rgba(171,219,12,1) 100%);
 }
 
+.select:hover{
+    @include shadow(0.0);
+}
+
 .select{
     @include shadow(0.1);
     position: relative;
@@ -281,7 +285,7 @@ button{
         display: inline-block;
 
         li{
-            margin: 5px 10px;
+            margin: 5px 8px;
             border-radius: 4px;
             box-sizing: border-box;
             padding: 5px 10px;
@@ -305,7 +309,7 @@ button{
         div{
             transition: 0.2s ease-in-out;
             border-width: 1px;
-            padding: 15px 0px;
+            padding: 8px 0px;
         }
     }
 
