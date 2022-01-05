@@ -69,7 +69,10 @@ section{
         }
 
         > h2{
-            overflow-x: scroll;
+
+            font-size: 2rem;
+            line-height: 2.2rem;
+         
             @media screen and (max-width:768px) {
                 font-size: 1.2rem;
                 width: 100%;
@@ -156,7 +159,7 @@ section{
         .d{
             text-align: right;
             margin-left: auto;
-            min-width: 25%;
+            min-width: 20%;
         }
         @media screen and (max-width:768px) {
             .a{

@@ -65,7 +65,8 @@ section .method .long {
   width: 100%;
 }
 section .method > h2 {
-  overflow-x: scroll;
+  font-size: 2rem;
+  line-height: 2.2rem;
   color: #7c7c7c;
 }
 @media screen and (max-width: 768px) {
@@ -148,7 +149,7 @@ section .method-param .c {
 section .method-param .d {
   text-align: right;
   margin-left: auto;
-  min-width: 25%;
+  min-width: 20%;
 }
 @media screen and (max-width: 768px) {
   section .method-param .a {
