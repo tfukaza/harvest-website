@@ -113,6 +113,10 @@ nav{
     }
 }
 
+table{
+    text-align: left;
+}
+
 button{
     @include shadow(0.2);
     padding: 10px 20px;
@@ -125,13 +129,13 @@ button{
 }
 
 
-h1, h2, h3, h4, h5, h6{
+h1, h2, h3, h4, h5, h6, th{
     font-family: 'Manrope', sans-serif;
     line-height: 95%;
     color: #202325;
 }
 
-p, ul, li, a{
+p, ul, li, a, td{
     font-family: 'Inter', sans-serif;
     font-size: 1rem;
     line-height: 150%;
@@ -152,6 +156,15 @@ a{
     font-family: 'Inter', sans-serif;
     text-decoration: none;
     color:inherit;
+}
+
+th{
+    font-size: 1rem;
+    border-bottom:1px rgb(180, 180, 180) solid;
+}
+
+td{
+    border-bottom:1px rgb(180, 180, 180) solid;
 }
 
 code, pre{

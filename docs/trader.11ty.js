@@ -1,4 +1,7 @@
+
+var MarkdownIt = require('markdown-it');
 util = require('./util.js');
+md = new MarkdownIt();
 
 class Algo {
     data() {
@@ -11,11 +14,11 @@ class Algo {
   
     render(data) {
       return `
-        ${util.render_menu(data.BaseAlgo)}
+        ${util.render_menu(data.LiveTrader)}
         <section>
         <div>
-          <h1>Algo</h1>
-          ${util.render_all_methods(data.BaseAlgo)}
+          <h1>Trader</h1>
+          ${util.render_all_methods(data.LiveTrader)}
         </div>
         </section>`;
     }
