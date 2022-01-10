@@ -17,7 +17,8 @@ section {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: 30px;
-  margin: 60px auto;
+  margin: 0px auto;
+  padding: 60px;
   width: 1000px;
 }
 section > * {

@@ -9,10 +9,12 @@
     <meta property="og:image" content="https://tfukaza.github.io/harvest/logo.png"/>
     <link rel="icon" href="/favicon.ico" />
 
-    <link href="/harvest-website/asset/prism.css" rel="stylesheet">
+    
     <link href="/harvest-website/css/main.css" rel="stylesheet">
     
     <link href="/harvest-website/css/landing.css" rel="stylesheet" ">
+    
+    <link href="/harvest-website/css/../asset/prism-dark-min.css" rel="stylesheet" ">
     
 </head>
 <body> 
@@ -45,7 +47,7 @@
     <div class="card shadow col-2" id="beginner-friendly">
         <h2>Beginners </br>Welcome <span>😊</span></h2>
         <p>
-            If you’re new to trading, coding, or both - no worries, Harvest was specifically designed so 
+            If you're new to trading, coding, or both - no worries, Harvest was specifically designed so 
             beginners in both trading and coding can easily get started. 
         </p>
     </div>
@@ -102,11 +104,14 @@
             <div class="red"></div>
             <div class="yellow"></div>
             <div class="green"></div>
+            <p>~/algo/strategy.py</p>
         </div>
         <div class="code-content">
-        <code>
             <pre>
-class Watch(BaseAlgo):
+                <code class="language-python">
+                pass
+           
+<!-- class Watch(BaseAlgo):
     def config(self):
         self.watchlist=<span id="symbols-code">["SPY"]</span>
         self.interval=<span id="interval-code">None</span>
@@ -117,10 +122,11 @@ class Watch(BaseAlgo):
         if self.crossover(sma_long, sma_short):
             self.buy()
         elif self.crossover(sma_short, sma_long):
-            self.sell()</span>
+            self.sell()</span> -->
+                </code>
             </pre>
             
-        </code>
+        
       </div>  <div class="line-numbers">
                 
                 <span class="number"></span>
@@ -174,8 +180,10 @@ class Watch(BaseAlgo):
 
     </div> -->
 </section>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/prism.min.js" integrity="sha512-pSVqGtpGygQlhN8ZTHXx1kqkjQr30eM+S6OoSzhHGTjh6DKdfy7WZlo1DNO9bhtM0Imf6xNLznZ7iVC2YUMwJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.26.0/components/prism-python.min.js" integrity="sha512-AKaNmg8COK0zEbjTdMHJAPJ0z6VeNqvRvH4/d5M4sHJbQQUToMBtodq4HaV4fa+WV2UTfoperElm66c9/8cKmQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
+    
 
     let selects = document.querySelectorAll('.select');
     for (let sel of selects) {
@@ -249,15 +257,22 @@ class Watch(BaseAlgo):
     }
 
     let symbols_text = document.getElementById('symbols');
-    let symbols_code = document.getElementById('symbols-code');
+    // let symbols_code = document.getElementById('symbols-code');
     let asset_type = document.getElementById('asset-type');
     let interval = document.getElementById('interval');
-    let interval_code = document.getElementById('interval-code');
+    // let interval_code = document.getElementById('interval-code');
     let strategy = document.getElementById('strategy');
-    let strategy_code = document.getElementById('strategy-code');
+    // let strategy_code = document.getElementById('strategy-code');
+    let code_content = document.querySelector('.code-content > pre > code')
+
+    
 
     symbols_text.addEventListener('keyup', update_symbol_list);
     asset_type.addEventListener('click', update_symbol_list);
+
+    let interval_code = "5MIN";
+    let strat = "pass";
+    let watchlist = "[]";
 
     function update_symbol_list(event){
         let symbols = Array.from(symbols_text.childNodes).filter(t => t.nodeName === "SPAN");
@@ -265,39 +280,42 @@ class Watch(BaseAlgo):
         if (asset_type.getAttribute('selection') == 'crypto') {
             symbols = symbols.map(s => '@'+s);
         }
-        symbols_code.innerHTML = JSON.stringify(symbols);
+        watchlist = `["${symbols.join('","')}"]`;
+        render_code();
+
     }
 
     interval.addEventListener('click', function(event) {
         let int = interval.getAttribute('selection');
         switch(int) {
             case 'minute':
-                interval_code.innerHTML = "'1MIN'";
+                interval_code = '1MIN';
                 break;
             case '5 minutes':
-                interval_code.innerHTML = "'5MIN'";
+                interval_code = '5MIN';
                 break;
             case '15 minutes':
-                interval_code.innerHTML = "'15MIN'";
+                interval_code = '15MIN';
                 break;
             case '30 minutes':
-                interval_code.innerHTML = "'30MIN'";
+                interval_code = '30MIN';
                 break;
             case 'hour':
-                interval_code.innerHTML = "'1HR'";
+                interval_code = '1HR';
                 break;
             case 'day':
-                interval_code.innerHTML = "'1DAY'";
+                interval_code = '1DAY';
                 break;
         }
+        render_code();
         
     });
 
     strategy.addEventListener('click', function(event) {
-        let strat = strategy.getAttribute('selection');
-        switch(strat) {
+        let s = strategy.getAttribute('selection');
+        switch(s) {
             case 'SMA Crossover':
-                strategy_code.innerHTML = `
+                strat = `
         sma_long = self.sma(period=50)
         sma_short = self.sma(period=20)
         if self.crossover(sma_long, sma_short):
@@ -306,15 +324,31 @@ class Watch(BaseAlgo):
             self.sell()`;
                 break;
             case 'RSI':
-                strategy_code.innerHTML = `
-        rsi = self.rsi(period=14)
+                strat = 
+        `rsi = self.rsi(period=14)
         if self.rsi[-1] > 70:
             self.sell()
         elif self.rsi[-1] < 30:
             self.buy()`;
                 break;
         }
+        render_code();
     });
+
+    function render_code() {
+        let code = `
+class Watch(BaseAlgo):
+    def config(self):
+        self.watchlist=${watchlist}
+        self.interval=['${interval_code}']
+    
+    def main(self):
+        ${strat}`;
+        console.log(code);
+        let html = Prism.highlight(code, Prism.languages.python, 'python');
+        code_content.innerHTML = html;
+
+    }
     
 
 </script>
