@@ -2,7 +2,7 @@
 layout: tutorial_article
 title: Harvest | Tutorials
 article_title: Startup Guide
-css: [tutorial_page.css]
+css: [tutorial_page.css, ../asset/prism.css]
 ---
 
 ## Introduction

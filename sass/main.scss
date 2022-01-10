@@ -39,7 +39,8 @@ main{
 
 section{
     @include grid();
-    margin: 60px auto;
+    margin: 0px auto;
+    padding: 60px;
     width: 1000px;
 
     > *{
