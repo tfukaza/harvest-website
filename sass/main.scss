@@ -51,7 +51,7 @@ section{
 @media screen and (max-width: 768px){
     section{
         width: 90%;
-        margin: 0px 5%;
+        margin: 50px 5%;
         padding: 0px;
     }
 }
@@ -207,7 +207,7 @@ nav{
         @media screen and (max-width: 768px){
             left:10px;
             width:30px;
-            overflow-x: hidden;
+            overflow: hidden;
         }
     }
     #github{
