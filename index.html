@@ -36,21 +36,21 @@ css: [landing.css, ../asset/prism-dark-min.css]
     <p>The API is amazingly simple to code with.</p>
     <div id="try-text">
         
-        <p>Trade</p>
+        <h4>Asset Type</h4>
         <div class="select" id="asset-type">
-            <p>Select asset type</p>
+            <p>stock</p>
             <div>    
                 <li>stock</li>
                 <li>crypto</li>
             </div>
         </div></br>
-        <p>for</p>
+        <h4>Watchlist</h4>
         <div class="text" id="symbols" contenteditable="true">
             <span contenteditable="False">SPY</span>
         </div></br>
-        <p>every</p>
+        <h4>Interval</h4>
         <div class="select" id="interval">
-            <p>Select interval</p>
+            <p>5 minutes</p>
             <div>
                 <li>minute</li>
                 <li>5 minutes</li>
@@ -60,15 +60,15 @@ css: [landing.css, ../asset/prism-dark-min.css]
                 <li>day</li> 
             </div>
         </div></br>
-        <p>using</p>
+        <h4>Strategy</h4>
         <div class="select" id="strategy">
-            <p>Select strategy</p>
+            <p>Select</p>
             <div>
                 <li>SMA Crossover</li>
                 <li>RSI</li>
             </div>
         </div>
-        <p>strategy</p>
+
     </div>
     <div class="shadow-dark" id="try-code">
         <div class="code-header">
@@ -78,31 +78,15 @@ css: [landing.css, ../asset/prism-dark-min.css]
             <p>~/algo/strategy.py</p>
         </div>
         <div class="code-content">
-            <pre>
-                <code class="language-python">
-                pass
-           
-<!-- class Watch(BaseAlgo):
-    def config(self):
-        self.watchlist=<span id="symbols-code">["SPY"]</span>
-        self.interval=<span id="interval-code">None</span>
-    
-    def main(self):<span id="strategy-code">
-        sma_long = self.sma(period=50)
-        sma_short = self.sma(period=20)
-        if self.crossover(sma_long, sma_short):
-            self.buy()
-        elif self.crossover(sma_short, sma_long):
-            self.sell()</span> -->
-                </code>
-            </pre>
-            
-        
-      </div>  <div class="line-numbers">
-                {% for i in (1..20) %}
-                <span class="number"></span>
-                {% endfor %}
+            <div>
+
             </div>
+        </div>  
+        <div class="line-numbers">
+            {% for i in (1..20) %}
+            <span class="number">{{ i }}</span>
+            {% endfor %}
+        </div>
     </div>
     <!-- <div class="shadow-dark" id="try-shell">
         <div class="code-header">
@@ -196,7 +180,7 @@ css: [landing.css, ../asset/prism-dark-min.css]
     // let interval_code = document.getElementById('interval-code');
     let strategy = document.getElementById('strategy');
     // let strategy_code = document.getElementById('strategy-code');
-    let code_content = document.querySelector('.code-content > pre > code')
+    let code_content = document.querySelector('.code-content div')
 
     
 
@@ -205,7 +189,7 @@ css: [landing.css, ../asset/prism-dark-min.css]
 
     let interval_code = "5MIN";
     let strat = "pass";
-    let watchlist = "[]";
+    let watchlist = "['SPY']";
 
     function update_symbol_list(event){
         let symbols = Array.from(symbols_text.childNodes).filter(t => t.nodeName === "SPAN");
@@ -248,8 +232,7 @@ css: [landing.css, ../asset/prism-dark-min.css]
         let s = strategy.getAttribute('selection');
         switch(s) {
             case 'SMA Crossover':
-                strat = `
-        sma_long = self.sma(period=50)
+                strat = `sma_long = self.sma(period=50)
         sma_short = self.sma(period=20)
         if self.crossover(sma_long, sma_short):
             self.buy()
@@ -270,18 +253,20 @@ css: [landing.css, ../asset/prism-dark-min.css]
 
     function render_code() {
         let code = `
-class Watch(BaseAlgo):
+from harvest.algo import BaseAlgo
+
+class Strategy(BaseAlgo):
     def config(self):
-        self.watchlist=${watchlist}
-        self.interval=['${interval_code}']
+        self.watchlist = ${watchlist}
+        self.interval = ['${interval_code}']
     
     def main(self):
         ${strat}`;
-        console.log(code);
+        
         let html = Prism.highlight(code, Prism.languages.python, 'python');
         code_content.innerHTML = html;
 
     }
-    
+    render_code();    
 
 </script>
