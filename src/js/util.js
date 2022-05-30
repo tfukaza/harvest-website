@@ -55,7 +55,7 @@ function preToDaisyCode(html_str) {
             let lineConfig = handleDirective(line);
             if (lineConfig.result) {
                 config[lineConfig.key] = lineConfig.val;
-                console.log(lineConfig.key + "=" + lineConfig.val);
+                
             } else {
                 lines.push(line);
             }

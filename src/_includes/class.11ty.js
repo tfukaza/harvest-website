@@ -99,7 +99,7 @@ function formatDoc(html_str){
         section.contents = content;
         sections.push(section);
     }
-    console.log(sections);
+    
     // loop through each section and format the content
     let output = '';
     for (let section of sections) {
@@ -123,7 +123,7 @@ function formatDoc(html_str){
                 i++;
             }
         }
-        console.log(subsections);
+        
         
         for (let key in subsections) {
             switch (key) {
@@ -141,7 +141,7 @@ function formatDoc(html_str){
                     break;
                 case 'example':
                     let example = serializeNodeArray(subsections[key]);
-                    console.log(example);
+                    
                     /*html*/
                     output += `
                     <div tabindex="0" class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box"> 

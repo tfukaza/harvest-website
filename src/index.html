@@ -145,7 +145,7 @@ css: [landing.css, ../asset/prism-dark-min.css]
 
             codeInit() {
                 let result = render_code(this.config);
-                console.log(result);
+                
                 this.code = result.code;
                 this.codeRaw = result.codeRaw;
             },
@@ -239,7 +239,7 @@ css: [landing.css, ../asset/prism-dark-min.css]
 //                 let plain = Array.from(txt.childNodes).filter(t => t.nodeName !== "SPAN")
 //                 for (let p of plain) {
 //                     let plain_text = p.wholeText;
-//                     console.log(plain_text);
+//                     
 //                     if (plain_text.match(/^\s+$/) !== null) {
 //                         //txt.removeChild(p);
 //                         continue;

@@ -48,8 +48,8 @@ function render_menu(data){
     let regex = /[()]/g;
     let matches = str.match(regex);
     let desc_split = str.split(regex);
-    //console.log(matches);
-    //console.log(desc_split);
+    //
+    //
     let ret = `<span class="name">${desc_split[0]}</span>(`;
     let params = desc_split[1].split(',');
 
@@ -112,8 +112,8 @@ function render_menu(data){
 
     if (matches === null || matches.length === 0) { return str; }
 
-    //console.log(matches);
-    //console.log(desc_split);
+    //
+    //
 
     let ret = '';
     let tooltip = null;
@@ -127,7 +127,7 @@ function render_menu(data){
     }
     ret+=desc_split[0];
 
-    //console.log(ret);
+    //
 
     return ret;
   }

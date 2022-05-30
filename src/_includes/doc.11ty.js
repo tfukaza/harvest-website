@@ -17,7 +17,7 @@ function getLiquidTitle(file) {
         }
     });
     if (title.title == undefined) {
-        console.log(`No title found for ${file}`);
+        
     } 
     title.href = file.replace('src', '').replace('.md', '');
         
@@ -52,7 +52,7 @@ function sideMenu(data) {
     let tutorialTitles = tutorialFiles.map(file => {
         return getLiquidTitle(`src/docs/_tutorial/${file}`);
     });
-    console.log(tutorialTitles);
+    
     let classFiles = fs.readdirSync('src/docs/_class');
     let classTitles = classFiles.map(file => {
         return {
@@ -60,7 +60,14 @@ function sideMenu(data) {
             functions: getClassFunctions(`src/docs/_class/${file}`)
         }
     });
-    console.log(classTitles);
+    
+    
+    let urlPrefix = process.env.ELEVENTY_PATH_PREFIX;
+    if (urlPrefix === undefined) {
+        urlPrefix = '';
+    } else {
+        urlPrefix = '/' + urlPrefix;
+    }
 
     let html = `
         <div>
@@ -75,7 +82,6 @@ function sideMenu(data) {
     });
     for (let tutorial of tutorialTitles) {
         let cls = "";
-        //console.log(data.articleTitle+tutorial.title);
         if (data.articleTitle != undefined && tutorial.title.trim() === data.articleTitle.trim()) {
             cls = "bg-gray-200";
         }
@@ -85,7 +91,7 @@ function sideMenu(data) {
         <div class="divider"></div>
         <h3 class="text-sm mb-3 text-gray-400 uppercase font-semibold">API</h3>`;
     for (let classTitle of classTitles) {
-        let header_href = `/docs/_class/${classTitle.header}`;
+        let header_href = `${urlPrefix}/docs/_class/${classTitle.header}`;
         let cls = (classTitle.header === data.articleTitle) ? "bg-slate-50" : '';
         /*html*/
         html+=`
@@ -96,7 +102,7 @@ function sideMenu(data) {
             /*html*/
             html+=`
             <li class="flex rounded-sm overflow-hidden ${cls}">
-                <a class="p-2 text-sm" href="${func.href}">${func.title}</a>
+                <a class="p-2 text-sm" href="${urlPrefix}${func.href}">${func.title}</a>
             </li>`;
         }
         html+=`</ul></div>`;
