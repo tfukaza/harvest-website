@@ -85,7 +85,7 @@ function sideMenu(data) {
         if (data.articleTitle != undefined && tutorial.title.trim() === data.articleTitle.trim()) {
             cls = "bg-gray-200";
         }
-        html+=`<li class="flex rounded-sm overflow-hidden ${cls}"><a class="w-full p-2 text-sm" href="${tutorial.href}">${tutorial.title}</a></li>`;
+        html+=`<li class="flex rounded-sm overflow-hidden ${cls}"><a class="w-full p-2 text-sm" href="${urlPrefix}${tutorial.href}">${tutorial.title}</a></li>`;
     }
     html+=`</ul>
         <div class="divider"></div>
