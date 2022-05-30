@@ -8,7 +8,7 @@
     "watch:11ty": "eleventy --serve",
     "watch:tw": "npx tailwindcss -i _site/css/tw.css -c src/tailwind.config.js -o _site/css/tailwind.css --watch",
     "watch:sass": "sass --watch src/sass:_site/css",
-    "build": "ELEVENTY_PRODUCTION=true eleventy && sass src/sass:_site/css && NODE_ENV=production && npx tailwindcss -i _site/css/tw.css -c src/tailwind.config.js -o _site/css/tailwind.css --minify"
+    "build": "ELEVENTY_PRODUCTION=true eleventy --pathprefix=harvest-website && sass src/sass:_site/css && NODE_ENV=production && npx tailwindcss -i _site/css/tw.css -c src/tailwind.config.js -o _site/css/tailwind.css --minify"
   },
   "repository": {
     "type": "git",

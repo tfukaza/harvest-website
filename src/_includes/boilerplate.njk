@@ -10,7 +10,7 @@
     
     <link rel="icon" href="/favicon.ico" />
 
-    <link href="/css/tailwind.css" rel="stylesheet">
+    <link href="{{ '/css/tailwind.css' | url }}" rel="stylesheet">
     <link href="{{ '/css/main.css' | url }}" rel="stylesheet">
     {% for style in css %}
     <link href="{{ '/css/' | url }}{{ style }}" rel="stylesheet" ">
