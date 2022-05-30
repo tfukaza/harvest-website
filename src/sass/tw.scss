@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+code, pre{
+    @apply text-sm;
+}
+
+article{
+    @apply grid-cols-12;
+
+    p, li, a{
+        //@apply text-lg;
+    }
+    h1, h2, h3, h4, h5, h6{
+        @apply font-bold;
+    }
+    h1{ 
+        @apply text-4xl mt-16;
+    }
+    h2{ 
+        @apply text-2xl mt-12;
+    }
+    h3{ 
+        @apply text-3xl mt-6;
+    }
+    h4{ 
+        @apply text-lg mt-4;
+    }
+    p{
+        @apply mt-4;
+    }
+    ul, ol{
+        @apply pl-7 my-4 list-disc;
+    }
+    .mockup-code{
+        @apply my-8 shadow-xl;
+    }
+}
+
+.return {
+    ul, ol{
+        @apply pl-7 my-1 list-disc;
+    }
+}

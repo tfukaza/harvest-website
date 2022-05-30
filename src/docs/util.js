@@ -13,11 +13,11 @@ var md = new MarkdownIt({
   }});
 
 function render_menu(data){
-    let ret = '<div class="menu">';
+    let ret = '<ul class="">';
     for (let d of data) {
-      ret+=`<a href="#${d.index}">${d.index}</a>`;
+      ret+=`<li><a class="text-sm p-1" href="#${d.index}">${d.index}</a></li>`;
     }
-    return ret+"</div>";
+    return ret+"</ul>";
   }
 
  function render_all_methods(data) {

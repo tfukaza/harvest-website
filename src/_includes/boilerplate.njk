@@ -7,17 +7,25 @@
     <meta property="og:title" content={{ title }}/>
     <meta property="og:type" content="website"/>
     <meta property="og:image" content="https://tfukaza.github.io/harvest/logo.png"/>
+    
     <link rel="icon" href="/favicon.ico" />
 
-    
+    <link href="/css/tailwind.css" rel="stylesheet">
     <link href="{{ '/css/main.css' | url }}" rel="stylesheet">
     {% for style in css %}
     <link href="{{ '/css/' | url }}{{ style }}" rel="stylesheet" ">
     {% endfor %}
+
+    <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+
+    <!-- <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <py-env>
+        - request
+    </py-env> -->
 </head>
 <body> 
     {% include 'navbar.njk' %}
-    <main>
+    <main class="min-h-screen">
         {{ content | safe }}
     </main>
     {% include 'footer.njk' %}

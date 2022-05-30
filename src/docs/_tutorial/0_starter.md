@@ -1,7 +1,7 @@
 ---
 layout: tutorial_article
 title: Harvest | Tutorials
-article_title: Startup Guide
+articleTitle: Startup Guide
 css: [tutorial_page.css, ../asset/prism.css]
 ---
 
@@ -71,6 +71,7 @@ from harvest.api.robinhood import Robinhood
 Next we start writing out algorithm. Algorithms are created by extending the BaseAlgo class.
 
 ```python
+@@@lineNumStart=5
 class MyAlgo(BaseAlgo):
     pass
 ```
@@ -83,6 +84,7 @@ There are three methods in the Algo class that you can define.
 We first define the config method.
 
 ```python
+@@@lineNumStart=5
 class MyAlgo(BaseAlgo):
     
     def config(self):
