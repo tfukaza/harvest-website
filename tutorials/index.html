@@ -7,71 +7,74 @@
     <meta property="og:title" content=Harvest | Tutorials/>
     <meta property="og:type" content="website"/>
     <meta property="og:image" content="https://tfukaza.github.io/harvest/logo.png"/>
+    
     <link rel="icon" href="/favicon.ico" />
 
+    <link href="/css/tailwind.css" rel="stylesheet">
+    <link href="/css/main.css" rel="stylesheet">
     
-    <link href="/harvest-website/css/main.css" rel="stylesheet">
+    <link href="/css/tutorials.css" rel="stylesheet" ">
     
-    <link href="/harvest-website/css/tutorials.css" rel="stylesheet" ">
-    
+
+    <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
+
+    <!-- <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <py-env>
+        - request
+    </py-env> -->
 </head>
 <body> 
-     <nav>
-    <a id="logo" href="/harvest-website/" >       
-        <img src="/harvest-website/asset/logo.svg"/>
-    </a>
-    <!-- <a id="logo-mobile" href="/harvest-website/" >
-        <img src="/harvest-website/asset/logo-mobile.svg"/>
-    </a> -->
-    <ul>
-        <li><a href="/harvest-website/tutorials">Tutorials</a></li>
-        <li><a href="/harvest-website/docs">Docs</a></li>
-    </ul>
-    <a id="github" href="https://github.com/tfukaza/harvest"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" /></a>
-</nav>
-    <main>
-        <section>
-
-    <h1>Starters</h1>
-    <a href="/harvest-website/tutorials/starter" class="card col-3 clickable">
-       
-        <h2>Startup Guide</h2>
-        <p>
-        Introduction to installing Harvest, and writing your first algorithm.
-        </p>
-    </a>
-    <a href="/harvest-website/tutorials/cli" class="card col-3 clickable">
-       
-        <h2>Harvest CLI</h2>
-        <p>
-        How to use the Harvest CLI.
-        </p>
-    </a>
-    <div class="card col-3 nonclickable">
-      
-        <h2>Backtesting</h2>
-        <p>
-        ---
-        </p>
-    </div>
-    <div class="card col-3 nonclickable">
-       
-        <h2>Paper Trading</h2>
-        <p>
-        ---
-        </p>
-    </div>
-</section>
-
-    </main>
-    <footer>
-   
+     <nav class="z-10 lg:absolute navbar shadow-sm bg-base-100">
     <div>
-        <div>
-
-        <a href="https://github.com/tfukaza/harvest/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5B%F0%9F%AA%B0BUG%5D">Report a Bug</a>
-        <a href="https://github.com/tfukaza/harvest/issues/new?assignees=&labels=enhancement%2C+question&template=feature-request.md&title=%5B%F0%9F%92%A1Feature+Request%5D">Suggest a Feature</a>
+        <div class="navbar-start flex items-center">
+            <a id="logo" class="w-20 lg:w-28" href="/" >       
+                <img  src="/asset/logo.svg"/>
+            </a>
+            <div class="ml-4 lg:ml-8 badge badge-outline badge-primary"><code>v0.5</code></div>
+        </div>
+        <div class="navbar-center">
+          
+            <!-- <ul class="menu menu-horizontal rounded-box p-2">
+                <li><a href="/tutorials">Tutorials</a></li>
+                <li><a href="/docs">Docs</a></li>
+            </ul> -->
+        </div>
+        <div class="navbar-end text-right">
+            <ul class="menu menu-horizontal rounded-box p-2">
+                <!-- <li><a href="/tutorials">Tutorials</a></li> -->
+                <li><a href="/docs">Docs</a></li>
+                <li><a href="https://github.com/tfukaza/harvest">GitHub</a></li>
+            </ul>
+            <!-- <a id="github" href="https://github.com/tfukaza/harvest"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" /></a> -->
+        </div>
     </div>
-  </div>
+</nav>
+    <main class="min-h-screen">
+        
+    <section>
+        <h2>Starters</h2><div class='grid grid-cols-4 gap-4'>
+                <a class="card bg-base-100 shadow-xl" href="/tutorials/starter">
+                    <div class="card-body">
+                        <h3 class="card-title">Startup Guide</h3>
+                        <p>Introduction to installing Harvest, and writing your first algorithm.</p>
+                    </div>
+                </a>
+            
+                <a class="card bg-base-100 shadow-xl" href="/tutorials/cli">
+                    <div class="card-body">
+                        <h3 class="card-title">CLI</h3>
+                        <p>Introduction to the command line interface.</p>
+                    </div>
+                </a>
+            </div>
+    </section>
+    </main>
+    
+<footer class="footer bg-base-100 border-t-2 p-10 footer-center absolute z-10">
+  <div>
+    <span class="footer-title">GitHub</span> 
+    <a class="link link-hover" href="https://github.com/tfukaza/harvest/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5B%F0%9F%AA%B0BUG%5D">Report a Bug</a>
+    <a class="link link-hover" href="https://github.com/tfukaza/harvest/issues/new?assignees=&labels=enhancement%2C+question&template=feature-request.md&title=%5B%F0%9F%92%A1Feature+Request%5D">Suggest a Feature</a>
+  </div> 
 </footer>
 </body>

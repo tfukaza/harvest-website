@@ -1,23 +1,21 @@
-/* PrismJS 1.25.0
-https://prismjs.com/download.html#themes=prism-okaidia&languages=bash+python */
-/**
- * okaidia theme for JavaScript, CSS and HTML
- * Loosely based on Monokai textmate theme by http://www.monokai.nl/
- * @author ocodia
- */
+/*
+Name: Duotone Sea
+Author: by Simurai, adapted from DuoTone themes by Simurai for Atom (http://simurai.com/projects/2016/01/01/duotone-themes)
+
+Conversion: Bram de Haan (http://atelierbram.github.io/Base2Tone-prism/output/prism/prism-base2tone-sea-dark.css)
+Generated with Base16 Builder (https://github.com/base16-builder/base16-builder)
+*/
 
 code[class*="language-"],
 pre[class*="language-"] {
-	color: #535353;
-	background: none;
-	font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-	font-size: 0.9em;
+	font-family: Consolas, Menlo, Monaco, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L", "Courier New", Courier, monospace;
+	font-size: 14px;
+	line-height: 1.375;
+	direction: ltr;
 	text-align: left;
 	white-space: pre;
 	word-spacing: normal;
 	word-break: normal;
-	word-wrap: normal;
-	line-height: 1.5;
 
 	-moz-tab-size: 4;
 	-o-tab-size: 4;
@@ -27,6 +25,24 @@ pre[class*="language-"] {
 	-moz-hyphens: none;
 	-ms-hyphens: none;
 	hyphens: none;
+	background: #1d262f;
+	color: #57718e;
+}
+
+pre > code[class*="language-"] {
+	font-size: 1em;
+}
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
+	text-shadow: none;
+	background: #004a9e;
+}
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection {
+	text-shadow: none;
+	background: #004a9e;
 }
 
 /* Code blocks */
@@ -34,96 +50,123 @@ pre[class*="language-"] {
 	padding: 1em;
 	margin: .5em 0;
 	overflow: auto;
-	border-radius: 0.3em;
-}
-
-:not(pre) > code[class*="language-"],
-pre[class*="language-"] {
-	background: #f2f3f5;
-	/*border: 1px solid rgb(228, 228, 228);*/
 }
 
 /* Inline code */
 :not(pre) > code[class*="language-"] {
 	padding: .1em;
 	border-radius: .3em;
-	white-space: normal;
 }
 
 .token.comment,
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: #8292a2;
+	color: #4a5f78;
 }
 
 .token.punctuation {
-	color: #979797;
+	color: #4a5f78;
 }
 
 .token.namespace {
 	opacity: .7;
 }
 
-.token.property,
 .token.tag,
-.token.constant,
-.token.symbol,
-.token.deleted {
-	color: #f92672;
-}
-
-.token.boolean,
-.token.number {
-	color: #ae81ff;
-}
-
-.token.selector,
-.token.attr-name,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-	color: #7eb314;
-}
-
 .token.operator,
+.token.number {
+	color: #0aa370;
+}
+
+.token.property,
+.token.function {
+	color: #57718e;
+}
+
+.token.tag-id,
+.token.selector,
+.token.atrule-id {
+	color: #ebf4ff;
+}
+
+code.language-javascript,
+.token.attr-name {
+	color: #7eb6f6;
+}
+
+code.language-css,
+code.language-scss,
+.token.boolean,
+.token.string,
 .token.entity,
 .token.url,
 .language-css .token.string,
+.language-scss .token.string,
 .style .token.string,
-.token.variable {
-	color: #cf3c8d;
-}
-
-.token.atrule,
 .token.attr-value,
-.token.function{
-	color: #e98cfc;
-}
-
-.token.class-name {
-	color: #ff5295;
-}
-
-.token.keyword {
-	color: #277ad8;
-}
-
+.token.keyword,
+.token.control,
+.token.directive,
+.token.unit,
+.token.statement,
 .token.regex,
-.token.important {
-	color: #fd971f;
+.token.atrule {
+	color: #47ebb4;
+}
+
+.token.placeholder,
+.token.variable {
+	color: #47ebb4;
+}
+
+.token.deleted {
+	text-decoration: line-through;
+}
+
+.token.inserted {
+	border-bottom: 1px dotted #ebf4ff;
+	text-decoration: none;
+}
+
+.token.italic {
+	font-style: italic;
 }
 
 .token.important,
 .token.bold {
 	font-weight: bold;
 }
-.token.italic {
-	font-style: italic;
+
+.token.important {
+	color: #7eb6f6;
 }
 
 .token.entity {
 	cursor: help;
 }
 
+pre > code.highlight {
+	outline: .4em solid #34659d;
+	outline-offset: .4em;
+}
+
+/* overrides color-values for the Line Numbers plugin
+ * http://prismjs.com/plugins/line-numbers/
+ */
+.line-numbers.line-numbers .line-numbers-rows {
+	border-right-color: #1f2932;
+}
+
+.line-numbers .line-numbers-rows > span:before {
+	color: #2c3847;
+}
+
+/* overrides color-values for the Line Highlight plugin
+* http://prismjs.com/plugins/line-highlight/
+*/
+.line-highlight.line-highlight {
+	background: rgba(10, 163, 112, 0.2);
+	background: -webkit-linear-gradient(left, rgba(10, 163, 112, 0.2) 70%, rgba(10, 163, 112, 0));
+	background: linear-gradient(to right, rgba(10, 163, 112, 0.2) 70%, rgba(10, 163, 112, 0));
+}
