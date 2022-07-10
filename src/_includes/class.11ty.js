@@ -64,7 +64,7 @@ function serializeTable(nodes) {
             }
             html += `
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">${paramName}${paramType}</span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">${paramName}${paramType}</span>
                 <span class="py-2 pr-3 grow text-sm">${paramDesc}</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm">${paramDefaults}</span>
             </div>`;

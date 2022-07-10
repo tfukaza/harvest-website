@@ -110,18 +110,22 @@ function sideMenu(data) {
         <h3 class="text-sm mb-3 text-gray-400 uppercase font-semibold">API</h3>`;
     for (const [key, value] of Object.entries(classDoc)) {
         let header_href = `${urlPrefix}/docs/API/${key}`;
-        let cls = (key === data.articleTitle) ? "bg-slate-50" : '';
+        
         /*html*/
         html+=`
-        <div class="p-3 rounded-sm overflow-hidden ${cls}">
-        <a class="w-full font-semibold text-gray-700" href="${header_href}">${key}</a>
-            <ul class="">`;
+        <div class="p-3 rounded-sm overflow-hidden">
+            <a class="btn btn-sm btn-ghost font-semibold text-gray-700" href="${header_href}">${key}</a>
+            <ul class="menu menu-compact p-2 rounded-box">`;
         for (let func of value) {
             /*html*/
+            let slug = data.page.fileSlug.split('-');
+            slug = slug[slug.length - 1];
+            let cls = (slug === func.title) ? "bg-slate-300" : '';
+            console.log(data.page.fileSlug, func.title)
             html+=`
-            <li class="flex rounded-lg hover:bg-primary transition-all overflow-hidden ${cls}">
-                <a class="w-full p-2 text-sm" href="${urlPrefix}${func.href}">${func.title}</a>
-            </li>`;
+                <li class="rounded-md ${cls}">
+                    <a class="text-sm " href="${urlPrefix}${func.href}">${func.title}</a>
+                </li>`;
         }
         html+=`</ul></div>`;
     }
@@ -171,7 +175,7 @@ exports.render = function(data) {
             }">
                 ${menu}
             </aside>
-            <div class="lg:pl-80 lg:pt-40">
+            <div class="lg:pl-80 lg:pt-40 lg:pb-40">
                 ${bc_str}
                 ${content}
             </div>
