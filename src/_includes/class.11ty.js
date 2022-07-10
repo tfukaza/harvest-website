@@ -19,7 +19,7 @@ function serializeNodeArray(nodes, removeTag = false) {
 
 function serializeTable(nodes) {
     let html = `
-    <div class="py-16">
+    <div class="mb-12">
         <div class="hidden font-semibold lg:flex">
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs w-40 flex-none">Parameter</span>
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs grow">Description</span>
@@ -64,7 +64,7 @@ function serializeTable(nodes) {
             }
             html += `
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">${paramName}${paramType}</span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">${paramName}${paramType}</span>
                 <span class="py-2 pr-3 grow text-sm">${paramDesc}</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm">${paramDefaults}</span>
             </div>`;
@@ -131,13 +131,13 @@ function formatDoc(html_str){
                     let name = serializeNodeArray(subsections[key], true);
                     // remove parenthesis
                     let funcName = name.replace(/\(.*\)/g, '').trim();
-                    output += `<h1 id="${funcName}" class="text-2xl lg:text-4xl font-semibold mb-4">${funcName}</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>${name}</code></div>`;
+                    output += `<h1 id="${funcName}" class="text-2xl lg:text-4xl font-semibold mb-3">${funcName}</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>${name}</code></div>`;
                 
                     break;
                 case 'desc':
                     let desc = serializeNodeArray(subsections[key]);
-                    output += `<p>${desc}</p>`;
+                    output += `<div class="mb-8">${desc}</div>`;
                     break;
                 case 'example':
                     let example = serializeNodeArray(subsections[key]);
@@ -166,7 +166,7 @@ function formatDoc(html_str){
                     break;
             }
         }
-        output+=`<div class="divider my-20"></div>`;
+        //output+=`<div class="divider my-20"></div>`;
     }
     return output;
 

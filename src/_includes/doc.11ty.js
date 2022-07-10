@@ -33,9 +33,10 @@ function getClassFunctions(file) {
     for (let line of lines) {
         if (line.startsWith('# ')) {
             line = line.replace('# ', '');
+            let href = file.replace('src', '').replace('.md', '').replace('\n', '');
             let func = {
                 title: line,
-                href: file.replace('src', '').replace('.md', '') + '#' + line.replace(/ /g, '')
+                href: href
             }
             functions.push(func);
         }
@@ -47,19 +48,36 @@ function getClassFunctions(file) {
 
 
 function sideMenu(data) {
-    let tutorialFiles = fs.readdirSync('src/docs/_tutorial');
+    let tutorialFiles = fs.readdirSync('src/docs/Introduction');
     // get the liquid template data for each file
     let tutorialTitles = tutorialFiles.map(file => {
-        return getLiquidTitle(`src/docs/_tutorial/${file}`);
+        return getLiquidTitle(`src/docs/Introduction/${file}`);
     });
     
-    let classFiles = fs.readdirSync('src/docs/_class');
-    let classTitles = classFiles.map(file => {
-        return {
-            header: file.replace('.md', ''),
-            functions: getClassFunctions(`src/docs/_class/${file}`)
-        }
+    let classFiles = fs.readdirSync('src/docs/API');
+    // ignore files that end with "main.md"
+    classFiles = classFiles.filter(file => {
+        return !file.endsWith('main.md');
     });
+    let classDoc = {};
+    for (let file of classFiles) {
+        let fileParams = file.replace('.md', '').split('-');
+        let className = fileParams[0];
+        //let num = fileParams[1];
+        //let funcName = fileParams[2];
+        let functions = getClassFunctions(`src/docs/API/${file}`);
+        if (className in classDoc) {
+            classDoc[className] = classDoc[className].concat(functions);
+        } else {
+            classDoc[className] = functions;
+        }
+    }
+    // let classTitles = classFiles.map(file => {
+    //     return {
+    //         header: file.replace('.md', ''),
+    //         functions: getClassFunctions(`src/docs/API/${file}`)
+    //     }
+    // });
     
     
     let urlPrefix = process.env.ELEVENTY_PATH_PREFIX;
@@ -85,25 +103,29 @@ function sideMenu(data) {
         if (data.articleTitle != undefined && tutorial.title.trim() === data.articleTitle.trim()) {
             cls = "bg-gray-200";
         }
-        html+=`<li class="flex rounded-sm overflow-hidden ${cls}"><a class="w-full p-2 text-sm" href="${urlPrefix}${tutorial.href}">${tutorial.title}</a></li>`;
+        html+=`<li class="flex rounded-lg overflow-hidden ${cls} hover:bg-primary hover:text-white transition-all"><a class="w-full p-2 text-sm" href="${urlPrefix}${tutorial.href}">${tutorial.title}</a></li>`;
     }
     html+=`</ul>
         <div class="divider"></div>
         <h3 class="text-sm mb-3 text-gray-400 uppercase font-semibold">API</h3>`;
-    for (let classTitle of classTitles) {
-        let header_href = `${urlPrefix}/docs/_class/${classTitle.header}`;
-        let cls = (classTitle.header === data.articleTitle) ? "bg-slate-50" : '';
+    for (const [key, value] of Object.entries(classDoc)) {
+        let header_href = `${urlPrefix}/docs/API/${key}`;
+        
         /*html*/
         html+=`
-        <div class="p-3 rounded-sm overflow-hidden ${cls}">
-        <a class="w-full font-semibold text-gray-700" href="${header_href}">${classTitle.header}</a>
-            <ul class="">`;
-        for (let func of classTitle.functions) {
+        <div class="p-3 rounded-sm overflow-hidden">
+            <a class="btn btn-sm btn-ghost font-semibold text-gray-700" href="${header_href}">${key}</a>
+            <ul class="menu menu-compact p-2 rounded-box">`;
+        for (let func of value) {
             /*html*/
+            let slug = data.page.fileSlug.split('-');
+            slug = slug[slug.length - 1];
+            let cls = (slug === func.title) ? "bg-slate-300" : '';
+            console.log(data.page.fileSlug, func.title)
             html+=`
-            <li class="flex rounded-sm overflow-hidden ${cls}">
-                <a class="p-2 text-sm" href="${urlPrefix}${func.href}">${func.title}</a>
-            </li>`;
+                <li class="rounded-md ${cls}">
+                    <a class="text-sm " href="${urlPrefix}${func.href}">${func.title}</a>
+                </li>`;
         }
         html+=`</ul></div>`;
     }
@@ -118,6 +140,29 @@ exports.render = function(data) {
 
     let menu = sideMenu(data);
     let content = data.content;
+    let breadcrumbs = [];
+    let filePathStem = data.page.filePathStem;
+    let pages = filePathStem.split('/');
+    // if any of the pages have a '-', split and use the last part
+    for (let page of pages) {
+        if (page.includes('-')) {
+            page = page.split('-');
+            page = page[page.length - 1];
+        }
+        if (page != '') {
+            breadcrumbs.push(page);
+        } 
+       
+    }
+    let bc_str = `
+        <div class="text-sm breadcrumbs mb-5">
+            <ul>`;
+    for (let bc of breadcrumbs) {
+        bc_str += `<li>${bc}</li>`;
+    }
+    bc_str += `</ul>
+        </div>`;
+
     /*html*/
     return `
         <section class="lg:w-[1000px] mx-auto"
@@ -130,7 +175,8 @@ exports.render = function(data) {
             }">
                 ${menu}
             </aside>
-            <div class="lg:pl-80 lg:pt-40">
+            <div class="lg:pl-80 lg:pt-40 lg:pb-40">
+                ${bc_str}
                 ${content}
             </div>
             <button class="fixed top-24 right-3 btn btn-circle lg:hidden z-40"
