@@ -26,7 +26,7 @@
     </py-env> -->
 </head>
 <body> 
-     <nav class="z-10 lg:absolute navbar shadow-sm bg-base-100">
+     <nav class="z-10 navbar shadow-sm bg-base-100 fixed">
     <div>
         <div class="navbar-start flex items-center">
             <a id="logo" class="w-20 lg:w-28" href="/harvest-website/" >       
@@ -65,103 +65,101 @@
         <div>
         <h3 class="text-sm mb-3 text-gray-400 uppercase font-semibold ">Introduction</h3>
         <ul class="">
-    <li class="flex rounded-sm overflow-hidden "><a class="w-full p-2 text-sm" href="/harvest-website/docs">Installation</a></li><li class="flex rounded-sm overflow-hidden bg-gray-200"><a class="w-full p-2 text-sm" href="/harvest-website/docs/_tutorial/0_starter"> Startup Guide</a></li><li class="flex rounded-sm overflow-hidden "><a class="w-full p-2 text-sm" href="/harvest-website/docs/_tutorial/1_cli"> CLI</a></li></ul>
+    <li class="flex rounded-lg overflow-hidden  hover:bg-primary hover:text-white transition-all"><a class="w-full p-2 text-sm" href="/harvest-website/docs">Installation</a></li><li class="flex rounded-lg overflow-hidden bg-gray-200 hover:bg-primary hover:text-white transition-all"><a class="w-full p-2 text-sm" href="/harvest-website/docs/Introduction/0-starter"> Startup Guide</a></li><li class="flex rounded-lg overflow-hidden  hover:bg-primary hover:text-white transition-all"><a class="w-full p-2 text-sm" href="/harvest-website/docs/Introduction/1-cli"> CLI</a></li></ul>
         <div class="divider"></div>
         <h3 class="text-sm mb-3 text-gray-400 uppercase font-semibold">API</h3>
-        <div class="p-3 rounded-sm overflow-hidden ">
-        <a class="w-full font-semibold text-gray-700" href="/harvest-website/docs/_class/BaseAlgo">BaseAlgo</a>
-            <ul class="">
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#setup">setup</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#main">main</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#buy">buy</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#sell">sell</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_option_market_data">get_option_market_data</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_option_chain">get_option_chain</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_option_chain_info">get_option_chain_info</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#filter_option_chain">filter_option_chain</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#ema">ema</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#rsi">rsi</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#sma">sma</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#bbands">bbands</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_account_buying_power">get_account_buying_power</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_account_equity">get_account_equity</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_asset_current_candle">get_asset_current_candle</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_asset_candle_list">get_asset_candle_list</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_asset_avg_cost">get_asset_avg_cost</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_date">get_date</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_datetime">get_datetime</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_asset_current_price">get_asset_current_price</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_asset_price_list">get_asset_price_list</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_asset_quantity">get_asset_quantity</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_asset_profit_percent">get_asset_profit_percent</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_time">get_time</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_account_stock_positions">get_account_stock_positions</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_account_crypto_positions">get_account_crypto_positions</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_account_option_positions">get_account_option_positions</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden ">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_watchlist">get_watchlist</a>
-            </li></ul></div>
-        <div class="p-3 rounded-sm overflow-hidden ">
-        <a class="w-full font-semibold text-gray-700" href="/harvest-website/docs/_class/LiveTrader">LiveTrader</a>
-            <ul class=""></ul></div>
+        <div class="p-3 rounded-sm overflow-hidden">
+            <a class="btn btn-sm btn-ghost font-semibold text-gray-700" href="/harvest-website/docs/API/BaseAlgo">BaseAlgo</a>
+            <ul class="menu menu-compact p-2 rounded-box">
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-001-setup">setup</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-003-buy">buy</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-004-sell">sell</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-005-get_option_market_data">get_option_market_data</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-006-get_option_chain">get_option_chain</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-007-get_option_chain_info">get_option_chain_info</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-008-filter_option_chain">filter_option_chain</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-009-ema">ema</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-010-rsi">rsi</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-011-sma">sma</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-012-bbands">bbands</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-013-get_account_buying_power">get_account_buying_power</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-014-get_account_equity">get_account_equity</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-015-get_asset_current_candle">get_asset_current_candle</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-016-get_asset_candle_list">get_asset_candle_list</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-017-get_asset_avg_cost">get_asset_avg_cost</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-018-get_date">get_date</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-019-get_datetime">get_datetime</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-020-get_asset_current_price">get_asset_current_price</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-021-get_asset_price_list">get_asset_price_list</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-022-get_asset_quantity">get_asset_quantity</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-023-get_asset_profit_percent">get_asset_profit_percent</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-024-get_time">get_time</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-025-get_account_stock_positions">get_account_stock_positions</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-026-get_account_crypto_positions">get_account_crypto_positions</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-027-get_account_option_positions">get_account_option_positions</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-028-get_watchlist">get_watchlist</a>
+                </li></ul></div>
     <div class="h-64"></div>
     </div>
             </aside>
-            <div class="lg:pl-80 lg:pt-40">
+            <div class="lg:pl-80 lg:pt-40 lg:pb-40">
+                
+        <div class="text-sm breadcrumbs mb-5">
+            <ul><li>docs</li><li>Introduction</li><li>starter</li></ul>
+        </div>
                 
     <article class="min-h-screen">
       

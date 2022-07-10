@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Harvest | Tutorials</title>
+    <title>Harvest | Doc</title>
     <meta name="description" content=""/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta property="og:title" content=Harvest | Tutorials/>
+    <meta property="og:title" content=Harvest | Doc/>
     <meta property="og:type" content="website"/>
     <meta property="og:image" content="https://tfukaza.github.io/harvest/logo.png"/>
     
@@ -13,7 +13,7 @@
     <link href="/harvest-website/css/tailwind.css" rel="stylesheet">
     <link href="/harvest-website/css/main.css" rel="stylesheet">
     
-    <link href="/harvest-website/css/tutorial_page.css" rel="stylesheet" ">
+    <link href="/harvest-website/css/../asset/prism-dark-min.css" rel="stylesheet" ">
     
 
     <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
@@ -99,7 +99,7 @@
                 <li class="rounded-md ">
                     <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-011-sma">sma</a>
                 </li>
-                <li class="rounded-md ">
+                <li class="rounded-md bg-slate-300">
                     <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-012-bbands">bbands</a>
                 </li>
                 <li class="rounded-md ">
@@ -156,48 +156,59 @@
             <div class="lg:pl-80 lg:pt-40 lg:pb-40">
                 
         <div class="text-sm breadcrumbs mb-5">
-            <ul><li>tutorials</li><li>cli</li></ul>
+            <ul><li>docs</li><li>API</li><li>bbands</li></ul>
         </div>
                 
-    <article class="min-h-screen">
-      
-        <h1 class="mt-0">undefined</h1>
-          
-        <html><head></head><body><h2>CLI</h2>
-<p>This guide will show you all the features of the command line interface that comes with Harvest. To get started type:</p>
-<div class="mockup-code"><pre data-prefix="$"><code>python -m harvest -h</code></pre></div>
-<p>This will output the following:</p>
-<div class="mockup-code"><pre data-prefix="$"><code>usage: -m <span class="token punctuation">[</span>-h<span class="token punctuation">]</span> <span class="token punctuation">{</span>start,visualize<span class="token punctuation">}</span> <span class="token punctuation">..</span>.</code></pre><pre data-prefix="$"><code></code></pre><pre data-prefix="$"><code>Harvest CLI</code></pre><pre data-prefix="$"><code></code></pre><pre data-prefix="$"><code>positional arguments:</code></pre><pre data-prefix="$"><code>  <span class="token punctuation">{</span>start,visualize<span class="token punctuation">}</span></code></pre><pre data-prefix="$"><code></code></pre><pre data-prefix="$"><code>optional arguments:</code></pre><pre data-prefix="$"><code>  -h, --help         show this <span class="token builtin class-name">help</span> message and <span class="token builtin class-name">exit</span></code></pre></div>
-<p>Here you can see that the cli requires one of two arguments <code>start</code> and <code>visualize</code>. Each argument is described below.</p>
-<h2>start</h2>
-<p>The <code>start</code> argument is used to run Harvest. Here you can specify your storage, streamer, broker, and which algorithms you want to run. To get started type:</p>
-<div class="mockup-code"><pre data-prefix="$"><code>python -m harvest start -h</code></pre></div>
-<p>This will output the following:</p>
-<div class="mockup-code"><pre data-prefix="$"><code>usage: -m start <span class="token punctuation">[</span>-h<span class="token punctuation">]</span> <span class="token punctuation">[</span>-o <span class="token punctuation">{</span>memory,csv,pickle,db<span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>-s <span class="token punctuation">{</span>dummy,yahoo,polygon,robinhood,alpaca,kraken,webull<span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>-b <span class="token punctuation">{</span>paper,robinhood,alpaca,kraken,webull<span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">[</span>-d DIRECTORY<span class="token punctuation">]</span> <span class="token punctuation">[</span>--debug <span class="token operator">|</span> --no-debug<span class="token punctuation">]</span></code></pre><pre data-prefix="$"><code></code></pre><pre data-prefix="$"><code>optional arguments:</code></pre><pre data-prefix="$"><code>  -h, --help            show this <span class="token builtin class-name">help</span> message and <span class="token builtin class-name">exit</span></code></pre><pre data-prefix="$"><code>  -o <span class="token punctuation">{</span>memory,csv,pickle,db<span class="token punctuation">}</span>, --storage <span class="token punctuation">{</span>memory,csv,pickle,db<span class="token punctuation">}</span></code></pre><pre data-prefix="$"><code>                        the way to store asset data</code></pre><pre data-prefix="$"><code>  -s <span class="token punctuation">{</span>dummy,yahoo,polygon,robinhood,alpaca,kraken,webull<span class="token punctuation">}</span>, --streamer <span class="token punctuation">{</span>dummy,yahoo,polygon,robinhood,alpaca,kraken,webull<span class="token punctuation">}</span></code></pre><pre data-prefix="$"><code>                        fetches asset data</code></pre><pre data-prefix="$"><code>  -b <span class="token punctuation">{</span>paper,robinhood,alpaca,kraken,webull<span class="token punctuation">}</span>, --broker <span class="token punctuation">{</span>paper,robinhood,alpaca,kraken,webull<span class="token punctuation">}</span></code></pre><pre data-prefix="$"><code>                        buys and sells assets on your behalf</code></pre><pre data-prefix="$"><code>  -d DIRECTORY, --directory DIRECTORY</code></pre><pre data-prefix="$"><code>                        directory where algorithms are located</code></pre><pre data-prefix="$"><code>  --debug, --no-debug</code></pre></div>
-<p>The first option is the storage which is specified with the <code>-o</code> flag. The default is <code>memory</code> which stores asset data only in memory.</p>
-<p>The second option is the streamer which is specified with the <code>-s</code> flag. The default is <code>dummy</code> which generates random data and not based on asset data at all. All other streamers fetch data from actual data sources.</p>
-<p>The third option is the broker which is specified with the <code>-b</code> flag. The default is <code>paper</code> which is Harvest's internal paper trader.</p>
-<p>The fourth option is the directory which is specified with the <code>-d</code> flag. The default is the current working directory. All files in the given directory will be searched, and if a file has an algorithm it will be run by Harvest. A file with an algorithm has to be a python file with a class that inherits from the <code>BaseAlgo</code> class. If <code>HARVEST_SKIP</code> is found anywhere on the first line of the file, it will be skipped. This is a good way to ignore algorithms that you don't want to run.</p>
-<p>The fifth option is a boolean option which can be either <code>--debug</code> or <code>--no-debug</code>. The default is <code>--no-debug</code> which informs the Harvest logger not to print debugging messages. Turn this option on if you want more details as to what Harvest is doing.</p>
-<h3>Examples</h3>
-<p>Run Harvest without saving asset data to disk, simulate assets, use Harvest paper trader, look for algorithms in the current working directory, and do not show debugging logs.</p>
-<div class="mockup-code"><pre data-prefix="$"><code>python -m harvest start </code></pre></div>
-<p>Run Harvest with asset data saved as csv files, fetch data from polygon, use alpaca to handle trading, run the algorithms found in the <code>algos</code> folder, and show debugging information.</p>
-<div class="mockup-code"><pre data-prefix="$"><code>python -m harvest start -o csv -s polygon -b alpaca -d ./algos --debug</code></pre></div>
-<h2>visualize</h2>
-<p>The <code>visualize</code> argument is used view stored OHLC data that Harvest stores. It expects either a csv or pickle file. It is also dependent on the <a href="https://pypi.org/project/mplfinance/">mplfinance</a> python package which is not installed by default with Harvest. To get started run:</p>
-<div class="mockup-code"><pre data-prefix="$"><code>python -m harvest visualize -h</code></pre></div>
-<p>This will output the following:</p>
-<div class="mockup-code"><pre data-prefix="$"><code>usage: -m visualize <span class="token punctuation">[</span>-h<span class="token punctuation">]</span> path</code></pre><pre data-prefix="$"><code></code></pre><pre data-prefix="$"><code>positional arguments:</code></pre><pre data-prefix="$"><code>  path        path to harvest generated data <span class="token function">file</span></code></pre><pre data-prefix="$"><code></code></pre><pre data-prefix="$"><code>optional arguments:</code></pre><pre data-prefix="$"><code>  -h, --help  show this <span class="token builtin class-name">help</span> message and <span class="token builtin class-name">exit</span></code></pre></div>
-<p>As you can see this is a very simple command. The only argument is the path to the csv or pickle file. This path can be relative or absolute.</p>
-<h3>Example</h3>
-<div class="mockup-code"><pre data-prefix="$"><code>python -m visualize ./storage/@DOGE@1MIN.csv</code></pre></div>
-<p>Output to terminal:</p>
-<div class="mockup-code"><pre data-prefix="$"><code>@DOGE at 1MIN</code></pre><pre data-prefix="$"><code><span class="token function">open</span>    <span class="token number">0.2708127</span></code></pre><pre data-prefix="$"><code>high    <span class="token number">0.27352659999999995</span></code></pre><pre data-prefix="$"><code>low     <span class="token number">0.2685754</span></code></pre><pre data-prefix="$"><code>close   <span class="token number">0.27254029999999996</span></code></pre><pre data-prefix="$"><code>price change    <span class="token number">0.0017275999999999403</span></code></pre><pre data-prefix="$"><code>price change percentage <span class="token number">0.004209551475752374</span>%</code></pre><pre data-prefix="$"><code>volume  <span class="token number">3486334.8061624</span></code></pre></div>
-<p>Output graph:</p>
-<p><img src="../../asset/@DOGE@1MIN.png" alt="OHLC for DOGE at 1 minute interval"></p>
-</body></html>
-    </article>
+        <h1 id="bbands" class="text-2xl lg:text-4xl font-semibold mb-3">bbands</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
+bbands(self, symbol, period, interval, ref, dev, prices)
+</code></div><div class="mb-8">
+<p>Calculate Bollinger Bands</p>
+</div>
+    <div class="mb-12">
+        <div class="hidden font-semibold lg:flex">
+            <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs w-40 flex-none">Parameter</span>
+            <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs grow">Description</span>
+            <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs w-32 flex-none">Default</span>
+        </div>
+        <div>
+            <div class="lg:flex border-t-[1px] border-slate-200">
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">symbol<span class="text-slate-500">(str)</span></span>
+                <span class="py-2 pr-3 grow text-sm"> Symbol to perform calculation on.</span>
+                <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
+            </div>
+            <div class="lg:flex border-t-[1px] border-slate-200">
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">period<span class="text-slate-500">(int)</span></span>
+                <span class="py-2 pr-3 grow text-sm"> Period of BBands.</span>
+                <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
+            </div>
+            <div class="lg:flex border-t-[1px] border-slate-200">
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">interval<span class="text-slate-500">(str)</span></span>
+                <span class="py-2 pr-3 grow text-sm"> Interval to perform the calculation.</span>
+                <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
+            </div>
+            <div class="lg:flex border-t-[1px] border-slate-200">
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">ref<span class="text-slate-500">(str)</span></span>
+                <span class="py-2 pr-3 grow text-sm"> 'close', 'open', 'high', or 'low'.</span>
+                <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
+            </div>
+            <div class="lg:flex border-t-[1px] border-slate-200">
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">dev<span class="text-slate-500">(float)</span></span>
+                <span class="py-2 pr-3 grow text-sm"> Standard deviation of the bands.</span>
+                <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
+            </div>
+            <div class="lg:flex border-t-[1px] border-slate-200">
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">prices<span class="text-slate-500">(list)</span></span>
+                <span class="py-2 pr-3 grow text-sm"> When specified, this function will use the values provided in the list to perform calculations and ignore other parameters.</span>
+                <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
+            </div>
+        </div>
+    </div>
+                    <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
+                    <div class="return text-sm">
+<p>A tuple of numpy lists, each a list of BBand top, average, and bottom values</p>
+</div>  
+    
             </div>
             <button class="fixed top-24 right-3 btn btn-circle lg:hidden z-40"
                 @click="openMenu = !openMenu; console.log(openMenu)">

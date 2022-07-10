@@ -24,7 +24,7 @@
     </py-env> -->
 </head>
 <body> 
-     <nav class="z-10 lg:absolute navbar shadow-sm bg-base-100">
+     <nav class="z-10 navbar shadow-sm bg-base-100 fixed">
     <div>
         <div class="navbar-start flex items-center">
             <a id="logo" class="w-20 lg:w-28" href="/harvest-website/" >       
@@ -63,121 +63,119 @@
         <div>
         <h3 class="text-sm mb-3 text-gray-400 uppercase font-semibold ">Introduction</h3>
         <ul class="">
-    <li class="flex rounded-sm overflow-hidden "><a class="w-full p-2 text-sm" href="/harvest-website/docs">Installation</a></li><li class="flex rounded-sm overflow-hidden "><a class="w-full p-2 text-sm" href="/harvest-website/docs/_tutorial/0_starter"> Startup Guide</a></li><li class="flex rounded-sm overflow-hidden "><a class="w-full p-2 text-sm" href="/harvest-website/docs/_tutorial/1_cli"> CLI</a></li></ul>
+    <li class="flex rounded-lg overflow-hidden  hover:bg-primary hover:text-white transition-all"><a class="w-full p-2 text-sm" href="/harvest-website/docs">Installation</a></li><li class="flex rounded-lg overflow-hidden  hover:bg-primary hover:text-white transition-all"><a class="w-full p-2 text-sm" href="/harvest-website/docs/Introduction/0-starter"> Startup Guide</a></li><li class="flex rounded-lg overflow-hidden  hover:bg-primary hover:text-white transition-all"><a class="w-full p-2 text-sm" href="/harvest-website/docs/Introduction/1-cli"> CLI</a></li></ul>
         <div class="divider"></div>
         <h3 class="text-sm mb-3 text-gray-400 uppercase font-semibold">API</h3>
-        <div class="p-3 rounded-sm overflow-hidden bg-slate-50">
-        <a class="w-full font-semibold text-gray-700" href="/harvest-website/docs/_class/BaseAlgo">BaseAlgo</a>
-            <ul class="">
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#setup">setup</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#main">main</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#buy">buy</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#sell">sell</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_option_market_data">get_option_market_data</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_option_chain">get_option_chain</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_option_chain_info">get_option_chain_info</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#filter_option_chain">filter_option_chain</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#ema">ema</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#rsi">rsi</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#sma">sma</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#bbands">bbands</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_account_buying_power">get_account_buying_power</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_account_equity">get_account_equity</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_asset_current_candle">get_asset_current_candle</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_asset_candle_list">get_asset_candle_list</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_asset_avg_cost">get_asset_avg_cost</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_date">get_date</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_datetime">get_datetime</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_asset_current_price">get_asset_current_price</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_asset_price_list">get_asset_price_list</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_asset_quantity">get_asset_quantity</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_asset_profit_percent">get_asset_profit_percent</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_time">get_time</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_account_stock_positions">get_account_stock_positions</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_account_crypto_positions">get_account_crypto_positions</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_account_option_positions">get_account_option_positions</a>
-            </li>
-            <li class="flex rounded-sm overflow-hidden bg-slate-50">
-                <a class="p-2 text-sm" href="/harvest-website/docs/_class/BaseAlgo#get_watchlist">get_watchlist</a>
-            </li></ul></div>
-        <div class="p-3 rounded-sm overflow-hidden ">
-        <a class="w-full font-semibold text-gray-700" href="/harvest-website/docs/_class/LiveTrader">LiveTrader</a>
-            <ul class=""></ul></div>
+        <div class="p-3 rounded-sm overflow-hidden">
+            <a class="btn btn-sm btn-ghost font-semibold text-gray-700" href="/harvest-website/docs/API/BaseAlgo">BaseAlgo</a>
+            <ul class="menu menu-compact p-2 rounded-box">
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-001-setup">setup</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-003-buy">buy</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-004-sell">sell</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-005-get_option_market_data">get_option_market_data</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-006-get_option_chain">get_option_chain</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-007-get_option_chain_info">get_option_chain_info</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-008-filter_option_chain">filter_option_chain</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-009-ema">ema</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-010-rsi">rsi</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-011-sma">sma</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-012-bbands">bbands</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-013-get_account_buying_power">get_account_buying_power</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-014-get_account_equity">get_account_equity</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-015-get_asset_current_candle">get_asset_current_candle</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-016-get_asset_candle_list">get_asset_candle_list</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-017-get_asset_avg_cost">get_asset_avg_cost</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-018-get_date">get_date</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-019-get_datetime">get_datetime</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-020-get_asset_current_price">get_asset_current_price</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-021-get_asset_price_list">get_asset_price_list</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-022-get_asset_quantity">get_asset_quantity</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-023-get_asset_profit_percent">get_asset_profit_percent</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-024-get_time">get_time</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-025-get_account_stock_positions">get_account_stock_positions</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-026-get_account_crypto_positions">get_account_crypto_positions</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-027-get_account_option_positions">get_account_option_positions</a>
+                </li>
+                <li class="rounded-md ">
+                    <a class="text-sm " href="/harvest-website/docs/API/BaseAlgo-028-get_watchlist">get_watchlist</a>
+                </li></ul></div>
     <div class="h-64"></div>
     </div>
             </aside>
-            <div class="lg:pl-80 lg:pt-40">
+            <div class="lg:pl-80 lg:pt-40 lg:pb-40">
                 
-        <h1 id="setup" class="text-2xl lg:text-4xl font-semibold mb-4">setup</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+        <div class="text-sm breadcrumbs mb-5">
+            <ul><li>docs</li><li>API</li><li>BaseAlgo.main</li></ul>
+        </div>
+                
+        <h1 id="setup" class="text-2xl lg:text-4xl font-semibold mb-3">setup</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 setup(self)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Method called right before algorithm begins.</p>
-</p><div class="divider my-20"></div><h1 id="main" class="text-2xl lg:text-4xl font-semibold mb-4">main</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="main" class="text-2xl lg:text-4xl font-semibold mb-3">main</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 main(self)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Main method to run the algorithm.</p>
-</p><div class="divider my-20"></div><h1 id="buy" class="text-2xl lg:text-4xl font-semibold mb-4">buy</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="buy" class="text-2xl lg:text-4xl font-semibold mb-3">buy</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 buy(self, symbol, quantity, in_force, extended)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Buys the specified asset. When called, a limit buy order is placed with a limit price 5% higher than the current price. This is a general function that can be used to buy stocks, crypto, and options.</p>
-</p>
-    <div class="py-16">
+</div>
+    <div class="mb-12">
         <div class="hidden font-semibold lg:flex">
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs w-40 flex-none">Parameter</span>
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs grow">Description</span>
@@ -185,22 +183,22 @@ buy(self, symbol, quantity, in_force, extended)
         </div>
         <div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">symbol<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">symbol<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Symbol of the asset to buy. If not specified,</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">quantity<span class="text-slate-500">(float)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">quantity<span class="text-slate-500">(float)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Quantity of asset to buy. If not specified, it will buy as many as possible given the current buying power</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">in_force<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">in_force<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Duration the order is in force. Choose from 'gtc' (Good 'til canceled) or 'gtd' ().</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">extended<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">extended<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Whether to trade in extended hours or not. </span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"> False</span>
             </div>
@@ -213,13 +211,13 @@ buy(self, symbol, quantity, in_force, extended)
 <li>order_id: str, ID of order</li>
 <li>symbol: str, symbol of asset</li>
 </ul>
-</div><div class="divider my-20"></div><h1 id="sell" class="text-2xl lg:text-4xl font-semibold mb-4">sell</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="sell" class="text-2xl lg:text-4xl font-semibold mb-3">sell</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 sell(self, symbol, quantity, in_force, extended)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Sells the specified asset. When called, a limit sell order is placed with a limit price 5% lower than the current price. This is a general function that can be used to sell stocks, crypto, and options.</p>
-</p>
-    <div class="py-16">
+</div>
+    <div class="mb-12">
         <div class="hidden font-semibold lg:flex">
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs w-40 flex-none">Parameter</span>
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs grow">Description</span>
@@ -227,22 +225,22 @@ sell(self, symbol, quantity, in_force, extended)
         </div>
         <div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">symbol<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">symbol<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Symbol of the asset to sell. If not specified,</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">quantity<span class="text-slate-500">(float)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">quantity<span class="text-slate-500">(float)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Quantity of asset to sell. If not specified, it will sell all currently owned quantity</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">in_force<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">in_force<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Duration the order is in force. Choose from 'gtc' (Good 'til canceled) or 'gtd' (). </span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm">s to 'gtc</span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">extended<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">extended<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Whether to trade in extended hours or not. </span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm">s to Fals</span>
             </div>
@@ -255,13 +253,13 @@ sell(self, symbol, quantity, in_force, extended)
 <li>order_id: str, ID of order</li>
 <li>symbol: str, symbol of asset</li>
 </ul>
-</div><div class="divider my-20"></div><h1 id="get_option_market_data" class="text-2xl lg:text-4xl font-semibold mb-4">get_option_market_data</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_option_market_data" class="text-2xl lg:text-4xl font-semibold mb-3">get_option_market_data</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_option_market_data(self, symbol)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Retrieves data of specified option. Note that the price returned by this function returns the price per contract, not the total price of the option position.</p>
-</p>
-    <div class="py-16">
+</div>
+    <div class="mb-12">
         <div class="hidden font-semibold lg:flex">
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs w-40 flex-none">Parameter</span>
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs grow">Description</span>
@@ -269,7 +267,7 @@ get_option_market_data(self, symbol)
         </div>
         <div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">symbol<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">symbol<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm">OCC symbol of optio</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
@@ -283,13 +281,13 @@ get_option_market_data(self, symbol)
 <li>ask: ask price</li>
 <li>bid: bid price</li>
 </ul>
-</div><div class="divider my-20"></div><h1 id="get_option_chain" class="text-2xl lg:text-4xl font-semibold mb-4">get_option_chain</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_option_chain" class="text-2xl lg:text-4xl font-semibold mb-3">get_option_chain</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_option_chain(self, symbol, date)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns the option chain for the specified symbol and expiration date. The date parameter can either be a string in the format "YYYY-MM-DD" or a datetime object. This function is often used in conjunction with the get_option_chain_info function in order to retrieve the available expiration dates.</p>
-</p>
-    <div class="py-16">
+</div>
+    <div class="mb-12">
         <div class="hidden font-semibold lg:flex">
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs w-40 flex-none">Parameter</span>
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs grow">Description</span>
@@ -297,12 +295,12 @@ get_option_chain(self, symbol, date)
         </div>
         <div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">symbol<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">symbol<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm">symbol of stock</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">date<span class="text-slate-500">(datetime.Datetime)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">date<span class="text-slate-500">(datetime.Datetime)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> date of option expiration</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
@@ -312,14 +310,14 @@ get_option_chain(self, symbol, date)
                     <div class="return text-sm">
 <p>A dataframe with the follwing columns: - exp_date(datetime.datetime): The expiration date, as offset-naive DateTime object with timezone adjusted to the timezone of the exchange being used - strike(float): Strike price - type(str): 'call' or 'put'</p>
 <p>The index is the OCC symbol of the option.</p>
-</div><div class="divider my-20"></div><h1 id="get_option_chain_info" class="text-2xl lg:text-4xl font-semibold mb-4">get_option_chain_info</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_option_chain_info" class="text-2xl lg:text-4xl font-semibold mb-3">get_option_chain_info</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_option_chain_info(self, symbol)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns data of a stock's option chain. Given a stock's symbol, this function returns a dictionary with two data. The first is a list indicating the available expiration dates of the option. The second is the multiplier, which indicates how many contracts are in a single option. For example, if you buy an option priced at $1.20 and the multiplier is 100, you will need to pay $120 to buy one option.</p>
 <p>This function is often used in conjunction with the get_option_chain function.</p>
-</p>
-    <div class="py-16">
+</div>
+    <div class="mb-12">
         <div class="hidden font-semibold lg:flex">
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs w-40 flex-none">Parameter</span>
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs grow">Description</span>
@@ -327,7 +325,7 @@ get_option_chain_info(self, symbol)
         </div>
         <div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">symbol<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">symbol<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> symbol of stock.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
@@ -340,13 +338,13 @@ get_option_chain_info(self, symbol)
 <li>exp_dates: List of expiration dates as strings in the format "YYYY-MM-DD"</li>
 <li>multiplier: float. Multiplier of the option, usually 100</li>
 </ul>
-</div><div class="divider my-20"></div><h1 id="filter_option_chain" class="text-2xl lg:text-4xl font-semibold mb-4">filter_option_chain</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="filter_option_chain" class="text-2xl lg:text-4xl font-semibold mb-3">filter_option_chain</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 filter_option_chain(self, symbol, type, lower_exp, upper_exp, lower_strike, upper_strike)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns a DataFrame of options that satisfies the criteria specified. The lower_exp and upper_exp input can either be a string in the format "YYYY-MM-DD" or a datetime object.</p>
-</p>
-    <div class="py-16">
+</div>
+    <div class="mb-12">
         <div class="hidden font-semibold lg:flex">
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs w-40 flex-none">Parameter</span>
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs grow">Description</span>
@@ -354,32 +352,32 @@ filter_option_chain(self, symbol, type, lower_exp, upper_exp, lower_strike, uppe
         </div>
         <div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">symbol<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">symbol<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Symbol of stock.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">type<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">type<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> 'call' or 'put</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">lower_exp<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">lower_exp<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Minimum expiration date of the option, inclusive</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">upper_exp<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">upper_exp<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Maximum expiration date of the option, inclusive</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">lower_strike<span class="text-slate-500">(float)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">lower_strike<span class="text-slate-500">(float)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> The minimum strike price of the option, inclusive</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">upper_strike<span class="text-slate-500">(float)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">upper_strike<span class="text-slate-500">(float)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> The maximum strike price of the option, inclusive</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
@@ -404,13 +402,13 @@ filter_option_chain(self, symbol, type, lower_exp, upper_exp, lower_strike, uppe
 </tr>
 </tbody>
 </table>
-</div><div class="divider my-20"></div><h1 id="ema" class="text-2xl lg:text-4xl font-semibold mb-4">ema</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="ema" class="text-2xl lg:text-4xl font-semibold mb-3">ema</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 ema(self, symbol, period, interval, ref, prices)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Calculate EMA</p>
-</p>
-    <div class="py-16">
+</div>
+    <div class="mb-12">
         <div class="hidden font-semibold lg:flex">
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs w-40 flex-none">Parameter</span>
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs grow">Description</span>
@@ -418,27 +416,27 @@ ema(self, symbol, period, interval, ref, prices)
         </div>
         <div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">symbol<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">symbol<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Symbol to perform calculation on.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">period<span class="text-slate-500">(int)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">period<span class="text-slate-500">(int)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Period of EMA.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">interval<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">interval<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Interval to perform the calculation.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">ref<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">ref<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> 'close', 'open', 'high', or 'low'.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">prices<span class="text-slate-500">(list)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">prices<span class="text-slate-500">(list)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> When specified, this function will use the values provided in the list to perform calculations and ignore other parameters.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
@@ -447,13 +445,13 @@ ema(self, symbol, period, interval, ref, prices)
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>A list in numpy format, containing EMA values</p>
-</div><div class="divider my-20"></div><h1 id="rsi" class="text-2xl lg:text-4xl font-semibold mb-4">rsi</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="rsi" class="text-2xl lg:text-4xl font-semibold mb-3">rsi</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 rsi(self, symbol, period, interval, ref, prices)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Calculate RSI</p>
-</p>
-    <div class="py-16">
+</div>
+    <div class="mb-12">
         <div class="hidden font-semibold lg:flex">
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs w-40 flex-none">Parameter</span>
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs grow">Description</span>
@@ -461,27 +459,27 @@ rsi(self, symbol, period, interval, ref, prices)
         </div>
         <div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">symbol<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">symbol<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Symbol to perform calculation on.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">period<span class="text-slate-500">(int)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">period<span class="text-slate-500">(int)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Period of RSI.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">interval<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">interval<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Interval to perform the calculation.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">ref<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">ref<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> 'close', 'open', 'high', or 'low'.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">prices<span class="text-slate-500">(list)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">prices<span class="text-slate-500">(list)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> When specified, this function will use the values provided in the list to perform calculations and ignore other parameters.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
@@ -490,13 +488,13 @@ rsi(self, symbol, period, interval, ref, prices)
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>A list in numpy format, containing RSI values</p>
-</div><div class="divider my-20"></div><h1 id="sma" class="text-2xl lg:text-4xl font-semibold mb-4">sma</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="sma" class="text-2xl lg:text-4xl font-semibold mb-3">sma</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 sma(self, symbol, period, interval, ref, prices)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Calculate SMA</p>
-</p>
-    <div class="py-16">
+</div>
+    <div class="mb-12">
         <div class="hidden font-semibold lg:flex">
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs w-40 flex-none">Parameter</span>
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs grow">Description</span>
@@ -504,32 +502,32 @@ sma(self, symbol, period, interval, ref, prices)
         </div>
         <div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">Parameters</span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">Parameters</span>
                 <span class="py-2 pr-3 grow text-sm">Parameters</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">symbol<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">symbol<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Symbol to perform calculation on.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">period<span class="text-slate-500">(int)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">period<span class="text-slate-500">(int)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Period of SMA.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">interval<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">interval<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Interval to perform the calculation.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">ref<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">ref<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> 'close', 'open', 'high', or 'low'.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">prices<span class="text-slate-500">(list)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">prices<span class="text-slate-500">(list)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> When specified, this function will use the values provided in the list to perform calculations and ignore other parameters.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
@@ -538,13 +536,13 @@ sma(self, symbol, period, interval, ref, prices)
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>A list in numpy format, containing SMA values</p>
-</div><div class="divider my-20"></div><h1 id="bbands" class="text-2xl lg:text-4xl font-semibold mb-4">bbands</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="bbands" class="text-2xl lg:text-4xl font-semibold mb-3">bbands</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 bbands(self, symbol, period, interval, ref, dev, prices)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Calculate Bollinger Bands</p>
-</p>
-    <div class="py-16">
+</div>
+    <div class="mb-12">
         <div class="hidden font-semibold lg:flex">
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs w-40 flex-none">Parameter</span>
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs grow">Description</span>
@@ -552,32 +550,32 @@ bbands(self, symbol, period, interval, ref, dev, prices)
         </div>
         <div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">symbol<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">symbol<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Symbol to perform calculation on.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">period<span class="text-slate-500">(int)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">period<span class="text-slate-500">(int)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Period of BBands.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">interval<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">interval<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Interval to perform the calculation.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">ref<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">ref<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> 'close', 'open', 'high', or 'low'.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">dev<span class="text-slate-500">(float)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">dev<span class="text-slate-500">(float)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Standard deviation of the bands.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">prices<span class="text-slate-500">(list)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">prices<span class="text-slate-500">(list)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> When specified, this function will use the values provided in the list to perform calculations and ignore other parameters.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
@@ -586,30 +584,30 @@ bbands(self, symbol, period, interval, ref, dev, prices)
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>A tuple of numpy lists, each a list of BBand top, average, and bottom values</p>
-</div><div class="divider my-20"></div><h1 id="get_account_buying_power" class="text-2xl lg:text-4xl font-semibold mb-4">get_account_buying_power</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_account_buying_power" class="text-2xl lg:text-4xl font-semibold mb-3">get_account_buying_power</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_account_buying_power(self)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns the current buying power of the user.</p>
-</p>
+</div>
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>The current buying power as a float.</p>
-</div><div class="divider my-20"></div><h1 id="get_account_equity" class="text-2xl lg:text-4xl font-semibold mb-4">get_account_equity</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_account_equity" class="text-2xl lg:text-4xl font-semibold mb-3">get_account_equity</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_account_equity(self)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns the current equity.</p>
-</p>
+</div>
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>The current equity as a float.</p>
-</div><div class="divider my-20"></div><h1 id="get_asset_current_candle" class="text-2xl lg:text-4xl font-semibold mb-4">get_asset_current_candle</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_asset_current_candle" class="text-2xl lg:text-4xl font-semibold mb-3">get_asset_current_candle</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_asset_current_candle(self, symbol)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns the most recent candle as a pandas DataFrame. This function is not compatible with options.</p>
-</p>
+</div>
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>Price of asset as a dataframe with the following columns:</p>
@@ -621,12 +619,12 @@ get_asset_current_candle(self, symbol)
 <li>volume
 The index is a datetime object</li>
 </ul>
-</div><div class="divider my-20"></div><h1 id="get_asset_candle_list" class="text-2xl lg:text-4xl font-semibold mb-4">get_asset_candle_list</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_asset_candle_list" class="text-2xl lg:text-4xl font-semibold mb-3">get_asset_candle_list</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_asset_candle_list(self, symbol)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns the candles of an asset as a pandas DataFrame. This function is not compatible with options.</p>
-</p>
+</div>
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>Prices of asset as a dataframe with the following columns:</p>
@@ -638,49 +636,49 @@ get_asset_candle_list(self, symbol)
 <li>volume
 The index is a datetime object</li>
 </ul>
-</div><div class="divider my-20"></div><h1 id="get_asset_avg_cost" class="text-2xl lg:text-4xl font-semibold mb-4">get_asset_avg_cost</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_asset_avg_cost" class="text-2xl lg:text-4xl font-semibold mb-3">get_asset_avg_cost</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_asset_avg_cost(self, symbol)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns the average cost of a specified asset.</p>
-</p>
+</div>
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>Average cost of asset. Returns None if asset is not being tracked.</p>
-</div><div class="divider my-20"></div><h1 id="get_date" class="text-2xl lg:text-4xl font-semibold mb-4">get_date</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_date" class="text-2xl lg:text-4xl font-semibold mb-3">get_date</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_date(self)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns the current date.</p>
-</p>
+</div>
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>The current date as a datetime object</p>
-</div><div class="divider my-20"></div><h1 id="get_datetime" class="text-2xl lg:text-4xl font-semibold mb-4">get_datetime</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_datetime" class="text-2xl lg:text-4xl font-semibold mb-3">get_datetime</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_datetime(self)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns the current date and time. The returned datetime object is offset-naive, adjusted to the local timezone.</p>
-</p>
+</div>
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>The current date and time as a datetime object</p>
-</div><div class="divider my-20"></div><h1 id="get_asset_current_price" class="text-2xl lg:text-4xl font-semibold mb-4">get_asset_current_price</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_asset_current_price" class="text-2xl lg:text-4xl font-semibold mb-3">get_asset_current_price</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_asset_current_price(self, symbol)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns the current price of a specified asset.</p>
-</p>
+</div>
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>Price of asset.</p>
-</div><div class="divider my-20"></div><h1 id="get_asset_price_list" class="text-2xl lg:text-4xl font-semibold mb-4">get_asset_price_list</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_asset_price_list" class="text-2xl lg:text-4xl font-semibold mb-3">get_asset_price_list</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_asset_price_list(self, symbol, interval, ref)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns a list of recent prices for an asset. This function is not compatible with options.</p>
-</p>
-    <div class="py-16">
+</div>
+    <div class="mb-12">
         <div class="hidden font-semibold lg:flex">
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs w-40 flex-none">Parameter</span>
             <span class="pr-3 py-3 text-slate-400 uppercase tracking-wide text-xs grow">Description</span>
@@ -688,17 +686,17 @@ get_asset_price_list(self, symbol, interval, ref)
         </div>
         <div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">symbol<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">symbol<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Symbol of stock or crypto asset.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">interval<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">interval<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> Interval of data.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
             <div class="lg:flex border-t-[1px] border-slate-200">
-                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700 overflow-scroll">ref<span class="text-slate-500">(str)</span></span>
+                <span class="w-full block lg:inline lg:w-40 py-2 pr-3 flex-none text-sm font-semibold text-slate-700">ref<span class="text-slate-500">(str)</span></span>
                 <span class="py-2 pr-3 grow text-sm"> 'close', 'open', 'high', or 'low'.</span>
                 <span class="py-2 pr-3 w-32 flex-none text-sm"></span>
             </div>
@@ -708,71 +706,71 @@ get_asset_price_list(self, symbol, interval, ref)
                     <div class="return text-sm">
 <p>List of prices</p>
 <p>get_asset_quantity(self, symbol, include_pending_buy, include_pending_sell)</p>
-</div><div class="divider my-20"></div><h1 id="get_asset_quantity" class="text-2xl lg:text-4xl font-semibold mb-4">get_asset_quantity</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_asset_quantity" class="text-2xl lg:text-4xl font-semibold mb-3">get_asset_quantity</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_asset_quantity(self, symbol, include_pending_buy, include_pending_sell)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns the quantity owned of a specified asset.</p>
-</p>
+</div>
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>Quantity of asset as float. 0 if quantity is not owned.</p>
-</div><div class="divider my-20"></div><h1 id="get_asset_profit_percent" class="text-2xl lg:text-4xl font-semibold mb-4">get_asset_profit_percent</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_asset_profit_percent" class="text-2xl lg:text-4xl font-semibold mb-3">get_asset_profit_percent</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_asset_profit_percent(self, symbol)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns the return of a specified asset.</p>
-</p>
+</div>
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>Return of asset, expressed as a decimal.</p>
-</div><div class="divider my-20"></div><h1 id="get_time" class="text-2xl lg:text-4xl font-semibold mb-4">get_time</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_time" class="text-2xl lg:text-4xl font-semibold mb-3">get_time</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_time(self)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns the current hour and minute.</p>
 <p>This returns the current time, which is different from the timestamp of stock prices. For example, if you are running an algorithm every 5 minutes, at 11:30am you will get price data with a timestamp of 11:25am. This function will return 11:30am.</p>
-</p>
+</div>
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>The current time as a datetime object</p>
-</div><div class="divider my-20"></div><h1 id="get_account_stock_positions" class="text-2xl lg:text-4xl font-semibold mb-4">get_account_stock_positions</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_account_stock_positions" class="text-2xl lg:text-4xl font-semibold mb-3">get_account_stock_positions</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_account_stock_positions(self)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns the current stock positions.</p>
-</p>
+</div>
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>A list of Position objects for all currently owned stocks.</p>
-</div><div class="divider my-20"></div><h1 id="get_account_crypto_positions" class="text-2xl lg:text-4xl font-semibold mb-4">get_account_crypto_positions</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_account_crypto_positions" class="text-2xl lg:text-4xl font-semibold mb-3">get_account_crypto_positions</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_account_crypto_positions(self)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns the current crypto positions.</p>
-</p>
+</div>
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>A list of Position objects for all currently owned crypto.</p>
-</div><div class="divider my-20"></div><h1 id="get_account_option_positions" class="text-2xl lg:text-4xl font-semibold mb-4">get_account_option_positions</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_account_option_positions" class="text-2xl lg:text-4xl font-semibold mb-3">get_account_option_positions</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_account_option_positions(self)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns the current option positions.</p>
-</p>
+</div>
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>A list of OptionPosition objects for all currently owned options.</p>
-</div><div class="divider my-20"></div><h1 id="get_watchlist" class="text-2xl lg:text-4xl font-semibold mb-4">get_watchlist</h1>
-                    <div class="rounded-lg p-3 bg-slate-50"><code>
+</div><h1 id="get_watchlist" class="text-2xl lg:text-4xl font-semibold mb-3">get_watchlist</h1>
+                    <div class="rounded-lg p-3 bg-slate-50 mb-6"><code>
 get_watchlist(self)
-</code></div><p>
+</code></div><div class="mb-8">
 <p>Returns the current watchlist.</p>
-</p>
+</div>
                     <h3 class="text-lg text-slate-700 font-semibold">Returns</h3>
                     <div class="return text-sm">
 <p>A list of symbols.</p>
-</div><div class="divider my-20"></div>  
+</div>  
     
             </div>
             <button class="fixed top-24 right-3 btn btn-circle lg:hidden z-40"
