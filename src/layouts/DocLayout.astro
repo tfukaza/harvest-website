@@ -45,7 +45,11 @@ Object.entries(menuItems).map(([className, functions]) => {
 	// On page load, check the URL and highlight the current page in the nav
 	document.addEventListener("astro:page-load", () => {
 	
-		const pathSplit = window.location.pathname.split('/');
+		let pathName = window.location.pathname;
+		if (pathName[pathName.length - 1] === '/') {
+			pathName = pathName.slice(0, -1);
+		}
+		const pathSplit = pathName.split('/');
 		const funcName = pathSplit[pathSplit.length - 1];
 		const className = pathSplit[pathSplit.length - 2];
 		const currentCategory = window.location.pathname.split('/')[2];
