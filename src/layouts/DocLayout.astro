@@ -116,7 +116,7 @@ Object.entries(menuItems).map(([className, functions]) => {
 			<div id="tutorial-menu">
 				<ul>
 				{
-					Object.entries(tutorialMenuItems).map(([index, lessonName]) => (
+					Object.entries(tutorialMenuItems).map(([_, lessonName]) => (
 						<li id={`link-${lessonName.url}`}>
 							<a href = {`${BASE}/tutorials/${lessonName.url}`}>{lessonName.name}</a>
 						</li>
