@@ -1,0 +1,32 @@
+---
+title: fetch_option_positions
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# fetch_option_positions
+
+Returns all current option positions.
+
+## Syntax
+
+<DocParameterTable params={[]} />
+
+```python
+def fetch_option_positions(self) -> List[Dict[str, Any]]:
+```
+
+## Returns
+
+Returns a list of dictionaries with the following keys and values:
+- `symbol`: OCC symbol of the option
+- `base_symbol`: Ticker symbol of the underlying stock
+- `avg_price`: Average price the option was bought at
+- `quantity`: Quantity owned
+- `multiplier`: How many stocks each option represents
+- `exp_date`: When the option expires
+- `strike_price`: Strike price of the option
+- `type`: 'call' or 'put'
+
+## Raises
+- An `Exception` is raised if there is an error fetching the option positions.
+---

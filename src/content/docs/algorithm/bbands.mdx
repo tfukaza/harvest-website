@@ -1,0 +1,39 @@
+---
+title: bbands
+---
+import { DocParameterTable } from '../../../components/customComponents.js';
+
+# bbands
+
+Calculate the Bollinger Bands for a given symbol.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol', 'type': 'str', 'description': 'Symbol to perform calculation on. Defaults to the first symbol in watchlist'},
+    {'field': 'period', 'type': 'int', 'description': 'Period of BBands. Defaults to 14'},
+    {'field': 'interval', 'type': 'str', 'description': 'Interval to perform the calculation. Defaults to interval of algorithm'},
+    {'field': 'ref', 'type': 'str', 'description': "'close', 'open', 'high', or 'low'. Defaults to 'close'"},
+    {'field': 'dev', 'type': 'float', 'description': 'Standard deviation of the bands. Defaults to 1.0'},
+    {'field': 'prices', 'type': 'list', 'description': 'When specified, this function will use the values provided in the list to perform calculations and ignore other parameters. Defaults to None'},
+]} />
+
+```python
+def bbands(
+    self,
+    symbol: str = None,
+    period: int = 14,
+    interval: Interval = None,
+    ref: str = "close",
+    dev: float = 1.0,
+    prices=None,
+) -> Tuple[np.array, np.array, np.array]:
+```
+
+## Returns
+
+Returns a tuple of NumPy arrays containing the Bollinger Bands top, average, and bottom values.
+
+## Raises
+- An `Exception` is raised if the calculation fails due to incorrect parameters or data issues.
+---

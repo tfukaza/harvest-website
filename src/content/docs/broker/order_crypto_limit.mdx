@@ -1,0 +1,43 @@
+---
+title: order_crypto_limit
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# order_crypto_limit
+
+Places a limit order for crypto.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'side', 'type': 'str', 'description': "'buy' or 'sell'"},
+    {'field': 'symbol', 'type': 'str', 'description': 'Symbol of crypto'},
+    {'field': 'quantity', 'type': 'float', 'description': 'Quantity to buy or sell'},
+    {'field': 'limit_price', 'type': 'float', 'description': 'Limit price'},
+    {'field': 'in_force', 'type': 'str', 'description': "'gtc' by default"},
+    {'field': 'extended', 'type': 'bool', 'description': "'False' by default"},
+]} />
+
+```python
+def order_crypto_limit(
+    self,
+    side: str,
+    symbol: str,
+    quantity: float,
+    limit_price: float,
+    in_force: str = "gtc",
+    extended: bool = False,
+) -> Dict[str, Any]:
+```
+
+## Returns
+
+Returns a dictionary with the following keys and values:
+- `order_id`: ID of order
+- `symbol`: Symbol of asset
+
+Raises an exception if order fails.
+
+## Raises
+- A `NotImplementedError` is raised if the method is not supported.
+---

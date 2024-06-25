@@ -1,0 +1,26 @@
+---
+title: get_asset_current_price
+---
+import { DocParameterTable } from '../../../components/customComponents.js';
+
+# get_asset_current_price
+
+Returns the current price of a specified asset.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol', 'type': 'str', 'description': 'Symbol of asset. Defaults to first symbol in watchlist'},
+]} />
+
+```python
+def get_asset_current_price(self, symbol: str = None) -> float:
+```
+
+## Returns
+
+Returns the current price of the asset.
+
+## Raises
+- An `Exception` is raised if the symbol is not in the watchlist.
+---

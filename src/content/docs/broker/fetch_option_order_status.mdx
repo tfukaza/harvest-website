@@ -1,0 +1,35 @@
+---
+title: fetch_option_order_status
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# fetch_option_order_status
+
+Returns the status of an option order with the given id.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'id', 'type': 'str', 'description': 'ID of the option order'},
+]} />
+
+```python
+def fetch_option_order_status(self, id) -> Dict[str, Any]:
+```
+
+## Returns
+
+Returns a dictionary with the following keys and values:
+- `type`: 'OPTION'
+- `order_id`: ID of the order
+- `quantity`: Quantity ordered
+- `filled_quantity`: Quantity filled so far
+- `side`: 'buy' or 'sell'
+- `time_in_force`: Time the order is in force
+- `status`: Status of the order
+- `filled_time`: Time the order was filled
+- `filled_price`: Price the order was filled at
+
+## Raises
+- A `NotImplementedError` is raised if the method is not supported.
+---

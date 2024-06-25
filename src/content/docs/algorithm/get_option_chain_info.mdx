@@ -1,0 +1,32 @@
+---
+title: get_option_chain_info
+---
+import { DocParameterTable } from '../../../components/customComponents.js';
+
+# get_option_chain_info
+
+Returns the option expiration dates available for a given stock.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol',       'type': 'str', 'description': 'Symbol of stock'},
+]} />
+
+
+```python
+ def get_option_chain_info(self, symbol: str = None):
+```
+
+## Returns
+
+Returns a dictionary containing the following keys and values:
+- `chain_id`: str, ID of the option chain.
+- `exp_dates`: list, list of expiration dates available for the stock. 
+Dates are a python `datetime` object in UTC timezone.
+- `multiplier`: int, multiplier for the option chain. 
+
+## Raises
+- An `Exception` is raised if the broker fails to process the request for any reason.
+- If the broker does not support options trading, an `NotImplementedError` is raised.
+---

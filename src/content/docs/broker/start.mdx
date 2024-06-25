@@ -1,0 +1,26 @@
+---
+title: start
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# start
+
+This method begins streaming data from the Broker.
+
+The default implementation below is for polling the API. If a brokerage provides a streaming API, this method should be overridden to use the streaming API. Make sure to call `self.step()` in the overridden method.
+
+## Syntax
+
+<DocParameterTable params={[]} />
+
+```python
+def start(self) -> None:
+```
+
+## Returns
+
+This method does not return anything.
+
+## Raises
+- An `Exception` is raised if there is an error starting the data streaming.
+---

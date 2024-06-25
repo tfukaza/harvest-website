@@ -1,0 +1,26 @@
+---
+title: get_asset_avg_cost
+---
+import { DocParameterTable } from '../../../components/customComponents.js';
+
+# get_asset_avg_cost
+
+Returns the average cost of a specified asset.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol', 'type': 'str', 'description': 'Symbol of asset. Defaults to first symbol in watchlist'},
+]} />
+
+```python
+def get_asset_avg_cost(self, symbol: str = None) -> float:
+```
+
+## Returns
+
+Returns the average cost of the asset. Returns `None` if the asset is not being tracked.
+
+## Raises
+- An `Exception` is raised if the symbol is not currently owned.
+---

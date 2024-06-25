@@ -1,0 +1,35 @@
+---
+title: get_option_market_data
+---
+import { DocParameterTable } from '../../../components/customComponents.js';
+
+# get_option_market_data
+
+Retrieves data of specified option.
+
+Note that the price returned by this function returns the price per contract,
+not the total price of the option.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol',       'type': 'str', 'description': 'The OCC symbol of option'},
+]} />
+
+
+```python
+def get_option_market_data(self, symbol: str):
+```
+
+## Returns
+
+Returns a dictionary with the following keys:
+- `price`: The price of the option per contract.
+- `ask`: The ask price of the option per contract.
+- `bid`: The bid price of the option per contract.
+
+
+## Raises
+- An `Exception` is raised if the broker fails to process the request for any reason.
+- If the broker does not support options trading, an `NotImplementedError` is raised.
+---

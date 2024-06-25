@@ -1,0 +1,37 @@
+---
+title: rsi
+---
+import { DocParameterTable } from '../../../components/customComponents.js';
+
+# rsi
+
+Calculate RSI (Relative Strength Index)
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol', 'type': 'str', 'description': 'Symbol to perform calculation on. Defaults to the first symbol in watchlist'},
+    {'field': 'period', 'type': 'int', 'description': 'Period of RSI. Defaults to 14'},
+    {'field': 'interval', 'type': 'str', 'description': 'Interval to perform the calculation. Defaults to interval of algorithm'},
+    {'field': 'ref', 'type': 'str', 'description': "'close', 'open', 'high', or 'low'. Defaults to 'close'"},
+    {'field': 'prices', 'type': 'list', 'description': 'When specified, this function will use the values provided in the list to perform calculations and ignore other parameters. Defaults to None'},
+]} />
+
+```python
+def rsi(
+    self,
+    symbol: str = None,
+    period: int = 14,
+    interval: str = None,
+    ref: str = "close",
+    prices=None,
+) -> np.array:
+```
+
+## Returns
+
+Returns a numpy array containing the RSI values.
+
+## Raises
+- A `ValueError` is raised if the provided `symbol` or `interval` is invalid.
+- A `TypeError` is raised if `prices` is not a list when provided.

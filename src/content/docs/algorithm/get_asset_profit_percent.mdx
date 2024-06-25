@@ -1,0 +1,26 @@
+---
+title: get_asset_profit_percent
+---
+import { DocParameterTable } from '../../../components/customComponents.js';
+
+# get_asset_profit_percent
+
+Returns the return of a specified asset.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol', 'type': 'str', 'description': 'Symbol of stock, crypto, or option. Options should be in OCC format. Defaults to first symbol in watchlist'},
+]} />
+
+```python
+def get_asset_profit_percent(self, symbol=None) -> float:
+```
+
+## Returns
+
+Returns the return of the asset, expressed as a decimal.
+
+## Raises
+- An `Exception` is raised if there is an error in fetching the profit percent.
+---

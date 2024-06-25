@@ -1,0 +1,28 @@
+---
+title: fetch_account
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# fetch_account
+
+Returns current account information from the brokerage.
+
+## Syntax
+
+<DocParameterTable params={[]} />
+
+```python
+def fetch_account(self) -> Dict[str, float]:
+```
+
+## Returns
+
+Returns a dictionary with the following keys and values:
+- `equity`: Total assets in the brokerage
+- `cash`: Total cash in the brokerage
+- `buying_power`: Total buying power
+- `multiplier`: Scale of leverage, if leveraging
+
+## Raises
+- A `NotImplementedError` is raised if the method is not supported.
+---

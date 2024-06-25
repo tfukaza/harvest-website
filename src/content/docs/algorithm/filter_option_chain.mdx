@@ -1,0 +1,62 @@
+---
+title: filter_option_chain
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# filter_option_chain
+
+For a given stock symbol, returns the option chain filtered by expiration date and strike price.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol',       'type': 'str',                    'description': 'Symbol of stock'},
+    {'field': 'type',         'type': 'str',                    'description': 'Type of option, either "call" or "put"'},
+    {'field': 'lower_exp',    'type': 'str | datetime.datetime','description': 'Minimum expiration date of the option, inclusive. This can be a string in the format "YYYY-MM-DD" or a datetime object'},
+    {'field': 'upper_exp',    'type': 'str | datetime.datetime','description': 'Maximum expiration date of the option, inclusive. This can be a string in the format "YYYY-MM-DD" or a datetime object'},
+    {'field': 'lower_strike', 'type': 'float',                  'description': 'The minimum strike price of the option, inclusive'},
+    {'field': 'upper_strike', 'type': 'float',                  'description': 'The maximum strike price of the option, inclusive'}
+]} />
+
+```python
+def filter_option_chain(
+    self: Self@Algorithm,
+    symbol: str,
+    type: str,
+    lower_exp: Union[str, datetime.datetime], 
+    upper_exp: Union[str, datetime.datetime],
+    lower_strike: float,
+    upper_strike: float
+)
+```
+
+The `datetime.datetime` object used to specify the expiration date should be timezone-aware. If a timezone-naive object is passed, it will be assumed to be in the timezone of the computer running the algorithm. 
+In practice, you should ideally use timezone-aware objects set to the timezone of the exchange where the options are traded. For details on Python datetime objects, see the offcial [Python documentation](https://docs.python.org/3/library/datetime.html).
+
+
+## Returns
+
+Returns a DataFrame containing the filtered option chain. The DataFrame has the following format:
+
+<DocDataFrame columns={
+    {
+        "symbol": {
+            "": "",
+        },
+        "type": {
+            "": "",
+        },
+        "strike": {
+            "": "",
+        }
+    }}
+    index = {"str"}
+    data = {["str", "str", "float"]}
+/>
+
+The index is a string representing the OCC symbol of the option. The columns are as follows:
+- `symbol`: The symbol of the stock the option is based on.
+- `type`: The type of the option, either "call" or "put".
+- `strike`: The strike price of the option.
+
+---

@@ -1,0 +1,29 @@
+---
+title: fetch_chain_info
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# fetch_chain_info
+
+Returns information about the symbol's options.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol', 'type': 'str', 'description': 'Stock symbol. Cannot use crypto.'},
+]} />
+
+```python
+def fetch_chain_info(self, symbol: str) -> Dict[str, Any]:
+```
+
+## Returns
+
+Returns a dictionary with the following keys and values:
+- `chain_id`: ID of the option chain
+- `exp_dates`: List of expiration dates as datetime objects
+- `multiplier`: Multiplier of the option, usually 100
+
+## Raises
+- A `NotImplementedError` is raised if the method is not supported.
+---

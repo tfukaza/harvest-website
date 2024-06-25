@@ -1,0 +1,28 @@
+---
+title: get_asset_quantity
+---
+import { DocParameterTable } from '../../../components/customComponents.js';
+
+# get_asset_quantity
+
+Returns the quantity owned of a specified asset.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol', 'type': 'str', 'description': 'Symbol of asset. Defaults to first symbol in watchlist'},
+    {'field': 'include_pending_buy', 'type': 'bool', 'description': 'Include pending buy orders in quantity. Defaults to True'},
+    {'field': 'include_pending_sell', 'type': 'bool', 'description': 'Include pending sell orders in quantity. Defaults to False'},
+]} />
+
+```python
+def get_asset_quantity(self, symbol: str = None, include_pending_buy=True, include_pending_sell=False) -> float:
+```
+
+## Returns
+
+Returns the quantity of the asset as a float. Returns 0 if the quantity is not owned.
+
+## Raises
+- An `Exception` is raised if there is an error in fetching the quantity.
+---

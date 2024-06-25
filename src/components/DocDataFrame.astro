@@ -1,0 +1,92 @@
+---
+const props = Astro.props;
+const columns = props.columns;
+const index = props.index;
+const data = props.data;
+// For now, assume that multi-level columns have no more than 2 levels
+const level1num = columns.length;
+let level2num = 1;
+for (const [_, value1] of Object.entries(columns)) {
+    level2num += Object.keys(value1).length;
+}
+---
+<div class="dataframe-container">
+    <div class="dataframe-header">   
+        <h3></h3>   
+        {Object.entries(columns).map(([key1, value1]) =>
+            <h3 style={`grid-column: span ${Object.keys(value1).length}`}>{key1}</h3>
+        )}
+    </div>
+    <div class="dataframe-header">      
+        <h3></h3>  
+        {Object.entries(columns).map(([_, value1]) =>
+            Object.entries(value1).map(([key2, _]) =>
+                <h3>{key2}</h3> 
+            )
+        )}
+    </div>
+    <div class="dataframe-line"></div>
+    <div class="dataframe-row">
+        <h3>{index}</h3>
+        {Object.entries(data).map(([key1, value1]) =>
+            <p>{value1}</p>
+        )}
+    </div>
+</div>
+
+
+<style define:vars={{level2num}}>
+    .dataframe-container {
+        width: 100%;  
+        border: 1px solid #dfdfdf;
+        border-radius: 8px;
+        overflow: hidden; 
+    }
+
+    .dataframe-header {
+        display: grid;
+        grid-template-columns: repeat(var(--level2num), 1fr);
+        
+        background-color: #f7f7f7;
+
+        > h3 {
+            font-family: var(--paragraph-font);
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--h3-light);
+            padding: 4px 8px;
+        }
+    }
+
+    .dataframe-line {
+        height: 1px;
+        width: 100%;
+        background-color: #dfdfdf;
+    }
+
+    /* .dataframe-header:last-of-type {
+        border: 5px solid #545454;
+    } */
+
+    .dataframe-row {
+        display: grid;
+        grid-template-columns: repeat(var(--level2num), 1fr);
+
+        > h3 {
+            font-family: var(--paragraph-font);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--h3-light);
+            padding: 4px 8px;
+
+            background-color: #f7f7f7;
+        }
+
+        > p {
+            font-family: var(--code-font);
+            font-size: 0.9rem;
+            color: var(--text-light);
+            padding: 4px 8px;
+        }
+    }
+</style>

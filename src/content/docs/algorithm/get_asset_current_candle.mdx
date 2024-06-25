@@ -1,0 +1,42 @@
+---
+title: get_asset_current_candle
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# get_asset_current_candle
+
+Returns the most recent candle as a pandas DataFrame.
+
+This function is not compatible with options.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol', 'type': 'str', 'description': 'Symbol of stock or crypto asset. Defaults to first symbol in watchlist'},
+    {'field': 'interval', 'type': 'str', 'description': 'Interval of data. Defaults to the interval of the algorithm'},
+]} />
+
+```python
+def get_asset_current_candle(self, symbol: str, interval=None) -> pd.DataFrame:
+```
+
+## Returns
+
+Returns the most recent candle as a DataFrame with the following columns:
+
+<DocDataFrame columns={{
+    "open": { "": "" },
+    "high": { "": "" },
+    "low": { "": "" },
+    "close": { "": "" },
+    "volume": { "": "" },
+}}
+index = {"datetime"}
+data = {["float", "float", "float", "float", "int"]}
+/>
+
+The index is a datetime object.
+
+## Raises
+- An `Exception` is raised if the symbol is not in the watchlist.
+---

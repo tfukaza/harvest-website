@@ -1,0 +1,35 @@
+---
+title: step
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# step
+
+This method is called at the interval specified by the user. It should create a dictionary where each key is the symbol for an asset, and the value is the corresponding data in the following pandas dataframe format:
+
+```
+                  [TICKER]
+                  open   high    low close   volume
+    timestamp
+    ---       ---    ---     --- ---     ---
+```
+
+Timestamp should be an offset-aware datetime object in UTC timezone.
+
+The dictionary should be passed to the trader by calling `self.broker_hub_cb()`.
+
+## Syntax
+
+<DocParameterTable params={[]} />
+
+```python
+def step(self) -> None:
+```
+
+## Returns
+
+This method does not return anything.
+
+## Raises
+- An `Exception` is raised if there is an error during the step execution.
+---

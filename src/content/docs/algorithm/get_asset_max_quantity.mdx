@@ -1,0 +1,26 @@
+---
+title: get_asset_max_quantity
+---
+import { DocParameterTable } from '../../../components/customComponents.js';
+
+# get_asset_max_quantity
+
+Calculates the maximum quantity of an asset that can be bought given the current buying power.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol', 'type': 'str', 'description': 'Symbol of stock, crypto, or option. Options should be in OCC format. Defaults to first symbol in watchlist'},
+]} />
+
+```python
+def get_asset_max_quantity(self, symbol=None):
+```
+
+## Returns
+
+Returns the quantity that can be bought.
+
+## Raises
+- An `Exception` is raised if there is an error in fetching the maximum quantity.
+---

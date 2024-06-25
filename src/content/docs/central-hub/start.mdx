@@ -1,0 +1,30 @@
+---
+title: start
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# start
+
+Starts the system to begin fetching data, running algorithms, and executing trades.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'interval', 'type': 'str', 'description': 'The interval to run the algorithm. Defaults to "5MIN"'},
+    {'field': 'aggregations', 'type': 'list[str]', 'description': 'A list of intervals. The Trader will aggregate data to the intervals specified in this list. For example, if this is set to ["5MIN", "30MIN"], and interval is "1MIN", the algorithm will have access to 5MIN, 30MIN aggregated data in addition to 1MIN data. Defaults to None'},
+    {'field': 'sync', 'type': 'bool', 'description': 'If true, the system will sync with the broker and fetch current positions and pending orders. Defaults to true'},
+    {'field': 'server', 'type': 'bool', 'description': 'If true, runs the system in server mode. Defaults to false'},
+    {'field': 'all_history', 'type': 'bool', 'description': 'If true, gets all history for all the given assets. If false, only get data in the past three days. Defaults to true'},
+]} />
+
+```python
+def start(self, interval: str = Interval.MIN_5, aggregations: List = None, sync: bool = True, server: bool = False, all_history: bool = True) -> None:
+```
+
+## Returns
+
+This method does not return anything.
+
+## Raises
+- An `Exception` is raised if there is an error starting the system.
+---

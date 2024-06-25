@@ -1,0 +1,27 @@
+---
+title: fetch_crypto_positions
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# fetch_crypto_positions
+
+Returns all current crypto positions.
+
+## Syntax
+
+<DocParameterTable params={[]} />
+
+```python
+def fetch_crypto_positions(self) -> List[Dict[str, Any]]:
+```
+
+## Returns
+
+Returns a list of dictionaries with the following keys and values:
+- `symbol`: Ticker symbol for the crypto, prepended with an '@'
+- `avg_price`: The average price the crypto was bought at
+- `quantity`: Quantity owned
+
+## Raises
+- An `Exception` is raised if there is an error fetching the crypto positions.
+---

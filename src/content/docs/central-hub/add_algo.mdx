@@ -1,0 +1,26 @@
+---
+title: add_algo
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# add_algo
+
+Adds an algorithm to the list of algorithms.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'algo', 'type': 'Algo', 'description': 'The algorithm to add to the list of algorithms'},
+]} />
+
+```python
+def add_algo(self, algo) -> None:
+```
+
+## Returns
+
+This method does not return anything.
+
+## Raises
+- An `Exception` is raised if there is an error adding the algorithm.
+---

@@ -1,0 +1,29 @@
+---
+title: setup
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# setup
+
+This function is called right before the algorithm begins, and initializes several runtime parameters like the symbols to watch and what interval data is needed.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'stats', 'type': 'Stats', 'description': 'The Stats object that contains the watchlist and other configurations'},
+    {'field': 'account', 'type': 'Account', 'description': 'The Account object that contains the users account information'},
+    {'field': 'broker_hub_cb', 'type': 'Callable', 'description': 'The callback function that the broker calls every time it fetches new data. Defaults to None'}
+]} />
+
+```python
+def setup(self, stats: Stats, account: Account, broker_hub_cb: Callable = None) -> None:
+```
+
+## Returns
+
+This method does not return anything.
+
+## Raises
+- An `Exception` is raised if there is an error during setup.
+
+---

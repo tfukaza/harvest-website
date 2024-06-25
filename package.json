@@ -1,38 +1,20 @@
 {
-  "name": "harvest-website",
-  "version": "1.0.0",
-  "description": "Website for harvest-python",
-  "main": "index.html",
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "dev": "npm-run-all --parallel watch:*",
-    "watch:11ty": "eleventy --serve",
-    "watch:tw": "npx tailwindcss -i _site/css/tw.css -c src/tailwind.config.js -o _site/css/tailwind.css --watch",
-    "watch:sass": "sass --watch src/sass:_site/css",
-    "build": "ELEVENTY_PRODUCTION=true ELEVENTY_PATH_PREFIX=harvest-website eleventy --pathprefix=harvest-website && sass src/sass:_site/css && NODE_ENV=production && npx tailwindcss -i _site/css/tw.css -c src/tailwind.config.js -o _site/css/tailwind.css --minify"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tfukaza/harvest-website.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tfukaza/harvest-website/issues"
-  },
-  "homepage": "https://github.com/tfukaza/harvest-website#readme",
   "dependencies": {
-    "@11ty/eleventy": "^0.12.1",
-    "daisyui": "^2.15.1",
-    "jsdom": "^19.0.0",
-    "markdown-it": "^10.0.0",
-    "npm-run-all": "^4.1.5",
-    "prismjs": "^1.25.0",
-    "sass": "^1.42.1",
-    "toml": "^3.0.0"
-  },
-  "devDependencies": {
-    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.3",
-    "node-fetch": "^3.0.0",
-    "tailwindcss": "^3.0.24"
+    "@astrojs/check": "^0.7.0",
+    "@astrojs/mdx": "^3.1.0",
+    "@astrojs/svelte": "^5.5.0",
+    "astro": "^4.9.2",
+    "svelte": "^4.2.18",
+    "typescript": "^5.4.5"
   }
 }

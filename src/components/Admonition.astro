@@ -1,0 +1,118 @@
+---
+const type:string = Astro.props.type;
+
+let type_emoji = "";
+switch (type) {
+    case "note":
+        type_emoji = "📝";
+        break;
+    case "tip":
+        type_emoji = "💡";
+        break;
+    case "warning":
+        type_emoji = "⚠️";
+        break;
+    case "important":
+        type_emoji = "❗";
+        break;
+    case "caution":
+        type_emoji = "🚨";
+        break;
+    case "danger":
+        type_emoji = "💥";
+        break;
+    default:
+        type_emoji = "📝";
+        break;
+}
+
+let type_text = "";
+switch (type) {
+    case "note":
+        type_text = "Note";
+        break;
+    case "tip":
+        type_text = "Tip";
+        break;
+    case "warning":
+        type_text = "Warning";
+        break;
+    case "important":
+        type_text = "Important";
+        break;
+    case "caution":
+        type_text = "Caution";
+        break;
+    case "danger":
+        type_text = "Danger";
+        break;
+    default:
+        type_text = "Note";
+        break;
+}
+---
+
+<div class=`admonition admonition-${type}`>
+
+    <h1 class="admonition-emoji">{type_emoji}</h1><h1 class="admonition-title">{type_text}</h1>
+    <slot />
+</div>
+
+
+<style>
+    .admonition {
+        display: grid;
+        grid-template-columns: 30px 1fr;
+        border-radius: 8px;
+        border-width: 1px;
+        border-style: solid;
+        padding: 12px 10px;
+        margin-bottom: 30px;
+
+        
+
+        .admonition-emoji {
+            grid-column: 1;
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .admonition-title {
+            grid-column: 2;
+            font-size: 1.2rem;
+            margin: 0;
+            margin-bottom: 5px;
+
+        }
+
+        > p {
+            grid-column: 2;
+            margin: 0;
+        }
+    }
+
+    .admonition-note {
+        background-color: #f0f0f0;
+        border-color: #d0d0d0;
+    }
+
+    .admonition-tip {
+        background-color: #e0f7fa;
+        border-color: #b2ebf2;
+    }
+
+    .admonition-warning {
+        background-color: #fff8f6;
+        border-color: #ffe291;
+        box-shadow: 0px 16px 30px -10px rgba(236, 100, 16, 0.3);
+
+        h1 {
+            color: #ad2f0b;
+        }
+
+        p {
+            color: #b74c12;
+        }
+    }
+
+</style>

@@ -1,0 +1,28 @@
+---
+title: set_symbol
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# set_symbol
+
+Specifies the symbol(s) to watch.
+
+Cryptocurrencies should be prepended with an `@` to differentiate them from stocks. For example, '@ETH' will refer to Ethereum, while 'ETH' will refer to Ethan Allen Interiors. If this method was previously called, the symbols specified earlier will be replaced with the new symbols.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol', 'type': 'Union[List[str], str]', 'description': 'Ticker Symbol(s) of stock or cryptocurrency to watch. It can either be a string, or a list of strings'},
+]} />
+
+```python
+def set_symbol(self, symbol: Union[List[str], str]) -> None:
+```
+
+## Returns
+
+This method does not return anything.
+
+## Raises
+- An `Exception` is raised if there is an error setting the symbol(s).
+---

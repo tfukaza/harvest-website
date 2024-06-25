@@ -1,0 +1,29 @@
+---
+title: fetch_option_market_data
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# fetch_option_market_data
+
+Retrieves data of specified option.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol', 'type': 'str', 'description': 'OCC symbol of option'},
+]} />
+
+```python
+def fetch_option_market_data(self, symbol: str) -> Dict[str, Any]:
+```
+
+## Returns
+
+Returns a dictionary with the following keys and values:
+- `price`: price of option
+- `ask`: ask price
+- `bid`: bid price
+
+## Raises
+- A `NotImplementedError` is raised if the method is not supported.
+---

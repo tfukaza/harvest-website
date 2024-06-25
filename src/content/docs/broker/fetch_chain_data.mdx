@@ -1,0 +1,34 @@
+---
+title: fetch_chain_data
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# fetch_chain_data
+
+Returns the option chain for the specified symbol.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol', 'type': 'str', 'description': 'Stock symbol. Cannot use crypto.'},
+    {'field': 'date', 'type': 'Union[str, dt.datetime]', 'description': 'Expiration date.'},
+]} />
+
+```python
+def fetch_chain_data(self, symbol: str, date: Union[str, dt.datetime]) -> pd.DataFrame:
+```
+
+## Returns
+
+Returns a dataframe in the following format:
+```
+              exp_date  strike  type
+OCC
+---           ---      ---     ---
+```
+
+exp_date should be a timezone-aware datetime object localized to UTC.
+
+## Raises
+- A `NotImplementedError` is raised if the method is not supported.
+---
