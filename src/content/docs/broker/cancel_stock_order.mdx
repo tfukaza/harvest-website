@@ -1,0 +1,26 @@
+---
+title: cancel_stock_order
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# cancel_stock_order
+
+Cancels a stock order with the given order ID.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'order_id', 'type': 'str', 'description': 'ID of the stock order'},
+]} />
+
+```python
+def cancel_stock_order(self, order_id) -> None:
+```
+
+## Returns
+
+This method does not return anything.
+
+## Raises
+- A `NotImplementedError` is raised if the method is not supported.
+---

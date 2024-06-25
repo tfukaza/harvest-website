@@ -1,0 +1,30 @@
+---
+title: get_asset_price_list
+---
+import { DocParameterTable } from '../../../components/customComponents.js';
+
+# get_asset_price_list
+
+Returns a list of recent prices for an asset.
+
+This function is not compatible with options.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol', 'type': 'str', 'description': 'Symbol of stock or crypto asset. Defaults to first symbol in watchlist'},
+    {'field': 'interval', 'type': 'str', 'description': 'Interval of data. Defaults to the interval of the algorithm'},
+    {'field': 'ref', 'type': 'str', 'description': "'close', 'open', 'high', or 'low'. Defaults to 'close'"},
+]} />
+
+```python
+def get_asset_price_list(self, symbol: str = None, interval: str = None, ref: str = "close"):
+```
+
+## Returns
+
+Returns a list of recent prices for the specified asset.
+
+## Raises
+- An `Exception` is raised if there is an error in fetching the price list.
+---

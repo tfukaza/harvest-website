@@ -1,0 +1,28 @@
+---
+title: setup
+---
+
+# setup
+
+Method called immediately prior to the algorithm starting.
+This should be used to set up any initial state or perform any initial operations before the algorithm starts running.
+
+## Syntax
+```python
+def setup(self)
+```
+Users are expected extend the `Algorithm` class to create their own custom algorithms. 
+In the extended class, override the `setup` method to set up any initial state or perform any initial operations before the algorithm starts running. 
+For example, if your algorithm uses a some state variables or relies on an external API, 
+this would be a good place to initialize them.
+
+## Example
+```python
+class MyAlgorithm(Algorithm):
+    def setup(self):
+        self.state = {"count": 0}
+        self.api = MyAPI()
+        self.api.connect()
+```
+
+---

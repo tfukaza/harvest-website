@@ -1,0 +1,29 @@
+---
+title: fetch_market_hours
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# fetch_market_hours
+
+Returns the market hours for a given day. Hours are based on the exchange specified in the class's 'exchange' attribute.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'date', 'type': 'dt.date', 'description': 'The date to get market hours for'},
+]} />
+
+```python
+def fetch_market_hours(self, date: dt.date) -> Dict[str, Any]:
+```
+
+## Returns
+
+Returns a dictionary with the following keys and values:
+- `is_open`: Boolean indicating whether the market is open or closed
+- `open_at`: Time the market opens in UTC timezone
+- `close_at`: Time the market closes in UTC timezone
+
+## Raises
+- An `Exception` is raised if there is an error fetching market hours.
+---

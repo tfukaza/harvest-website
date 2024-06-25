@@ -1,0 +1,27 @@
+---
+title: crossover
+---
+import { DocParameterTable } from '../../../components/customComponents.js';
+
+# crossover
+
+Performs crossover analysis on two sets of price data.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'prices_0', 'type': 'list', 'description': 'First set of price data'},
+    {'field': 'prices_1', 'type': 'list', 'description': 'Second set of price data'},
+]} />
+
+```python
+def crossover(self, prices_0, prices_1):
+```
+
+## Returns
+
+Returns 'True' if `prices_0` most recently crossed over `prices_1`, 'False' otherwise.
+
+## Raises
+- An `Exception` is raised if either or both price lists have less than 2 values.
+---

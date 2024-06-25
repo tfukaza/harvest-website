@@ -1,0 +1,26 @@
+---
+title: get_time
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# get_time
+
+Returns the current hour and minute.
+
+This returns the current time, which is different from the timestamp of stock prices. For example, if you are running an algorithm every 5 minutes, at 11:30am you will get price data with a timestamp of 11:25am. This function will return 11:30am.
+
+## Syntax
+
+<DocParameterTable params={[]} />
+
+```python
+def get_time(self):
+```
+
+## Returns
+
+Returns the current time as a datetime object.
+
+## Raises
+- An `Exception` is raised if there is an error retrieving the time.
+---

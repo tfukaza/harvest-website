@@ -1,0 +1,28 @@
+---
+title: config
+---
+
+# config
+
+The `config` method is used to initialize the `interval`, `aggregations` and `watchlist` member variables of the `Algorithm` class.
+Users are expected to override this method in their custom algorithm classes to set these member variables to their desired values.
+See the [Algorithm](../Algorithm/index.md) documentation for more information on these member variables.
+
+## Syntax
+```python
+def config(self)
+```
+Users are expected extend the `Algorithm` class to create their own custom algorithms. 
+In the extended class, users should override the `config` method to set the `interval`, `aggregations` and `watchlist` member variables. 
+
+## Example
+
+```python
+class MyAlgorithm(Algorithm):
+    def config(self):
+        self.interval = "5MIN"
+        self.aggregations = ["15MIN", "30MIN", "1DAY"]
+        self.watchlist = ["AAPL", "@BTC"]
+```
+
+---

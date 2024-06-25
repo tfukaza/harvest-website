@@ -1,0 +1,77 @@
+---
+import DocLayout from '@layouts/DocLayout.astro';
+import {BASE} from '@constants';
+---
+
+<DocLayout title="pyHarvest">
+	<section id="landing">
+		<section id="landing">
+			<div>
+				<a href=`${BASE}/tutorials/starter`>
+					<h1>Tutorials</h1>
+					<p>Learn how to use pyHarvest with our tutorials.</p>
+				</a>
+				<a href=`${BASE}/docs`>
+					<h1>API Reference</h1>
+					<p>Explore the API reference for pyHarvest.</p>
+				</a>
+			</div>
+		</section>
+	</section>
+</DocLayout>
+
+<style>
+
+	#landing {
+		display: grid;
+		place-items: center;
+		height: 100vh;
+		
+		text-align: center;
+		
+		div {
+			width: 700px;
+		}
+
+		h1 {
+			font-size: 4rem;
+			font-weight: 700;
+			color: var(--text-primary);
+			letter-spacing: -0.03em;
+
+			background: #A4A603;
+			background: linear-gradient(to right, #A4A603 3%, #7EC20D 50%, #16BA3E 100%);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+		}
+
+		p {
+			font-size: 1.5rem;
+			color: var(--text-primary);
+			margin-bottom: 2rem;
+		}
+
+		a {
+			padding: 0px 10px;
+		}
+	}
+
+	#mix-n-match {
+		background-color: var(--bg-light);
+		text-align: center;
+
+		.icon {
+			width: 64px;
+			height: 64px;
+			border-radius: 16px;
+			box-shadow: 0px 7px 19px rgb(23 29 45 / 14%);
+			padding: 10px;
+
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+	
+</style>

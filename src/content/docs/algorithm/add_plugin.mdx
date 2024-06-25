@@ -1,0 +1,30 @@
+---
+title: add_plugin
+---
+import { DocParameterTable } from '../../../components/customComponents.js';
+
+# add_plugin
+
+Adds a plugin to the algorithm.
+
+## Syntax
+
+<DocParameterTable 
+    params={[
+       {'field': 'plugin',       'type': 'Plugin', 'description': 'The plugin to add to the algorithm.'},
+    ]}   
+/>
+
+
+```python
+def add_plugin(
+    self: Self@Algorithm,
+    plugin: Plugin
+)
+```
+
+The plugin should be a class that inherits from the `Plugin` class.
+
+
+
+---

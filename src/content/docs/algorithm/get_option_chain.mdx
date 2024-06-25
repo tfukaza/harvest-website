@@ -1,0 +1,59 @@
+---
+title: get_option_chain
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# get_option_chain
+
+Returns the option chain for the specified symbol and expiration date.
+
+This function is often used in conjunction with the get_option_chain_info function in order to
+retrieve the available expiration dates.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol',       'type': 'str', 'description': 'Symbol of stock'},
+    {'field': 'date',         'type': 'str | datetime.datetime', 'description': 'Expiration date of the option'},
+]} />
+
+
+```python
+def get_option_chain(self, symbol: str, date):
+```
+
+The date parameter can either be a string in the format "YYYY-MM-DD" or a datetime object.
+If using a datetime object, it should be timezone-aware. If a timezone-naive object is passed, 
+it would assume to be in the timezone of the computer running the algorithm, and convert it to UTC timezone.
+
+
+## Returns
+
+Returns a DataFrame in the following format:
+<DocDataFrame columns={
+    {
+        "exp_date": {
+            "": "",
+        },
+        "strike": {
+            "": "",
+        },
+        "type": {
+            "": "",
+        },
+    }}
+    index = {"str"}
+    data = {["str", "str", "float"]}
+/>
+
+The index is a string representing the option symbol, and the columns are as follows:
+- `exp_date`: Expiration date of the option as a timezone naive datetime object, adjusted
+to the timezone of the computer running the algorithm.
+- `strike`: Strike price of the option as a float.
+- `type`: Type of the option, either "call" or "put".
+
+
+## Raises
+- An `Exception` is raised if the broker fails to process the request for any reason.
+- If the broker does not support options trading, an `NotImplementedError` is raised.
+---

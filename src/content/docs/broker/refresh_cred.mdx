@@ -1,0 +1,24 @@
+---
+title: refresh_cred
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# refresh_cred
+
+Most API endpoints, for security reasons, require a refresh of the access token every now and then. This method should perform a refresh of the access token.
+
+## Syntax
+
+<DocParameterTable params={[]} />
+
+```python
+def refresh_cred(self) -> None:
+```
+
+## Returns
+
+This method does not return anything.
+
+## Raises
+- An `Exception` is raised if there is an error refreshing the credentials.
+---

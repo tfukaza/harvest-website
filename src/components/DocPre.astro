@@ -1,0 +1,39 @@
+---
+const props = Astro.props;
+---
+<div class="code-container"><div><pre><slot /></pre></div></div>
+<style>
+    .code-container {
+        overflow: hidden;
+    }
+
+    div {  
+        background-color: var(--pre-background--light);
+        border-radius: 8px;
+        overflow-x: scroll; 
+        
+        &::-webkit-scrollbar {
+			height: 8px;
+		}
+		&::-webkit-scrollbar-thumb {
+			background: #888894;
+			
+		}
+		&::-webkit-scrollbar-thumb:hover {
+			background: #555;
+		}
+		&::-webkit-scrollbar-track {
+			background: transparent;
+			height: 8px;
+			
+		}
+    }
+
+    pre {
+        padding: 10px 0px 10px 10px;
+        line-height: 1.2;
+        font-family: 'IBM Plex Mono', monospace;  
+    }
+
+    
+</style>

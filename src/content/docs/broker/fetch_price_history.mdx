@@ -1,0 +1,35 @@
+---
+title: fetch_price_history
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# fetch_price_history
+
+Fetches historical price data for the specified asset and period using the API. The first row is the earliest entry and the last row is the latest entry.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol', 'type': 'str', 'description': 'The stock/crypto to get data for. Note options are not supported.'},
+    {'field': 'interval', 'type': 'Interval', 'description': 'The interval of requested historical data.'},
+    {'field': 'start', 'type': 'Union[str, dt.datetime]', 'description': 'The starting date of the period, inclusive. Defaults to None'},
+    {'field': 'end', 'type': 'Union[str, dt.datetime]', 'description': 'The ending date of the period, inclusive. Defaults to None'},
+]} />
+
+```python
+def fetch_price_history(
+    self,
+    symbol: str,
+    interval: Interval,
+    start: Union[str, dt.datetime] = None,
+    end: Union[str, dt.datetime] = None,
+) -> pd.DataFrame:
+```
+
+## Returns
+
+Returns a pandas dataframe in the same format as `self.step()`.
+
+## Raises
+- A `NotImplementedError` is raised if the method is not supported.
+---

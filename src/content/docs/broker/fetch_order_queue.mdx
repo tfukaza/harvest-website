@@ -1,0 +1,48 @@
+---
+title: fetch_order_queue
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# fetch_order_queue
+
+Returns all current pending orders.
+
+## Syntax
+
+<DocParameterTable params={[]} />
+
+```python
+def fetch_order_queue(self) -> List[Dict[str, Any]]:
+```
+
+## Returns
+
+Returns a list of dictionaries with the following keys and values:
+For stocks and crypto:
+- `order_type`: "STOCK" or "CRYPTO"
+- `symbol`: Symbol of asset
+- `quantity`: Quantity ordered
+- `time_in_force`: Time in force
+- `side`: 'buy' or 'sell'
+- `order_id`: ID of order
+- `status`: Status of the order
+- `filled_qty`: Quantity filled
+- `filled_time`: Time the order was filled
+- `filled_price`: Price the order was filled at
+
+For options:
+- `order_type`: "OPTION"
+- `symbol`: OCC symbol of option
+- `base_symbol`: 
+- `quantity`: Quantity ordered
+- `order_id`: ID of order
+- `time_in_force`: Time in force
+- `side`: 'buy' or 'sell'
+- `status`: Status of the order
+- `filled_qty`: Quantity filled
+- `filled_time`: Time the order was filled
+- `filled_price`: Price the order was filled at
+
+## Raises
+- An `Exception` is raised if there is an error fetching the order queue.
+---

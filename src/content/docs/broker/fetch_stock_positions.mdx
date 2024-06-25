@@ -1,0 +1,27 @@
+---
+title: fetch_stock_positions
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# fetch_stock_positions
+
+Returns all current stock positions.
+
+## Syntax
+
+<DocParameterTable params={[]} />
+
+```python
+def fetch_stock_positions(self) -> List[Dict[str, Any]]:
+```
+
+## Returns
+
+Returns a list of dictionaries with the following keys and values:
+- `symbol`: Ticker symbol of the stock
+- `avg_price`: The average price the stock was bought at
+- `quantity`: Quantity owned
+
+## Raises
+- An `Exception` is raised if there is an error fetching the stock positions.
+---

@@ -1,0 +1,47 @@
+---
+title: order_option_limit
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# order_option_limit
+
+Places a limit order for options.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'side', 'type': 'str', 'description': "'buy' or 'sell'"},
+    {'field': 'symbol', 'type': 'str', 'description': 'Symbol of asset'},
+    {'field': 'quantity', 'type': 'float', 'description': 'Quantity to buy or sell'},
+    {'field': 'limit_price', 'type': 'float', 'description': 'Limit price'},
+    {'field': 'option_type', 'type': 'str', 'description': "'call' or 'put'"},
+    {'field': 'exp_date', 'type': 'dt.datetime', 'description': 'Expiration date'},
+    {'field': 'strike', 'type': 'float', 'description': 'Strike price'},
+    {'field': 'in_force', 'type': 'str', 'description': "'gtc' by default"},
+]} />
+
+```python
+def order_option_limit(
+    self,
+    side: str,
+    symbol: str,
+    quantity: float,
+    limit_price: float,
+    option_type: str,
+    exp_date: dt.datetime,
+    strike: float,
+    in_force: str = "gtc",
+) -> Dict[str, Any]:
+```
+
+## Returns
+
+Returns a dictionary with the following keys and values:
+- `order_id`: ID of order
+- `symbol`: Symbol of asset
+
+Raises an exception if order fails.
+
+## Raises
+- A `NotImplementedError` is raised if the method is not supported.
+---

@@ -1,0 +1,26 @@
+---
+title: fetch_latest_price
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# fetch_latest_price
+
+Fetches the latest price of the specified asset.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'symbol', 'type': 'str', 'description': 'The stock/crypto to get data for. Note options are not supported.'},
+]} />
+
+```python
+def fetch_latest_price(self, symbol: str) -> float:
+```
+
+## Returns
+
+Returns the latest price as a float.
+
+## Raises
+- An `Exception` is raised if there is an error fetching the latest price.
+---

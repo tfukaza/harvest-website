@@ -1,0 +1,26 @@
+---
+title: set_algo
+---
+import { DocParameterTable, DocDataFrame } from '../../../components/customComponents.js';
+
+# set_algo
+
+Specifies the algorithm to use.
+
+## Syntax
+
+<DocParameterTable params={[
+    {'field': 'algo', 'type': 'Algo | list[Algo]', 'description': 'The algorithm to use. You can either pass in a single Algo class, or a list of Algo classes'},
+]} />
+
+```python
+def set_algo(self, algo) -> None:
+```
+
+## Returns
+
+This method does not return anything.
+
+## Raises
+- An `Exception` is raised if there is an error setting the algorithm.
+---

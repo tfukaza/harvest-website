@@ -1,0 +1,174 @@
+---
+title: pyHarvest | Starter Guide
+---
+
+import { Admonition } from '../../components/customComponents.js';
+
+# Starter Guide
+
+## Introduction
+In this tutorial, you will code an algorithm that trades stocks using the moving average crossover strategy. 
+As a practice, we will be paper (fake) trading using using fake data. 
+We also won't be covering the pyHarvest library or the moving average crossover strategy in depth - instead, 
+the focus is to give a crash course on getting pyHarvest up and running.
+    
+## What You Need
+- Python 3.9 or newer
+
+...that's it! Ideally though, you should also take some time to 
+set up a virtual environments and version control systems using tools 
+like `pyenv` and `virtualenv`. If you're not familiar with these tools,
+check out the tutorials like [this](https://realpython.com/intro-to-pyenv/)
+and [this](https://realpython.com/python-virtual-environments-a-primer/).
+
+
+## Installing
+First things first, let's install the library. 
+
+```bash
+pip install harvest-python
+```
+
+<Admonition type="warning">
+    <p>There are some similar-sounding libraries out there, like `pyharvester` and `python-harvest`. Make sure you are installing the correct library by checking the name.</p>
+</Admonition>
+
+
+## The Code
+Once you have everything installed, we are ready to begin writing the code. 
+For this guide we will be using pyHarvest's built-in dummy broker, 
+which provides fake data for you to practice with.
+
+Create a file called `algo.py` and begin coding in it. We begin by importing the necessary modules:
+
+```python
+from harvest import Algorithm
+from harvest import CentralHub
+from harvest.broker.dummy import DummyBroker
+from harvest.broker.paper import PaperBroker
+```
+
+Next we start writing out algorithm. Algorithms are created by extending the `Algorithm` class. 
+
+```python
+class MyAlgo(Algorithm):
+    pass
+```
+
+There are three methods in the Algo class that you can define. 
+- `config`: Method to initialize parameters for your algorithm.
+- `setup`: Method called right before the algorithm starts. We won't be using this for this tutorial.
+- `main`: Method that runs the main logic of the algorithm.
+
+We first define the config method.
+
+```python
+class MyAlgo(Algorithm):
+    def config(self):
+        self.watchlist=["SPY"]
+        self.interval="5MIN"
+```
+
+`watchlist` is a list of stock symbols we want to track. 
+In this example, we are tracking a single stock - SPY.
+
+`interval` specifies the rate we want to run the algorithm at. 
+For this algorithm, we arbitrarily decide to check Twitter 
+stock prices every `5MIN`.
+
+---
+
+Next we define the actual logic. In short, the moving average crossover strategy works by calculating 
+the average value of the stock over a certain period of time - one for a relatively short period, and another much longer. 
+This strategy states that when the value of the shorter average crosses below the longer average it is a buy, 
+and when it crosses over it's a sell. So we first need to calculate the two averages. 
+This can be done by calling `Algorithm` class's `sma` function. 
+We pass in the `period` parameter to specify how to calculate the average.
+
+```python
+    def main(self):
+        short_avg = self.sma(period=20)
+        long_avg = self.sma(period=50)
+```
+
+`sma` returns a list of the SMA values. Now we need to check if the latest values in the two lists cross over. 
+For example, if short_avg is `[20,30,40]` and long_avg is `[30,31,32]`, then we need to trigger a sell. 
+Lucky for you, pyHarvest comes with a method to do just this - `crossover()`! 
+This returns True if the first list just crossed over the second list. 
+
+```python
+    def main(self):
+        short_avg = self.sma(period=20)
+        long_avg = self.sma(period=50)
+        if self.crossover(short_avg, long_avg):
+            self.sell()
+        elif self.crossover(long_avg, short_avg):
+            self.buy()
+```
+
+The `buy` and `sell` methods are pretty self-explanatory. 
+When `buy` is called without any parameters, it will take the first stock in the watchlist (SPY) and buy as many as it can. 
+Likewise, `sell` will sell all owned stocks of the first stock in watchlist. 
+
+---
+
+Finally, we create an instance of the trader class to use this algorithm, and run it. 
+
+```python
+if __name__ == "__main__":
+    hub = CentralHub( DummyBroker(), PaperBroker() )
+```
+
+This creates the `CentralHub` class, which is the main class that runs the algorithm.
+In the instantiation, we pass in the broker we want to use.
+We use the `DummyBroker` class as the fake data source, and the `PaperBroker` class as the broker to execute practice trades.
+
+Lastly, we specify an instance of the `MyAlgo` class to the trader,
+and run it.
+
+```python
+    hub.set_algo(MyAlgo())
+    hub.run()
+```
+
+Below is the final code after putting everything together.
+
+```python
+from harvest import Algorithm
+from harvest import CentralHub
+from harvest.broker.dummy import DummyBroker
+from harvest.broker.paper import PaperBroker
+
+class MyAlgo(Algorithm):
+    
+    def config(self):
+        self.watchlist=["SPY"]
+        self.interval="5MIN"
+
+    def main(self):
+        short_avg = self.sma(period=20)
+        long_avg = self.sma(period=50)
+        if self.crossover(short_avg, long_avg):
+            self.sell()
+        elif self.crossover(long_avg, short_avg):
+            self.buy()
+    
+if __name__ == "__main__":
+    hub = CentralHub( DummyBroker(), PaperBroker() )
+    hub.set_algo(MyAlgo())
+    hub.run()
+```
+
+You can now run your code:
+```bash
+python algo.py
+```
+
+---
+## Congratulations 🎉 
+
+You've made a fully functioning (albeit practice) trading bot!
+That's it for the basics, but it's highly recommnded you also check out 
+other tutorials for more advanced topics. 
+
+

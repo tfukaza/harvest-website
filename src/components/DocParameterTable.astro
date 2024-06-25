@@ -1,0 +1,79 @@
+---
+const params: Array<{ field: string, type: string, description: string }> = Astro.props.params;
+---
+
+<div class="param-table-container">
+    <div class="param-table-header">
+        <h3>Fields</h3>
+        <h3>Description</h3>
+    </div>
+    {params.map((param) => (
+        <div class="param-table-row">
+            <p>{param.field} <span>({param.type})</span></p>
+            <p>{param.description}</p>
+        </div>
+    ))}
+</div>
+
+
+<style>
+    .param-table-container {
+        border-radius: 8px;
+        border: 1px solid #dfdfdf;
+        overflow: hidden;
+
+        display: block;
+    }
+
+    .param-table-header {
+        font-family: var(--paragraph-font);    
+        background-color: #dfdfdf;
+        padding: 10px 12px;
+
+        display: flex;
+
+        > h3 {
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--h3-light);
+        }
+
+        > h3:first-child {
+            width: 200px;
+        }
+
+        > h3:last-child {
+            width: calc(100% - 200px);
+        }
+
+    }
+
+    .param-table-row {
+        display: flex;
+        border-bottom: 1px solid #dfdfdf;
+        padding: 8px 12px;
+
+        > p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+
+            span {
+               text-wrap:nowrap
+            }
+        }
+
+        > p:first-child {
+            width: 200px;
+        }
+
+        > p:last-child {
+            width: calc(100% - 200px);
+        }
+        
+      
+    }
+
+  
+
+
+</style>

@@ -1,0 +1,27 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const tutorialEntries = await getCollection('tutorials');
+  return tutorialEntries.map(entry => ({
+    params: { slug: entry.slug }, props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+import DocPre from '../../components/DocPre.astro';
+import DocCode from '../../components/DocCode.astro';
+import DocHr from '../../components/DocHr.astro';
+export const components = {
+	  pre: DocPre,
+    code: DocCode,
+    hr: DocHr
+};
+
+import DocLayout from '../../layouts/DocLayout.astro';
+---
+<DocLayout>
+    <Content components={components} />
+</DocLayout>
