@@ -15,8 +15,8 @@
 	<button class="collapseButton" on:click={onToggleCollapse}><span class="collapseIcon">▸</span>{title}</button>
 	<ul>
 		{#each items as item (`${title.toLowerCase()}-${item.name}`)}
-			<li id={`link-${item.name}`}>
-				<a href={BASE + `/docs/${title.replace(' ', '-').toLowerCase()}/${item.name}`}>{item.name}</a>
+			<li id={`link-${title.toLowerCase().replace(' ', '-')}-${item.name}`}>
+				<a href={BASE + `/docs/${title.toLowerCase().replace(' ', '-')}/${item.name}`}>{item.name}</a>
 			</li>
 		{/each}
 	</ul>

@@ -43,20 +43,19 @@ Object.entries(menuItems).map(([className, functions]) => {
 ---	
 <script>
 	// On page load, check the URL and highlight the current page in the nav
-	document.addEventListener("astro:after-swap", () => {
+	document.addEventListener("astro:page-load", () => {
 	
-		const parthSplit = window.location.pathname.split('/');
-		const currentPath = parthSplit[parthSplit.length - 1];
+		const pathSplit = window.location.pathname.split('/');
+		const funcName = pathSplit[pathSplit.length - 1];
+		const className = pathSplit[pathSplit.length - 2];
 		const currentCategory = window.location.pathname.split('/')[2];
-		if (currentPath === '') return;
-
-		console.log(currentPath);
+		if (funcName === '') return;
 
 		let navItems: NodeListOf<HTMLElement> = document.querySelectorAll('#doc-nav li');
 		navItems.forEach((item) => {
 			item.classList.remove('selected');
 		});
-		let navItem: HTMLElement | null = document.querySelector(`#link-${currentPath}`) ;
+		let navItem: HTMLElement | null = document.querySelector(`#link-${className}-${funcName}`);
 		if (navItem)
 			navItem.classList.add('selected'); 
 
