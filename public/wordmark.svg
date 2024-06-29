@@ -1,0 +1,26 @@
+<svg width="500" height="100" viewBox="0 0 500 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="500" height="100" fill="white"/>
+<rect x="110" y="56" width="14" height="12" rx="4" transform="rotate(180 110 56)" fill="black"/>
+<rect x="126" y="75" width="14" height="50" rx="4" transform="rotate(180 126 75)" fill="black"/>
+<rect x="151" y="75" width="14" height="41" rx="4" transform="rotate(180 151 75)" fill="black"/>
+<rect x="248" y="66" width="14" height="41" rx="4" transform="rotate(180 248 66)" fill="black"/>
+<rect x="387" y="37" width="14" height="12" rx="4" transform="rotate(180 387 37)" fill="black"/>
+<rect x="167" y="64" width="14" height="12" rx="4" transform="rotate(180 167 64)" fill="black"/>
+<rect x="264" y="75" width="14" height="12" rx="4" transform="rotate(180 264 75)" fill="black"/>
+<rect x="403" y="75" width="14" height="50" rx="4" transform="rotate(180 403 75)" fill="black"/>
+<rect x="167" y="37" width="14" height="12" rx="4" transform="rotate(180 167 37)" fill="black"/>
+<rect x="183" y="75" width="14" height="41" rx="4" transform="rotate(180 183 75)" fill="black"/>
+<rect x="280" y="66" width="14" height="41" rx="4" transform="rotate(180 280 66)" fill="black"/>
+<rect x="419" y="37" width="14" height="12" rx="4" transform="rotate(180 419 37)" fill="black"/>
+<rect x="208" y="75" width="14" height="50" rx="4" transform="rotate(180 208 75)" fill="black"/>
+<rect x="305" y="75" width="14" height="50" rx="4" transform="rotate(180 305 75)" fill="black"/>
+<rect x="346" y="57" width="14" height="32" rx="4" transform="rotate(180 346 57)" fill="black"/>
+<rect x="362" y="75" width="14" height="27" rx="4" transform="rotate(180 362 75)" fill="black"/>
+<rect x="321" y="57" width="14" height="12" rx="4" transform="rotate(180 321 57)" fill="black"/>
+<rect x="321" y="75" width="14" height="12" rx="4" transform="rotate(180 321 75)" fill="black"/>
+<rect x="346" y="75" width="14" height="12" rx="4" transform="rotate(180 346 75)" fill="black"/>
+<rect x="224" y="37" width="14" height="12" rx="4" transform="rotate(180 224 37)" fill="black"/>
+<rect x="321" y="37" width="14" height="12" rx="4" transform="rotate(180 321 37)" fill="black"/>
+<rect x="362" y="37" width="14" height="12" rx="4" transform="rotate(180 362 37)" fill="black"/>
+<rect x="94" y="75" width="14" height="50" rx="4" transform="rotate(180 94 75)" fill="black"/>
+</svg>

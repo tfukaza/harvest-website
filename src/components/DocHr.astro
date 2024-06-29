@@ -1,12 +1,23 @@
 ---
 // const props = Astro.props;
 ---
-<div class="doc-hr"></div>
+<div class="doc-hr">
+    <span></span>
+</div>
 
-<style>
+<style lang="scss">
     .doc-hr {
-        border-top: 1px solid #dfdfdf;
-        margin: 50px 80px;
-        box-sizing: border-box;
+        margin: 60px 80px;
+        display: flex;
+        justify-content: center;
+        
+        > span {
+            display: inline-block;
+            width: 100px;
+            height: 6px;
+            border-radius: 3px;
+            background-color: #dfdfdf;
+            margin: 0 50px;
+        }
     }
 </style>

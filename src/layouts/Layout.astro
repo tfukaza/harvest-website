@@ -5,44 +5,54 @@ interface Props {
 
 const { title } = Astro.props;
 import { BASE } from '@constants';
+
+import { ViewTransitions } from "astro:transitions";
+import Footer from '@components/Footer.astro';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en"  transition:animate="none">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<link rel="icon" type="image/svg+xml" href=`${BASE}/favicon.svg` />
 		<meta name="generator" content={Astro.generator} />
+		<script defer src="https://buttons.github.io/buttons.js" is:inline></script>
 		<title>{title}</title>
+		<ViewTransitions />
 	</head>
 	<body>
-		<nav class="main-nav">
+		<nav class="main-nav" transition:persist>
+			<!--Force a reload so the GitHUb Star Button can run Js to render the button-->
+			<a href=`${BASE}` data-astro-reload>
+				<img src=`${BASE}/wordmark.svg` alt="logo" />
+			</a>
 			<ul>
-				<li><a href=`${BASE}/`>Home</a></li>
-				<li><a href=`${BASE}/docs`>Docs</a></li>
+				<li><a href=`${BASE}/tutorials/introduction/starter` data-astro-reload>Tutorials</a></li>
+				<li><a href=`${BASE}/docs` data-astro-reload>Docs</a></li>
 			</ul>
+			<a class="github-button" href="https://github.com/tfukaza/harvest" data-color-scheme="no-preference: light; light: light; dark: light;" data-size="large" data-show-count="true" aria-label="Star tfukaza/harvest on GitHub">Star</a>
 		</nav>
 		<main>
 			<slot />
 		</main>
-		<footer>
-			
-		</footer>
+		<Footer />
 	</body>
 
 </html>
-<style is:global>
+<style is:global lang="scss">
 
 	@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Inter:wght@100..900&display=swap');
 
 	:root {
 
-		--text-light: #2a2a2a;
+		--text-light: #383838;
+		--text-secondary-light: #767676;
 		--h1-light: #333;
 		--h2-light: #444;
 		--h3-light: #555;
+		--h4-light: #666;
 
 		--pre-background--light: #282A36;
 
@@ -56,48 +66,97 @@ import { BASE } from '@constants';
 		font-size: 16px;
 	}
 
-	main {
+	main, footer {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr) repeat(8, 100px) repeat(2, 1fr);
 		column-gap: 10px;
 		justify-content: center;
-		min-height: 100vh;
-
 		@media screen and (max-width: 1200px) {
 			grid-template-columns: repeat(2, 0fr) repeat(8, 1fr) repeat(2, 0fr);
-			
 		}
 	}
+
+	main {
+		min-height: 100vh;
+	}
+
+	
 
 	* {
 		margin: 0;
 		padding: 0;
 	}
 
-	h1 {
-		font-size: 3rem;
-		margin-bottom: 1rem;
-	}
-
 	a, p {
 		font-size: 1rem;
 		color: var(--text-light);
 		line-height: 1.5;
+	}
 
+	a {
+		text-decoration: none;
+		
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	h1 {
+		font-size: 3rem;
+		margin-bottom: 1rem;
+		color: var(--h1-light);
+	}
+
+	h2 {
+		font-size: 1.5rem;
+		margin-bottom: 1rem;
+		color: var(--h2-light);
+	}
+
+	h3 {
+		font-size: 1.2rem;
+		margin-bottom: 1rem;
+		color: var(--h3-light);
+	}
+
+	h4 {
+		font-size: 1rem;
+		margin-bottom: 1rem;
+		color: var(--h4-light);
 	}
 
 	.main-nav {
 		width: 100%;
 		height: 50px;
-		background-color: #ffffff24;
+		background-color: #ffffff;
 		border-bottom: 1px solid #e3e3e3;
-		backdrop-filter: blur(10px);
 		position: fixed;
 		top: 0;
 		left: 0;
-		z-index: 1000;
+		z-index: 1003;
+		grid-template-columns: 1fr 1000px 1fr;
+		display: grid;
+		
+		align-items: center;
+
+
+		> a {
+			grid-column: 1 / 2;
+			justify-self: end;
+			height: 30px;
+			img {
+				height: 100%;	
+				margin-left: 20px;
+			}
+		}
+
+		> span {
+			justify-self: end;
+			margin-right: 20px;
+		}
 
 		> ul {
+			grid-column: 2 / 3;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -108,19 +167,42 @@ import { BASE } from '@constants';
 				margin: 0 10px;
 				cursor: pointer;
 				transition: all 0.3s ease;
-
-				&:hover {
-					background: #f3f3f3;
-				}
 			}
 
 			a {
 				text-decoration: none;
 				color: var(--text-light);
-				font-size: 1.0rem;
 				line-height: 1.5;
+
+				&:hover {
+					color: var(--text-secondary-light);
+					text-decoration: underline;
+				}
 			}
 		}
+
+		@media (max-width: 1200px) {
+			display: flex;
+			> a {
+				
+				height: 25px;
+				img {
+					margin-left: 0px;
+				}
+			}
+
+			> ul {
+				
+				justify-self: left;
+				li {
+					margin: 0 5px;
+				}
+			}
+
+			> span {
+				margin-left:auto;
+			}
+		} 
 		
 	}
 
@@ -136,15 +218,5 @@ import { BASE } from '@constants';
 		}
 	}
 
-	footer {
-		width: 100%;
-		height: 300px;
-		background-color: #f5f5f5;
-		border-top: 1px solid #e3e3e3;
 
-
-		
-	}
-
-	
 </style>

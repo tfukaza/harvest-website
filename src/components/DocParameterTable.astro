@@ -1,40 +1,51 @@
 ---
 const params: Array<{ field: string, type: string, description: string }> = Astro.props.params;
 ---
-
-<div class="param-table-container">
-    <div class="param-table-header">
-        <h3>Fields</h3>
-        <h3>Description</h3>
-    </div>
-    {params.map((param) => (
-        <div class="param-table-row">
-            <p>{param.field} <span>({param.type})</span></p>
-            <p>{param.description}</p>
+{params.length > 0 && (
+    <div class="param-table-container">
+        <div>
+            <div class="param-table-header">
+                <h3>Fields</h3>
+                <h3>Description</h3>
+            </div>
+            {params.map((param) => (
+                <div class="param-table-row">
+                    <p>{param.field} <span>({param.type})</span></p>
+                    <p>{param.description}</p>
+                </div>
+            ))}
         </div>
-    ))}
-</div>
+    </div>
+)}
 
-
-<style>
+<style lang="scss">
     .param-table-container {
         border-radius: 8px;
         border: 1px solid #dfdfdf;
-        overflow: hidden;
+        overflow-x: scroll;
+     
+        > div {
 
-        display: block;
+            width: 100%;   
+
+            @media (max-width: 1200px) {
+                width: max(100%, 550px);
+            }
+        }
     }
 
     .param-table-header {
         font-family: var(--paragraph-font);    
         background-color: #dfdfdf;
         padding: 10px 12px;
-
+        width: 100%;
         display: flex;
+        box-sizing: content-box;
 
         > h3 {
             font-weight: 500;
             font-size: 1rem;
+            margin-bottom: 0;
             color: var(--h3-light);
         }
 
@@ -43,20 +54,33 @@ const params: Array<{ field: string, type: string, description: string }> = Astr
         }
 
         > h3:last-child {
-            width: calc(100% - 200px);
+            width: min(200px, calc(100% - 200px));
         }
 
+        @media (max-width: 1200px) {
+            > h3:first-child {
+                width: 150px;
+                flex-shrink: 0;
+            }
+
+            > h3:last-child {
+                width: 400px;
+                flex-shrink: 0;
+            }
+        }
     }
 
     .param-table-row {
         display: flex;
+        min-width: min-content;
         border-bottom: 1px solid #dfdfdf;
         padding: 8px 12px;
+        box-sizing: border-box;
 
         > p {
             font-size: 0.85rem;
             color: var(--text-light);
-
+            margin-bottom: 0;
             span {
                text-wrap:nowrap
             }
@@ -67,7 +91,20 @@ const params: Array<{ field: string, type: string, description: string }> = Astr
         }
 
         > p:last-child {
-            width: calc(100% - 200px);
+            width: max(200px, calc(100% - 200px));
+        }
+
+        @media (max-width: 1200px) {
+            
+            > p:first-child {
+                width: 150px;
+                flex-shrink: 0;
+            }
+
+            > p:last-child {
+                width: 400px;
+                flex-shrink: 0;
+            }
         }
         
       

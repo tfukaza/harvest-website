@@ -1,0 +1,107 @@
+---
+import SideMenuComponent from "./SideMenuComponent.svelte";
+import Layout from "./Layout.astro";
+const { menuItems } = Astro.props;
+---
+
+<Layout title="Tutorials">
+	<div id="side-wrapper" transition:persist>
+		<SideMenuComponent items={menuItems} client:load />
+	</div>
+	
+	<div class="doc-content" >
+		<slot/>
+	</div>
+</Layout>
+
+
+<style is:global lang="scss">
+
+	#side-wrapper {
+		grid-column: 1 / 4;
+		justify-self: end;
+		z-index: 1000;
+	}
+
+	.doc-content {
+
+		grid-column: 4 / 11;
+		margin-top: max(20vh, 50px);
+		padding: 0px 40px;
+		padding-bottom: 100px;
+		min-height: 110vh;
+		
+		// box-shadow: -16px 0px 40px 3px rgb(80 84 85 / 7%);
+
+		@media screen and (max-width: 1200px){
+
+			overflow-x: hidden;
+			padding: 0px 10px;
+			grid-column: 3 / 11;
+
+			transition: transform 0.2s ease;
+
+			&.open {
+				transform: translateX(80%);
+			}
+		}
+	
+		a {
+			text-decoration: underline;
+
+			&:hover {
+				color: var(--text-secondary-light);
+			}
+		}
+
+		h1 {
+			margin-bottom: 2rem;
+		}
+
+		h2 {
+			margin-bottom: 1.5rem;
+		}
+
+		p, li {
+			> code {
+				background-color: #f3f3f3;
+				font-weight: 600;
+				padding: 2px 4px; 
+				border-radius: 4px;
+			}
+		}
+
+		ul {
+			padding: 0px 20px;
+			margin-bottom: 2rem;
+			
+			li {
+				line-height: 1.4;
+			}
+		}
+
+		p {
+			margin-bottom: 2rem;
+		}
+
+
+
+		.param-table-container {
+			margin-bottom: 2rem;
+		}
+
+		.code-container {
+			margin-bottom: 2rem;
+		}
+
+		.dataframe-container {
+			margin-bottom: 2rem;
+		}
+
+		footer {
+			position: relative;
+			width: 100vw;
+			left: calc(-25vw + 25%);
+		}
+	}
+</style>
