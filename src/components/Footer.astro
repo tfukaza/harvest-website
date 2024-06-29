@@ -1,0 +1,60 @@
+
+<footer>
+    <div id="pages">
+        <h4>Pages</h4>
+        <a href="/tutorials">Tutorials</a>
+        <a href="/docs">Docs</a>
+    </div>
+    <div id="links">
+        <h4>External Links</h4>
+        <a class="link link-hover" href="https://github.com/tfukaza/harvest">GitHub Page</a>
+        <a class="link link-hover" href="https://github.com/tfukaza/harvest/issues/new?assignees=&labels=bug&template=bug_report.md&title=%5B%F0%9F%AA%B0BUG%5D">Report a Bug</a>
+        <a class="link link-hover" href="https://github.com/tfukaza/harvest/issues/new?assignees=&labels=enhancement%2C+question&template=feature-request.md&title=%5B%F0%9F%92%A1Feature+Request%5D">Suggest a Feature</a>
+    </div> 
+</footer>
+
+
+<style  lang="scss">
+  
+footer {
+    width: 100%;
+    height: 200px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #e3e3e3;
+    padding: 60px 0px;
+
+    #pages {
+        grid-column: 3 / span 2;
+    }
+
+    #links {
+        grid-column: 5 / span 2;
+    }
+
+
+    div {
+        a {
+            display: block;
+            text-decoration: none;
+            color: var(--text-secondary-light);
+            font-size: 0.8rem;
+            line-height: 1.5;
+            padding: 4px 0px;
+
+        }
+    }
+
+    @media screen and (max-width: 1200px) {
+
+        #pages {
+            grid-column: 3 / 6;
+        }
+
+        #links {
+            grid-column: 7 / 10;
+        }
+    }
+    
+}
+
+</style>

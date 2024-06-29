@@ -9,26 +9,29 @@ import MixMatch from '../components/landing/MixMatch.svelte';
 		<div>
 			<h1>Make your trading strategies come to life.</h1>
 			<p>pyHarvest is a Python library that <br>makes coding trading bots a breeze.</p> 	
-			<a href=`${BASE}/tutorials/starter`>Starter Guide</a>
-			<a href="${BASE}/docs">API Reference</a>
+			<a href=`${BASE}/tutorials/introduction/starter`>Get Started</a>
+			<a href=`${BASE}/docs`>API Reference</a>
 		</div>
 	</section>
 
 	<MixMatch />
-
+	
 </Layout>
 
-<style>
+<style lang="scss">
 
 	#landing {
 		display: grid;
 		place-items: center;
-		height: 100vh;
+		height: 90vh;
 		
 		text-align: center;
 		
-		div {
+		> div {
 			width: 700px;
+			@media screen and (max-width: 1200px){
+				width: 90%;
+			}
 		}
 
 		h1 {
@@ -36,6 +39,7 @@ import MixMatch from '../components/landing/MixMatch.svelte';
 			font-weight: 700;
 			color: var(--text-primary);
 			letter-spacing: -0.03em;
+			line-height: 1.0;
 
 			background: #A4A603;
 			background: linear-gradient(to right, #A4A603 3%, #7EC20D 50%, #16BA3E 100%);
@@ -45,8 +49,13 @@ import MixMatch from '../components/landing/MixMatch.svelte';
 
 		p {
 			font-size: 1.5rem;
+			line-height: 1.0;
 			color: var(--text-primary);
 			margin-bottom: 2rem;
+
+			@media screen and (max-width: 1200px){
+				font-size: 1.2rem;
+			}
 		}
 
 		a {

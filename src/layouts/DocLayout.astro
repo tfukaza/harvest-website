@@ -1,356 +1,42 @@
 ---
 import {BASE} from '@constants';
-import Layout from './Layout.astro';
-import Collpase from '../components/Collapse.svelte';
+import SideMenuLayout from './SideMenuLayout.astro';
 import { getCollection } from 'astro:content';
 
-import { ViewTransitions } from "astro:transitions";
 
-let menuItems: {[key: string]: string[]} = {};
+let menuItems: Record<string, {name: string, url: string}[]> = {};
 
-/*convert each string in the list to a dict {name: functionNmae} */
 const docEntries = await getCollection('docs');
 docEntries.forEach((entry) => {
 	const split = entry.slug.split('/');
-	const className:string = split[0].split('-').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
-	const funcName = split[1].split('.')[0];
-	if (menuItems[className]) {
-		menuItems[className].push(funcName);
+	const className:string = split[0];
+	const classNameFmt = className.split('-').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join('');
+	const funcName = split[1].split('.')[0]; 
+	const funcProp = {
+		name: funcName,
+		url: BASE + `/docs/${className}/${funcName}`
+	};
+	if (menuItems[classNameFmt]) {
+		menuItems[classNameFmt].push(funcProp);
 	} else {
-		menuItems[className] = [funcName];
+		menuItems[classNameFmt] = [funcProp];
 	}
 });
-
-const tutorialEntries = await getCollection('tutorials');
-let tutorialMenuItems: {name: string, url: string}[] = [];
-tutorialEntries.forEach((entry) => {
-	const split = entry.slug.split('/');
-	const lessonName:string = split[0].split('-').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
-	const url = entry.slug;
-	tutorialMenuItems.push({name: lessonName, url: url});
-});
-
-
-const menuItemsFmt: {[key: string]: {name: string}[]} = {}; 
-
-Object.entries(menuItems).map(([className, functions]) => {
-	const entries = functions.map((item) => (
-		{name: item}
-	));
-	menuItemsFmt[className] = entries;
-});
-
 ---	
-<script>
-	// On page load, check the URL and highlight the current page in the nav
-	document.addEventListener("astro:page-load", () => {
-	
-		let pathName = window.location.pathname;
-		if (pathName[pathName.length - 1] === '/') {
-			pathName = pathName.slice(0, -1);
-		}
-		const pathSplit = pathName.split('/');
-		const funcName = pathSplit[pathSplit.length - 1];
-		const className = pathSplit[pathSplit.length - 2];
-		const currentCategory = window.location.pathname.split('/')[2];
-		if (funcName === '') return;
-
-		let navItems: NodeListOf<HTMLElement> = document.querySelectorAll('#doc-nav li');
-		navItems.forEach((item) => {
-			item.classList.remove('selected');
-		});
-		let navItem: HTMLElement | null = document.querySelector(`#link-${className}-${funcName}`);
-		if (navItem)
-			navItem.classList.add('selected'); 
-
-		let sidebarMenus:NodeListOf<HTMLElement> = document.querySelectorAll('#sidebar-menu ul li');
-		if (!sidebarMenus) return;
-
-		sidebarMenus.forEach((item) => {
-			item.classList.remove('selected');
-		});
-
-		let sidebarItem: HTMLElement | null = document.querySelector(`#sidebar-menu ul li[data-category="${currentCategory}"]`);
-		if (!sidebarItem) return;
-
-		sidebarItem.classList.add('selected');
-		
-	});
-
-	window.addEventListener('DOMContentLoaded', () => {
-		let tutorialButton = document.querySelector('#tutorial-button');
-		let apiButton = document.querySelector('#api-button');
-		let sidebarContainer = document.querySelector('#sidebar-container');
 
 
-		if (!tutorialButton || !apiButton || !sidebarContainer) {
-			throw new Error('Could not find elements');
-		}
-		
-		tutorialButton.addEventListener('click', () => {
-			tutorialButton.classList.add('selected');
-			apiButton.classList.remove('selected');
-			sidebarContainer.classList.add('selected-tutorial');
-			sidebarContainer.classList.remove('selected-api');
-		});
+<SideMenuLayout title="Tutorials", menuItems={menuItems}>
+	<slot />
+</SideMenuLayout>
 
-		apiButton.addEventListener('click', () => {
-			tutorialButton.classList.remove('selected');
-			apiButton.classList.add('selected');
-			sidebarContainer.classList.remove('selected-tutorial');
-			sidebarContainer.classList.add('selected-api');
-		});
-	});
-
-	
-</script>
-
-<Layout title="Documentation">
-	<ViewTransitions />
-	
-	<nav id="doc-nav" transition:persist transition:animate="none">
-		<div id="sidebar-menu">
-			<ul>
-				<li id="tutorial-button" data-category="tutorials"><a>🎓 Tutorials</a></li>
-				<li id="api-button" data-category="docs"><a>📝 API Reference</a></li>
-			</ul>
-		</div>
-		<div id="sidebar-container" class="selected-tutorial">
-			<div id="tutorial-menu">
-				<ul>
-				{
-					Object.entries(tutorialMenuItems).map(([_, lessonName]) => (
-						<li id={`link-${lessonName.url}`}>
-							<a href = {`${BASE}/tutorials/${lessonName.url}`}>{lessonName.name}</a>
-						</li>
-					))
-				}
-				</ul>
-			</div>
-			<div id="api-menu">
-				{
-					Object.entries(menuItemsFmt).map(([className, functions]) => (
-						<Collpase title={className} items={functions} client:load />
-					))
-				}
-			</div>
+<style is:global lang="scss">
+	.doc-content {
+		overflow-wrap: break-word;
+		h1 {
+			@media screen and (max-width: 1200px)	{
+				font-size: 1.5rem;
+			}
 			
-		</div>
-	</nav>
-
-	<div id="doc-content" transition:animate="none">
-		<slot />
-	</div>
-</Layout>
-
-
-<style>
-	
-	
-	#doc-nav {
-		
-		grid-column: 1 / 4;
-		justify-self: end;
-		top: max(10vh, 50px);
-		position: sticky;
-		align-self: start;
-
-		margin-bottom: 50px;
-		box-sizing: border-box;
-		
-		@media screen and (max-width: 1200px){
-			justify-self: normal;
-			grid-column: 3 / 5;
-		}
-
-		> div {
-			overflow: hidden;
-
-			border-style: solid;
-			border-width: 1px;
-			border-color: rgb(211, 211, 211);
-			border-radius: 12px;	
-			box-shadow: 0px 20px 20px -4px rgb(0 0 0 / 9%);
-		}
-
-		#tutorial-menu {
-			ul {
-				margin: 0;
-			
-				li {
-					display: block;
-					list-style-type: none;
-					
-					padding: 2px 0px;
-				}
-			}
-		}
-
-		#api-menu {
-			ul {
-				padding: 0px 0px 0px 16px;
-			}
-		}
-
-		#sidebar-menu {
-			grid-column: 1 / 4;
-			justify-self: end;
-			padding: 8px;
-			top: 10vh;
-		}
-
-		#sidebar-container {
-			margin-top: 3vh;
-			min-width: 250px;
-			min-height: 50px;
-
-			transition: top 0.5s ease-in-out;
-			
-			> div {
-				padding: 8px;
-				max-height: 80vh;
-				overflow-x: hidden;
-				overflow-y: scroll;
-				
-				&::-webkit-scrollbar {
-				width: 6px;
-				}
-				&::-webkit-scrollbar-thumb {
-					background: #dfdfdf;
-					border-radius: 3px;
-				}
-				&::-webkit-scrollbar-thumb:hover {
-					background: #555;
-				}
-				&::-webkit-scrollbar-track {
-					background: transparent;
-					width: 6px;
-					border-radius: 3px;
-				}
-			}
-
-			
-		}
-
-		.selected-tutorial {
-
-			#tutorial-menu {
-				display: block;
-			}
-			#api-menu { 
-				display: none;
-			}
-		}
-
-		.selected-api {
-			#tutorial-menu {
-				display: none;
-			}
-			#api-menu {
-				display: block;
-			}
-		}
-
-		button {
-			font-size: 0.9rem;
-			font-weight: 500;
-			color: var(--h3-light);
-		}
-
-
-		ul {
-			margin: 0;
-		
-			li {
-				display: block;
-				list-style-type: none;
-				
-				padding: 2px 0px;
-
-				a {
-					cursor: pointer;
-					display: block;
-					box-sizing: border-box;
-					padding: 4px 0px 4px 8px;
-					text-decoration: none;
-					text-wrap:wrap;
-					border-radius: 6px;
-					font-size: 0.8rem;
-					line-height: 1.1;
-
-					&:hover {
-						background: rgb(236, 236, 236);
-					}
-				}
-			}
-			& .selected {
-				a {
-					background: rgb(241, 241, 241);
-					font-weight: bold;
-				}
-			}
-		}
-
-
-
-	}
-	#doc-content {
-		grid-column: 4 / 11;
-		padding: 0px 40px;
-		margin-top: max(10vh, 50px);
-		min-height: 110vh;
-
-		@media screen and (max-width: 1200px){
-			grid-column: 5 / 11;
-		}
-
-		@media screen and (max-width: 768px){
-			grid-column: 1 / 11;
-			
-		}
-
-		> h1 {
-			margin-bottom: 2rem;
-		}
-
-		> h2 {
-			margin-bottom: 1.5rem;
-		}
-
-		p, li {
-			> code {
-				background-color: #f3f3f3;
-				font-weight: 600;
-				padding: 2px 4px; 
-				border-radius: 4px;
-			}
-		}
-
-		> ul {
-			padding: 0px 20px;
-			margin-bottom: 2rem;
-			
-			li {
-				line-height: 1.4;
-			}
-		}
-
-		> p {
-			margin-bottom: 2rem;
-		}
-
-	
-
-		> .param-table-container {
-			margin-bottom: 2rem;
-		}
-
-		> .code-container {
-			margin-bottom: 2rem;
-		}
-
-		> .dataframe-container {
-			margin-bottom: 2rem;
 		}
 	}
 </style>

@@ -53,13 +53,13 @@ switch (type) {
 ---
 
 <div class=`admonition admonition-${type}`>
-
     <h1 class="admonition-emoji">{type_emoji}</h1><h1 class="admonition-title">{type_text}</h1>
     <slot />
 </div>
 
 
-<style>
+<style >
+
     .admonition {
         display: grid;
         grid-template-columns: 30px 1fr;
@@ -68,8 +68,6 @@ switch (type) {
         border-style: solid;
         padding: 12px 10px;
         margin-bottom: 30px;
-
-        
 
         .admonition-emoji {
             grid-column: 1;
@@ -83,6 +81,10 @@ switch (type) {
             margin: 0;
             margin-bottom: 5px;
 
+        }
+
+        > h1 {
+            margin-bottom: 0px;
         }
 
         > p {

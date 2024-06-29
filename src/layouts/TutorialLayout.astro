@@ -1,0 +1,27 @@
+---
+import {BASE} from '@constants';
+import SideMenuLayout from './SideMenuLayout.astro';
+import { getCollection } from 'astro:content';
+
+const tutorialEntries = await getCollection('tutorials');
+let tutorialMenuItems: Record<string, {name: string, url: string}[]> = {};
+tutorialEntries.forEach((entry) => {
+	const split = entry.slug.split('/');
+	const lessonCategory:string = split[0].split('-').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+	const lessonName = split[1].split('.')[0].split('-').map((s) => s.charAt(0).toUpperCase() + s.slice(1)).join(' ');
+	const url = entry.slug;
+	const lessonProp = {
+		name: lessonName,
+		url: BASE + `/tutorials/${url}`
+	};
+	if (tutorialMenuItems[lessonCategory]) {
+		tutorialMenuItems[lessonCategory].push(lessonProp);
+	} else {
+		tutorialMenuItems[lessonCategory] = [lessonProp];
+	}
+});
+---	
+
+<SideMenuLayout title="Tutorials", menuItems={tutorialMenuItems}>
+	<slot />
+</SideMenuLayout>
