@@ -22,8 +22,12 @@ const params: Array<{ field: string, type: string, description: string }> = Astr
     .param-table-container {
         border-radius: 8px;
         border: 1px solid #dfdfdf;
-        overflow-x: scroll;
-     
+        overflow-x: hidden;
+
+        @media (max-width: 1200px) {
+            overflow-x: scroll;
+        }
+        
         > div {
 
             width: 100%;   
