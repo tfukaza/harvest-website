@@ -17,14 +17,15 @@ for (const [_, value1] of Object.entries(columns)) {
             <h3 style={`grid-column: span ${Object.keys(value1).length}`}>{key1}</h3>
         )}
     </div>
-    <div class="dataframe-header">      
-        <h3></h3>  
-        {Object.entries(columns).map(([_, value1]) =>
-            Object.entries(value1).map(([key2, _]) =>
-                <h3>{key2}</h3> 
-            )
-        )}
-    </div>
+    {level2num > Object.keys(columns).length + 1 && (
+        <div class="dataframe-header">
+            {Object.entries(columns).map(([_, value1]) =>
+                Object.entries(value1).map(([key2, _]) =>
+                    <h3>{key2}</h3> 
+                )
+            )}
+        </div>
+    )}
     <div class="dataframe-line"></div>
     <div class="dataframe-row">
         <h3>{index}</h3>
@@ -35,7 +36,7 @@ for (const [_, value1] of Object.entries(columns)) {
 </div>
 
 
-<style define:vars={{level2num}}>
+<style define:vars={{level2num}} lang="scss">
     .dataframe-container {
         width: 100%;  
         border: 1px solid #dfdfdf;
@@ -55,6 +56,7 @@ for (const [_, value1] of Object.entries(columns)) {
             font-size: 0.9rem;
             color: var(--h3-light);
             padding: 4px 8px;
+            margin-bottom: 0px;
         }
     }
 
@@ -87,6 +89,10 @@ for (const [_, value1] of Object.entries(columns)) {
             font-size: 0.9rem;
             color: var(--text-light);
             padding: 4px 8px;
+        }
+
+        > h3, p {
+            margin-bottom: 0px;
         }
     }
 </style>
